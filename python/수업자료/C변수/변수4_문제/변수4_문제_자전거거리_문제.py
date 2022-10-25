@@ -7,3 +7,12 @@
 	[정답] 
 		157.82
 '''
+
+chulsu_meter = 37876
+per_hour = chulsu_meter / 2
+per_minute = per_hour / 60
+per_second = per_minute / 60
+
+answer = per_second*30
+
+print(round(answer, 2))

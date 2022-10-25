@@ -6,3 +6,8 @@
 	[정답] 
 		6
 '''
+
+chulsu = 19
+people = 3
+each_one = chulsu // people
+print(each_one, "봉지")

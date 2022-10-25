@@ -10,3 +10,13 @@
 		12
         600
 '''
+
+total = 13000
+case = 4000
+note = 700
+
+answer1 = (total - case) // note
+answer2 = (total - case) % note
+
+print(answer1, "권")
+print(answer2, "원")

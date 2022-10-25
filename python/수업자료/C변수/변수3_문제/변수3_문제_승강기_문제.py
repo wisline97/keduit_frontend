@@ -8,3 +8,11 @@
 	[정답]
 		14
 '''
+
+total = 500
+worker_weight = 70
+box = 30
+
+answer = (total - worker_weight) // box
+
+print(answer, "상자")

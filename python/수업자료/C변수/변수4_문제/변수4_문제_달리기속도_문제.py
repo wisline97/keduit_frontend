@@ -7,3 +7,11 @@
 	[정답] 
 		6 또는 -6
 '''
+chulsu_time = 56
+chulsu = chulsu_time // 4
+minsu_time = 84
+minsu  = minsu_time // 7
+
+answer1 = (chulsu*3) - (minsu*3)
+answer2 = (minsu*3) - (chulsu*3)
+print(answer1,",",answer2)

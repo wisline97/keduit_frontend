@@ -7,3 +7,10 @@
 	[정답] 
 		12113.6
 '''
+
+chulsu = 25
+chulsu_time = (75*60)+20
+per_second = chulsu_time / 25
+
+print(per_second*67)
+

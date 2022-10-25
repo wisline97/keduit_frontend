@@ -8,3 +8,8 @@
 	[정답]
 		39.53
 '''
+
+park = 850
+per_minutes = round((850*2) / 43, 2)
+
+print(per_minutes)
