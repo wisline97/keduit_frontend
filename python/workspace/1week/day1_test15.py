@@ -115,7 +115,7 @@ woman_volunteer = man_volunteer*3
 non_volunteer = total - man_volunteer - woman_volunteer
 total_volunteer = man_volunteer+woman_volunteer
 
-print("5. 봉사활동을 하지 않은 학생과 봉사활동 한 학생의 차이는", non_volunteer-total_volunteer , "명 입니다")
+print("5. 봉사활동을 한 학생과 그렇지 않은 학생의 차이는", non_volunteer-total_volunteer , "명 입니다")
 
 print("===================================")
 
