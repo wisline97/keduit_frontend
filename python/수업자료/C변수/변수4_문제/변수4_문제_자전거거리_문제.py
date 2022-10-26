@@ -8,6 +8,13 @@
 		157.82
 '''
 
+# 이동_시간 = 2 * 3600
+# 이동_거리 = 37876
+
+# 삼십초_이동거리 = 이동_거리 / 이동_시간 * 30
+# print(round(삼십초_이동거리, 2))
+
+
 chulsu_meter = 37876
 per_hour = chulsu_meter / 2
 per_minute = per_hour / 60
@@ -15,4 +22,7 @@ per_second = per_minute / 60
 
 answer = per_second*30
 
-print(round(answer, 2))
+
+
+
+print(round(answer, 2), "m")

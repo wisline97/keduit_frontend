@@ -14,4 +14,4 @@ minsu  = minsu_time // 7
 
 answer1 = (chulsu*3) - (minsu*3)
 answer2 = (minsu*3) - (chulsu*3)
-print(answer1,",",answer2)
+print(answer1,"분","또는",answer2,"분")

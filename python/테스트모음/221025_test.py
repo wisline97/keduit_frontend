@@ -38,7 +38,7 @@ drink = 900
 
  
 
-pencil = (total - (5*drink)) // 3
+pencil = (total % (5*drink)) // 3
 
  
 
