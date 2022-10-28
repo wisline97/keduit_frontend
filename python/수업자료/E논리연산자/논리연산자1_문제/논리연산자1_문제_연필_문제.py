@@ -7,3 +7,7 @@
 		False
 '''
 
+pencil = 80
+student = 6
+
+print((pencil//6)/4 == 0 and pencil % student == 0)  

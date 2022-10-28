@@ -11,3 +11,7 @@ kor = 100
 eng = 87
 math = 49
 
+average = (kor + eng + math) / 3
+
+print(average)
+print(average >= 60 and kor > 50 and eng > 50 and math > 50)

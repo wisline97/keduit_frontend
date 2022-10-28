@@ -9,3 +9,7 @@
         True
 '''
 
+car_speed = 154 / 78
+truck_speed =  215 / 137
+
+print(round(car_speed, 2) > round(truck_speed, 2))

@@ -10,3 +10,8 @@
         False
 '''
 
+last_year_money = 970
+percent = 0.11
+this_year_money = last_year_money + (last_year_money*percent)
+common_money = 91 * 12
+print(this_year_money > common_money)
