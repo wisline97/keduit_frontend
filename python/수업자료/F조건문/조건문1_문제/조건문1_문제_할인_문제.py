@@ -12,4 +12,18 @@
 			지급 금액 = 22 * 1100 = 24200
 '''
 
+import random
+chulsu_pen = random.randint(10,30)
+pen_price1 = chulsu_pen * 1200
+pen_price2 = chulsu_pen * 1100
 
+
+print(chulsu_pen, pen_price1, pen_price2)
+
+if chulsu_pen < 20 :
+	print("볼펜 수 =", chulsu_pen, "개")
+	print("볼펜 가격 =", chulsu_pen,"*","1200", pen_price1, "원")
+
+if chulsu_pen >= 20 :
+	print("볼펜 수 =", chulsu_pen, "개")
+	print("볼펜 가격 =",chulsu_pen,"*","1100", pen_price2, "원")

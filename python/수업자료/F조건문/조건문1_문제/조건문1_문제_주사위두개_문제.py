@@ -9,3 +9,18 @@
             1, 2 ==> 3
             1, 1 ==> 2 + 6
 '''
+import random 
+
+dice1 = random.randint(1,6)
+dice2 = random.randint(1,6)
+
+print("주사위 1의 값 :",dice1)
+print("주사위 2의 값 :",dice2) 
+
+if dice1 != dice2 :
+    print(dice1,"+",dice2,"=",dice1 + dice2)
+
+
+if dice1 == dice2 :
+    print(dice1,"+",dice2,"+",6,"=",dice1 + dice2 + 6)
+

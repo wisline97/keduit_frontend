@@ -10,3 +10,16 @@
         [예2]
             8, 1
 '''
+
+import random
+
+num1 = random.randint(1,5)
+num2 = random.randint(6,10)
+
+position = random.randint(0,1)
+
+if position == 0 :
+    print(num1, num2)
+
+if position == 1 :
+    print(num2, num1)

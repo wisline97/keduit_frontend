@@ -15,4 +15,30 @@
 			7 : 일요일
 			8 : 화요일 
 			...
-'''  
+
+'''
+
+import random
+
+num = random.randint(1, 31)
+요일 = num % 6
+
+print(num)
+
+if 요일 == 1 :
+	print(num,"일은","일요일입니다.")
+
+if 요일 == 2 :
+	print(num,"일은","화요일입니다.")
+
+if 요일 == 3 :
+	print(num,"일은","수요일입니다.")
+
+if 요일 == 4 :
+	print(num,"일은","목요일입니다.")
+
+if 요일 == 5 :
+	print(num,"일은","금요일입니다.")
+
+if 요일 == 0 :
+	print(num,"일은","토요일입니다.")
