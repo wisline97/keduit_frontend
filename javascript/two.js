@@ -85,3 +85,34 @@ function solution(angle) {
 
   return answer;
 }
+
+
+new arr = [];
+for(i=0; i <= n; i++){
+  if(i%2 == 0){
+  return arr.push(i)
+  }
+  
+}
+
+var arr = [];
+for(i=0; i <= n; i++){
+  if(i%2 == 0){
+  console.log(i)
+  return answer = i
+
+  }
+  
+}
+
+function solution(n) {
+  var arr = [];
+  var answer = 0;
+  for(i=0; i<=n; i++){
+      console.log(i)
+      if(i % 2 == 0){
+      arr.push(i)
+      console.log(arr)
+          }
+  }
+}

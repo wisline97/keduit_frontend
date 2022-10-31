@@ -5,3 +5,14 @@
         4의 배수가 아니면 "False" 출력하시오.
 '''
 
+import random
+
+a = random.randint(1,100)
+
+print(a)
+
+if a % 4 == 0:
+    print(True)
+
+if a % 4 != 0:
+    print(False)

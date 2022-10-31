@@ -14,3 +14,27 @@
             82 ==> B
             23 ==> 재시험
 '''
+
+import random
+
+num = random.randint(0,100)
+num1 = num % 10
+
+print("당신의 시험점수는",num,"점 이므로")
+
+if num >= 91 :
+    if num1 >= 8 :
+        print("A학점+ 입니다.")
+
+    if num1 < 8 :
+        print("A학점 입니다.")
+
+if num>=81 and num <= 90 :
+    if num1 >= 8 :
+        print("B학점+ 입니다.")
+
+    if num1 < 8 :
+        print("B학점 입니다.")
+
+if num <= 80:
+    print("재시험을 치러야합니다.")

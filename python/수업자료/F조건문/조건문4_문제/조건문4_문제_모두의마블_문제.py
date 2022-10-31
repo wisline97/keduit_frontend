@@ -23,3 +23,45 @@
 
     [4] 20 이상의 값이 나오면 "승리"를 출력한다.
 '''	
+
+import random
+
+dice1 = random.randint(1,6)
+dice2 = random.randint(1,6)
+chulsu = 9
+count = 0
+
+print("주사위1 :", dice1,",", "주사위2 :", dice2)
+
+if dice1 == dice2 :
+    count = chulsu+dice1+dice2 + 6
+    print("보너스! +6칸")
+
+if dice1 != dice2 :
+    count = chulsu+dice1+dice2
+
+print("철수의 기존위치(9) +",dice1,"+",dice2,"=",count)
+
+if count <= 16 and count >=14 :
+    print("철수가 함정에 빠졌습니다")
+    dice3 = random.randint(1,6)
+    dice4 = random.randint(1,6)
+    print("주사위3 :", dice3, "주사위4 :", dice4)
+    if dice3+dice4 <= 6 :
+        count = 0
+        print("주사위의 합이 6이하입니다. 다시 처음 위치로 이동합니다.")
+    if dice3+dice4 >= 7 :
+        count += 1
+        print("주사위의 합이 7이상입니다. 함정에서 탈출합니다.")
+
+
+if count > 16 and count < 20 :
+    print("주사위를 한 번 더 던져주세요.")
+    dice5 = random.randint(1,6)
+    dice6 = random.randint(1,6)
+    count = count + dice5 + dice6
+    print("원래위치 +",dice5,"+",dice6,"=",count)
+
+if count >= 20 :
+    print("승리")
+

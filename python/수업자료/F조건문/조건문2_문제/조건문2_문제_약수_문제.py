@@ -4,3 +4,15 @@
     저장한 숫자의 값이 300의 약수이면 "True"
     300의 약수가 아니면 "False" 출력하시오.
 '''
+
+import random
+
+a = random.randint(1, 10)
+
+print(a)
+
+if 300 % a == 0 :
+  print(True)
+
+if 300 % a != 0 :
+  print(False)

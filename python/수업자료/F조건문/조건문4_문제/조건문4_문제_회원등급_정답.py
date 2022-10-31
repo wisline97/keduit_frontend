@@ -19,9 +19,9 @@
 
 import random
 
-볼펜수 = random.randint(10, 30)
+볼펜수 = 26
 print("볼펜 수 =", 볼펜수)
-등급 = random.randint(1, 3)
+등급 = 2
 print("등급 =", 등급)
 
 볼펜가격 = 1200

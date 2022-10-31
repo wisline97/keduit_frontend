@@ -10,4 +10,23 @@
 		a의 값이 96부터 100 사이이면,  num에 96을 저장한 후 출력하시오.
 '''
 
-a = 0
+# 규칙
+# a의 범위값과 num은 서로 5씩 증가함
+
+import random
+a = random.randint(1, 100)
+
+print(a)
+
+
+
+#출력값
+if a % 5 == 0 :
+	a = a - 1
+
+num = ((a // 5) * 5) + 1
+
+
+
+
+print(num)

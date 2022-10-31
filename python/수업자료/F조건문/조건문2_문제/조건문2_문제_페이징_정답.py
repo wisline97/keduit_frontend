@@ -18,7 +18,7 @@
 import random
 
 num = random.randint(1, 2000)
-num = 1001
+num = 431
 print(num)
 
 unit = num // 10

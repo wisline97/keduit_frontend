@@ -15,3 +15,17 @@
         
         1001 ~ 1010 사이 값이면, 101
 '''
+
+
+import random
+
+a = random.randint(1, 2000)
+
+print(a)
+
+if a % 10 == 0 :
+    a = a - 1
+
+num = (a // 10) + 1
+
+print(num)
