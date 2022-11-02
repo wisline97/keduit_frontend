@@ -109,10 +109,85 @@ function solution(n) {
   var arr = [];
   var answer = 0;
   for(i=0; i<=n; i++){
-      console.log(i)
       if(i % 2 == 0){
-      arr.push(i)
-      console.log(arr)
+      arr.push(i);
+      console.log(arr);
+      }
+
+      for(a = 0; a<=arr.length; a++){
+      answer += arr[a];
           }
   }
+  console.log(answer);
+}
+
+var arr = [];
+var answer = 0;
+
+function solution(n) {
+  for(i=0; i<=n; i++){
+      if(i % 2 == 0){
+      arr.push(i);
+      console.log(arr);
+      }
+  }
+  for(a = 0; a<=arr.length; a++){
+    answer += arr[a];
+    console.log(answer);
+  }
+}
+
+
+var arr = [];
+var answer = 0;
+
+function solution(n) {
+  for(i=0; i<=n; i++){
+      if(i % 2 == 0){
+      arr.push(i);
+      console.log(arr);
+      }
+  }
+  for(a = 0; a<arr.length; a++){
+    console.log(a)
+    answer += arr[a];
+    console.log(answer);
+  }
+}
+
+console.log(answer);
+
+
+
+function solution(array, n) {
+  var answer = 0;
+  for(i = 0; i<array.length; i++){
+    if(array[i] == n){
+      answer = answer + 1;
+    }
+  }
+}
+
+
+function solution(numbers) {
+  var answer = 0;
+  var max = 0;
+  for(i=0; i<numbers.length; i++){
+      for(a=1; a<numbers.length; a++){
+          console.log(numbers[i],numbers[a])
+          if(numbers[i]<numbers[a]){
+            console.log(numbers[a])
+          } else{
+            console.log(numbers[i])
+          }
+      }
+
+  }
+  return answer;
+}
+
+function solution(numbers) {
+  console.log(numbers)
+  numbers.sort(a -b)
+  console.log(numbers)
 }
