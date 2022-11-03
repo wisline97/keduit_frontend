@@ -9,3 +9,20 @@
 		total = 10512
 		count = 6
 '''
+
+num = 1000
+max = 2000
+total = 0
+count = 0
+
+while num<=max:
+	if num % 16 == 0:
+		if num % 1000 // 100 == 7:
+			print(num, end=" ")
+			total += num
+			count += 1
+	num += 1
+
+print()
+print("[조건2] 약수의 전체 합 :",total)
+print("[조건3] 약수의 개수:",count)

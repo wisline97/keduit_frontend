@@ -9,3 +9,19 @@
         total = 171
         count = 1
 '''
+num = 100
+max = 200
+total = 0
+count = 0
+
+while num<=max:
+	if num % 9 == 0:
+		if num % 100 // 10 == 7:
+			print(num, end=" ")
+			total += num
+			count += 1
+	num += 1
+
+print()
+print("[조건2] 약수의 전체 합 :",total)
+print("[조건3] 약수의 개수:",count)

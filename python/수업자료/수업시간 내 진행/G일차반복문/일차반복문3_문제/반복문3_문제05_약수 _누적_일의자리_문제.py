@@ -10,19 +10,19 @@
         count = 1    
 '''
 
-num = 80
-
+num = 1
+max = 80
 total = 0
 count = 0
 
-i = 1
-while i <= num:
-    if num % i == 0 and i % 10 == 4:
-        print(i, end=" ")
-        total += i
-        count += 1
-    i += 1
+while num<=max:
+    if max%num == 0:
+        if num % 10 == 4:
+            print(num, end=" ")
+            total += num
+            count += 1
+    num += 1
 
 print()
-print("total =", total)
-print("count =", count)
+print("[조건2] 약수의 전체 합 :",total)
+print("[조건3] 약수의 개수:",count)
