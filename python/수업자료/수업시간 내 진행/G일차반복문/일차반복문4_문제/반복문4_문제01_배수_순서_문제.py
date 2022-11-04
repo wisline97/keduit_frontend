@@ -6,3 +6,16 @@
 	[정답] 
 		119
 '''
+
+num = 100
+count = 0
+run = 1
+
+while run == 1:
+	if num % 7 == 0 :
+		count += 1
+
+	if count == 3:
+		print(num)
+		run == 0
+	num += 1

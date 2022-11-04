@@ -5,3 +5,20 @@
 	[정답]
 		149
 '''
+
+max = 745
+num = 1
+run = 1
+
+count = 0
+
+while run == 1:
+	if max%num==0:
+		print(num, end=" ")
+		count += 1
+		if count == 3:
+			print()
+			print("745의 세번 째 약수는 :",num)
+			run = 0
+
+	num += 1

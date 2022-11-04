@@ -16,13 +16,14 @@ run = 1
 while run == 1:
     if i % 9 == 0:
         count += 1
+        
     if count == 3:
         print(i)
         run = 0
     i += 1
 
 
-#먼가 오류가 발생햇따
+
 
 
 

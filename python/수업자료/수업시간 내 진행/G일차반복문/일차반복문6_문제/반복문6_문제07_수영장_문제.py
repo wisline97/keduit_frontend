@@ -8,3 +8,14 @@
 	[정답]
 		23
 '''
+
+철수 = 4
+민수 = 5
+num = 0
+run = 1
+
+while run == 1:
+	num += 1
+	if num % 철수 == 0 and num % 민수 == 0:
+		print("2월",num + 3,"일")
+		run = 0

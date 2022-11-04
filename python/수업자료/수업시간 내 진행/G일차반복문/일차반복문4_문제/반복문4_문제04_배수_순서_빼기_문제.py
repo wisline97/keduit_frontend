@@ -11,3 +11,22 @@
         아래 식은 카운트를 한 번만 사용하는 것이 아니라 
         두 번 사용한 경우이다.
 '''
+num = 1
+run = 1
+
+count = 0
+
+while run == 1:
+    if num % 13 == 0 :
+        count += 1
+        if count == 4 :
+            num1 = num
+            print("4번째 13의 배수는",num1,"이다")
+
+    if count == 6 :
+        num2 = num
+        print("6번째 13의 배수는",num2,"이다")
+        num3 = num2 - num1
+        print("6번째 13의 배수에서 4번째 13의 배수를 뺀 값은",num3,"이다")
+        run = 0
+    num += 1

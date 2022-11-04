@@ -7,3 +7,17 @@
 		105 112 119 126 133 
 '''
 
+num = 100
+count = 0
+run = 1
+
+while run == 1:
+	if num%7 == 0 :
+		print(num)
+		count += 1
+		
+		if count == 5 :
+			run = 0
+
+
+	num += 1

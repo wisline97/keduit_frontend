@@ -5,3 +5,17 @@
 	[정답]
 		24
 '''
+
+max = 120
+num= 1
+run = 1
+count = 0
+
+while run == 1:
+	if max%num == 0:
+		if num%10 == 4:
+			count += 1
+			if count == 2:
+				print(num)
+				run = 0
+	num += 1

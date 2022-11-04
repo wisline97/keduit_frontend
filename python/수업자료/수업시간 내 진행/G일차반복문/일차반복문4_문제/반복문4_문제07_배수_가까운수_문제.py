@@ -5,3 +5,15 @@
  	[정답]
 		102
 '''
+
+num = 1
+run = 1
+
+while run == 1:
+	if num%6==0:
+		print(num, end = " ")
+		if num//100 == 1 and num <= 110:
+			print()
+			print("정답:", num)
+			run = 0
+	num += 1

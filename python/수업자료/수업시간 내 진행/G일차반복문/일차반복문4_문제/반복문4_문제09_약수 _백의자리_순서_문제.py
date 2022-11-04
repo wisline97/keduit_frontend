@@ -5,3 +5,18 @@
 	[정답]
 		396
 '''
+
+max = 1980
+num= 1
+run = 1
+count = 0
+
+while run == 1:
+	if max%num == 0:
+		if num%1000 // 100 == 3:
+			count += 1
+			if count == 2:
+				print(num)
+				run = 0
+	num += 1
+	

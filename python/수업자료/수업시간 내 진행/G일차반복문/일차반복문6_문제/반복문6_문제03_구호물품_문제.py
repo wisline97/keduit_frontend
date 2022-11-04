@@ -6,3 +6,15 @@
 	[정답]
 		24
 '''
+
+max = 120
+min = 72
+num = 200
+run = 1
+
+while run == 1:
+	if max % num == 0 and min % num == 0:
+		print(num)
+		run = 0
+
+	num -= 1

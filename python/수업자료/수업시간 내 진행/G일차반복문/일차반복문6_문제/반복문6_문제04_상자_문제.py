@@ -7,4 +7,26 @@
 	[정답]
 		자동차 = 2
 		로봇 = 3
+
+	최대 공약수
 '''
+
+max = 42
+min = 28
+num = 200
+run = 1
+
+while run == 1:
+	num -= 1
+	if max % num == 0 and min % num == 0:
+		print(num)
+		run = 0
+
+
+print(num)
+
+자동차 = min/num
+로봇 = max/num
+
+print("자동차 =", 자동차,"개")
+print("로봇 =", 로봇,"개")

@@ -6,3 +6,15 @@
 	[정답]
 		100
 '''
+
+num = 1
+max = 200
+run = 1
+
+while run == 1:
+	if max%num == 0:
+		if num % 2 == 0 :
+			if num >= 80 and num <= 100:
+				print(num)
+				run = 0
+	num += 1

@@ -6,3 +6,22 @@
 	[정답]
 		12
 '''
+
+max = 88-4
+min = 62-2
+num = 100
+run = 1
+
+while run == 1:
+	num -= 1
+	if max % num == 0 and min % num == 0:
+		run = 0
+
+
+print(num,"명")
+
+사탕 = min/num
+초콜릿 = max/num
+
+print("1명당 사탕 =", 사탕,"개")
+print("1명당 초콜릿 =", 초콜릿,"개")
