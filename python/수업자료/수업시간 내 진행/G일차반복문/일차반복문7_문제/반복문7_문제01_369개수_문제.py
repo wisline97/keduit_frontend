@@ -20,7 +20,7 @@ count = 0
 
 
 
-while min <= 100:
+while min <= max:
     min십의자리 = min // 10
     min일의자리 = min % 10
 

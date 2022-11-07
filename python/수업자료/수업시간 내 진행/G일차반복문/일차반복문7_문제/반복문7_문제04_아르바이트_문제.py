@@ -27,3 +27,15 @@
         28 일
         29 월
 '''
+
+min = 1
+max = 30
+요일 = min//7
+#쉬는날 = min%3 == 0
+
+
+while min <= max :
+    if min % 3 != 0 :
+        
+        print(min, 요일)
+    min += 1
