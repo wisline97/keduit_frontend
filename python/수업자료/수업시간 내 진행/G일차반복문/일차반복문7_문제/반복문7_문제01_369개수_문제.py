@@ -20,7 +20,11 @@ count = 0
 
 
 
+<<<<<<< HEAD
 while min <= max:
+=======
+while min <= 100:
+>>>>>>> ed0087671b7822aabd5da2425428f076a5402600
     min십의자리 = min // 10
     min일의자리 = min % 10
 
