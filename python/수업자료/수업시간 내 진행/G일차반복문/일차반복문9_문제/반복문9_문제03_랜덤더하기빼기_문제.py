@@ -15,6 +15,23 @@
 	
 			3 + 6 - 5 + 3 - 1 이된다. 
 '''
+import random
 
-r = 0
-op = 0
+i = 0
+r = random.randint(1,9)
+calc = r
+
+while i < 5:
+	print(r, end = "")
+	op = random.randint(0,1)
+	r = random.randint(1,9)
+	if i < 4:
+		if op == 0:
+			print(" +", end=" ")
+			calc += r
+		if op == 1:
+			print(" -", end=" ")
+			calc -= r
+	i += 1
+
+print("  =",calc)

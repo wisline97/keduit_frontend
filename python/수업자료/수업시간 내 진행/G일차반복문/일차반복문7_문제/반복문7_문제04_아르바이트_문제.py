@@ -28,14 +28,37 @@
         29 월
 '''
 
-min = 1
+min = 0
 max = 30
-요일 = min//7
+
+일 = 0
+월 = 1
+화 = 2
+수 = 3
+목 = 4
+금 = 5
+토 = 6
+
+
 #쉬는날 = min%3 == 0
 
 
 while min <= max :
-    if min % 3 != 0 :
-        
+    if min % 3 != 0 : 
+        if min == 일 or min%7 == 0:
+            요일 = "일"
+        if min == 월 or (min-월)%7 == 0:
+            요일 = "월"
+        if min == 화 or (min-화)%7 == 0:
+            요일 = "화"
+        if min == 수 or (min-수)%7 == 0:
+            요일 = "수"
+        if min == 목 or (min-목)%7 == 0:
+            요일 = "목"
+        if min == 금 or (min-금)%7 == 0:
+            요일 = "금"
+        if min == 토 or (min-토)%7 == 0:
+            요일 = "토"
+
         print(min, 요일)
     min += 1

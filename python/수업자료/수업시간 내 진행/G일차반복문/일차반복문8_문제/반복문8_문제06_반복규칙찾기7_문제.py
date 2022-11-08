@@ -15,3 +15,19 @@
 			9 4
 '''
 
+x = 0
+y = 1
+count = 1
+
+while x < 10:
+	print(x, y, count)
+	if y > count :
+		count += 1
+		print("y 값 :",y,"count 값 :",count)
+		print("y가 count보다 큽니다. count에 1을 더합니다")
+	else:
+		y += 1
+		count = 1
+		print("y 값 :",y,"count 값 :",count)
+		print("y가 count보다 작거나 같습니다. y에 1을 더하고 count를 1로 재설정합니다")
+	x+=1

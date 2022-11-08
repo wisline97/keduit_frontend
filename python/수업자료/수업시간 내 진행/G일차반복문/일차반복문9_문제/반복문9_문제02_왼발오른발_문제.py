@@ -24,3 +24,22 @@
 		오른발 = 2
 		오른발 = 1
 '''
+
+num = 30
+count = 0
+i = 1
+
+
+
+while num >= 1 :
+	if i % 2 == 0:
+		발 = "오른발"
+	if i % 2 != 0:
+		발 = "왼발"
+	print(num, end=" ")
+	count += 1
+	print(발)
+	if count % 5 == 0:
+		i += 1
+
+	num -= 1
