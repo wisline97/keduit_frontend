@@ -18,27 +18,23 @@ min = 1
 max = 100
 count = 0
 
+i=1
 
-
-<<<<<<< HEAD
 while min <= max:
-=======
-while min <= 100:
->>>>>>> ed0087671b7822aabd5da2425428f076a5402600
     min십의자리 = min // 10
     min일의자리 = min % 10
 
     if min십의자리 % 3 == 0 or min일의자리%3 == 0:
         count = 1
 
-    if min>=10 and min십의자리 % 3 == 0 and min일의자리%3 == 0:
+    if min십의자리 != 0 and min일의자리 !=0 and min십의자리 % 3 == 0 and min일의자리%3 == 0 :
         count = 2
 
-    if min<10 and min%3 == 0:
-        print(min, count)
-
-    if min>=10 and min일의자리 % 3 == 0 and min일의자리 != 0:
-        print(min, count)
+    if min일의자리%3 == 0 or min십의자리 % 3 == 0 and min십의자리 !=0:
+        if min십의자리 % 3 != 0 and min일의자리 == 0:
+            i+=1
+        else:
+            print(min, count)
 
     min += 1
 
