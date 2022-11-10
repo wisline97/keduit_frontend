@@ -10,5 +10,16 @@
         r = 5
         arr = [5,5,5,5,5]  
 '''
-arr = []
+import random
 
+arr = []
+num = random.randint(1,5)
+
+print("랜덤숫자는", num)
+
+i = 1
+while i <= num: 
+    arr.append(num)
+    i += 1
+
+print(arr)

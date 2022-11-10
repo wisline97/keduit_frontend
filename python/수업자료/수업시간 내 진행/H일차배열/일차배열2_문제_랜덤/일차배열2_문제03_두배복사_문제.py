@@ -6,6 +6,22 @@
         arr   = [10, 3, 4, 2, 6]
         total = [20, 6, 8, 4, 12]
 '''
+import random
 
 arr = []
 total = []
+
+i = 1
+
+while i <= 5:
+    num = random.randint(1,10)
+    arr.append(num)
+    i += 1
+
+y = 0
+
+for y in range(len(arr)):
+    total.append(arr[y]*2)
+
+print(arr)
+print(total)

@@ -10,4 +10,20 @@
         17
 '''
 
+import random
+
 arr = []
+
+i = 1
+
+while i <= 20:
+    num = random.randint(1,100)
+    arr.append(num)
+    i += 1
+
+print(arr)
+
+y = 0
+for y in range(len(arr)):
+    if arr[y]<=30 or arr[y]>=70 and arr[y]%4 == 0:
+        print(arr[y])

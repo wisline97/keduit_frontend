@@ -34,11 +34,13 @@ while run == 1:
 
 	if 철수 > 인형 and count < 10:
 		print("!철수 움직임!")
+		print("==============================")
 		print("패배")
 		run = 0
 
 	if count >= 10:
 		print("!시간초과!")
+		print("==============================")
 		print("패배")
 		run = 0
 
@@ -47,6 +49,7 @@ while run == 1:
 
 	if 철수_위치 >= 25 and count < 10:
 		print("!골인!")
+		print("==============================")
 		print("승리")
 		run = 0
 

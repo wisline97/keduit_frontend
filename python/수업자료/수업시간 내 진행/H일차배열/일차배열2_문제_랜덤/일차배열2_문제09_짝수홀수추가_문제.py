@@ -14,11 +14,38 @@
             arr2 = [5, 4, 8, 9, 7]
 '''
 
+import random
+
 a = []
 b = []
 
 arr1 = []
 arr2 = []
 
+i = 1
+
+while i <= 5:
+    num1 = random.randint(1,9)
+    num2 = random.randint(1,9)
+    a.append(num1)
+    b.append(num2)
+    i += 1
+
+print("a배열:",a)
+print("b배열:",b)
+
+y = 0
+
+for y in range(len(a)):
+	if a[y] > b[y]:
+		arr1.append(a[y])
+
+	if a[y] < b[y]:
+		arr2.append(b[y])
+	if a[y] == b[y]:
+		arr1.append(a[y])
+		arr2.append(b[y])
 
 
+print("arr1 배열:", arr1)
+print("arr2 배열:", arr2)

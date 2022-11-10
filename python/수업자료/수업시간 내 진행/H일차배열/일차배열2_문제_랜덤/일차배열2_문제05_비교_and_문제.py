@@ -8,4 +8,20 @@
         56
 '''
 
+import random
+
 arr = []
+
+i = 1
+
+while i <= 20:
+    num = random.randint(1,100)
+    arr.append(num)
+    i += 1
+
+print(arr)
+
+y = 0
+for y in range(len(arr)):
+    if arr[y]>=50 and arr[y]%7 == 0:
+        print(arr[y])

@@ -12,15 +12,19 @@
 import random
 
 com = random.randint(1, 100)
-print("com =", com)
 
+print("com =", com)
+max = 100
+min = 1
 run = 1
 while run == 1:
-    me = random.randint(1, 100)
-    
+    me = random.randint(min, max)
+    print(min, max)
     if me < com:
+        min = me+1
         print(me, "Up!")
     if me > com:
+        max = me-1
         print(me, "Down!")
 
     if com == me:

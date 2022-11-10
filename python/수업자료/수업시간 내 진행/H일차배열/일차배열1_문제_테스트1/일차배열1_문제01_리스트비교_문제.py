@@ -15,12 +15,12 @@ b = [54,6,4,12,50]
 
 i = 0
 
-while i <= 5:
+while i < 5:
     if a[i] > b[i]:
         print(a[i])
     if a[i] < b[i]:
         print(b[i])
     if a[i] == b[i]:
         print(a[i],b[i])
+        run = 0
     i += 1
-

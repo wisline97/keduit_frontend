@@ -10,4 +10,10 @@ b = [54,6,4,12,50]
 
 total = [0,0,0,0,0]
 
+i = 0
 
+while i < 5:
+    total[i] = a[i]+b[i]
+    i += 1
+
+print(total)

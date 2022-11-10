@@ -9,4 +9,23 @@
         80
 '''
 
+import random
+
 arr = []
+
+i = 1
+
+while i <=5:
+    num = random.randint(1,100)
+    arr.append(num)
+    i += 1
+
+print(arr)
+
+y = 0
+
+while y < 5:
+    if arr[y] >= 50:
+        print(arr[y])
+
+    y+=1

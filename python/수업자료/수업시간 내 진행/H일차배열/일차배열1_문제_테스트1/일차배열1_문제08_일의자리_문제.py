@@ -9,3 +9,6 @@
 a = [10,43,24,12,52]
 
 
+for i in range(len(a)):
+    if a[i]%10== 2:
+        print(a[i])
