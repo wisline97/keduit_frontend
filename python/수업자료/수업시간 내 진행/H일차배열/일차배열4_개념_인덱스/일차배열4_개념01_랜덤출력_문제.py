@@ -7,8 +7,20 @@
         a = [1, 43, 22, 77 ,44]
         출력 : 22
 '''
+import random
 
 a = []
 
 
 
+for i in range(5):
+    num = random.randint(1,100)
+    a.append(num)
+
+print("List a:",a)
+
+num2 = random.randint(0,len(a)-1)
+
+print("index:",num2)
+
+print(num2,"of list a:", a[num2])

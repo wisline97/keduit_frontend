@@ -18,6 +18,8 @@ temp = a[r1]
 a[r1] = a[r2]
 a[r2] = temp
 
+#temp => 임시 보관소?
+
 print("교환 후 =", a)
 
 

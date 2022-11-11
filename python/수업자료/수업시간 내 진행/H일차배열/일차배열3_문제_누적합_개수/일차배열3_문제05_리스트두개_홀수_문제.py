@@ -12,8 +12,17 @@
         195    
 '''
 
+import random
+
 a = []
 b = []
 
+for i in range(5):
+    num1 = random.randint(1,100)
+    num2 = random.randint(1,100)
+    a.append(num1)
+    b.append(num2)
 
+print("a =",a)
+print("b =",b)
 

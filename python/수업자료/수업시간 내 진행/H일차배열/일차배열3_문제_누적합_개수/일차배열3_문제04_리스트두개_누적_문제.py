@@ -10,9 +10,34 @@
         total2 = 235
         353
 '''
+import random
 
 a = []
 b = []
 
+for i in range(5):
+    num1 = random.randint(1,100)
+    num2 = random.randint(1,100)
+    a.append(num1)
+    b.append(num2)
+
+print("a =",a)
+print("b =",b)
+
+a_total = 0
+b_total = 0
+
+for y in range(len(a)):
+    a_total += a[y]
+    b_total += b[y]
 
 
+if a_total > b_total:
+    print("a_total =",a_total)
+
+elif a_total < b_total:
+    print("b_total =",b_total)
+
+else:
+    print("a_total =",a_total)
+    print("b_total =",b_total)

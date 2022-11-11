@@ -13,14 +13,41 @@
 # [문제1]
 a = [0, 10, 20, 30, 40, 50]
 
+'''
+a[1] -> a[0]
+a[2] -> a[1]
+a[3] -> a[2]
+a[4] -> a[3]
+a[5] -> a[4]
+a[0] -> a[5]
+'''
 
+for i in range(len(a)):
+	if i == 0:
+		temp = a[i]
+	if i<5 :
+		a[i] = a[i+1]
+	else:
+		a[i] = temp
+
+print(a)
 
 # [문제2]
 b =  [10, 20, 30, 40, 50, 0]
+'''
+b[0] -> b[1]
+b[1] -> b[2]
+b[2] -> b[3]
+b[3] -> b[4]
+b[4] -> b[5]
+
+'''
+
+index = len(b) - 1
+
+for i in range(len(b)):
+	b[index] = b[index - 1]
+	index -= 1
 
 
-
-
-
-
-
+print(b)

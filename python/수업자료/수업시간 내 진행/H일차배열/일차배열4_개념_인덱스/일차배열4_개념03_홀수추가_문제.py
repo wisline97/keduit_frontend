@@ -8,3 +8,8 @@
 a = [49, 2, 51, 22, 17]
 b = []
 
+for i in range (len(a)):
+	if a[i] % 2 == 1:
+		b.append(a[i])
+
+print(b)

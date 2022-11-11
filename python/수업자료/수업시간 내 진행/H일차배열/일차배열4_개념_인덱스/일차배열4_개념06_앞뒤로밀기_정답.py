@@ -24,6 +24,7 @@ print()
 b =  [10, 20, 30, 40, 50, 0]
 
 index = len(b) - 1
+
 for i in range(len(b)):
 	b[index] = b[index - 1]
 	index -= 1

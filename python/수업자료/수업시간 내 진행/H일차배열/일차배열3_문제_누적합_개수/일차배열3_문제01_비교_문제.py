@@ -13,7 +13,29 @@
         개수 : 2
 '''
 
+import random
+
 a = []
+
+for i in range(5):
+    num = random.randint(1,100)
+    a.append(num)
+
+print("배열 a:",a)
+
+count = 0
+total = 0
+print("배열 a에서 50보다 큰 수들:", end=" ")
+
+for y in range(len(a)):
+    if a[y]>50:
+        print(a[y], end=" ")
+        count += 1
+        total += a[y]
+
+print()
+print("배열 a에서 50보다 큰 수들을 모두 합친 값:", total)
+print("배열 a에서 50보다 큰 수들의 개수:", count)
 
 
 

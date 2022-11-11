@@ -13,4 +13,9 @@
 a = [1, 2, 3, 4,
      5, 6, 7, 8,
      9, 10,11,12]
-    
+
+count = 0
+
+for i in range(len(a)):
+	if i<4:
+		print(a[i], a[i]+4, a[i]+8)

@@ -7,5 +7,10 @@
 a = [21,44,12,54,60]
 
 
+num = len(a) - 1
 
 
+
+while num >= 0:
+	print(a[num], end = " ")
+	num -= 1
