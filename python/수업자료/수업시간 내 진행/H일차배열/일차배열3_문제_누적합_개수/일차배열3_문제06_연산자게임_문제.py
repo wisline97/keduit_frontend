@@ -23,13 +23,23 @@ op = [0, 1, 0, 2, 1]
 
 total = []
 
+print("리스트 a:",a)
+print("리스트 b:",b)
+print("op:", op)
+
 for i in range(len(a)):
 	if op[i] == 0:
 		total.append(a[i]+b[i])
+		print("op 0은 더하기", end=" ")
+		print(total)
 	elif op[i] == 1:
 		total.append(a[i]-b[i])
+		print("op 1은 빼기", end=" ")
+		print(total)
 	else:
 		total.append(a[i]*b[i])
+		print("op 2은 곱하기", end=" ")
+		print(total)
 	
 print(total)
 
