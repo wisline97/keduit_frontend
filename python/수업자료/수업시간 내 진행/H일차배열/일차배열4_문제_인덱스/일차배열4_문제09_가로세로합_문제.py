@@ -16,3 +16,21 @@ a = [1, 2, 3, 4,
 garo = [0, 0, 0]
 sero = [0, 0, 0, 0]
 
+garo_index = 0
+garo_count = 0
+for i in range(len(a)):
+	garo[garo_index] += a[i]
+	garo_count += 1
+	if garo_count % 4 == 0:
+		garo_count = 0
+		garo_index += 1
+print(garo)
+
+sero_index = 0
+sero_count = 0
+
+for y in range(4):
+	sero[sero_index] = a[y] + a[y+4] + a[y+8]
+	sero_index += 1
+
+print(sero)

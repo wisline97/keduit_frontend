@@ -12,3 +12,12 @@ a = [49, 2, 51, 22, 17]
 b = []
 c = []
 
+for i in range(len(a)):
+	if a[i]%2 == 0:
+		b.append(a[i])
+	else:
+		c.append(a[i])
+
+
+print(b)
+print(c)

@@ -12,3 +12,15 @@
 
 a = [1,2,3,4,5,6,7,8,9,0]
 
+줄바꿈횟수 = 4
+count = 0
+i = 0
+
+while i<=len(a)-1:
+	print(a[i], end = "")
+	count += 1
+	if count == 줄바꿈횟수:
+		print()
+		count = 0
+		줄바꿈횟수 -= 1
+	i+=1

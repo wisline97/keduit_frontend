@@ -12,7 +12,21 @@
 		arr = [1,2,3,1]
 '''
 
+import random
+
 arr = []
 
+r = random.randint(2,10)
+print(r)
+count = 1
+
+for i in range(r):
+	print(i)
+	arr.append(count)
+	count+=1
+	if count > 3:
+		count = 1
+
+print(arr)
 
 

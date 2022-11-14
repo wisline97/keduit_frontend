@@ -18,10 +18,10 @@ import random
 
 a = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-index = random.randint(0, 9)
+index = 1
 print("index =", index)
 
-count = random.randint(1, 10)
+count = 9
 print("count =", count)
 
 value = 1

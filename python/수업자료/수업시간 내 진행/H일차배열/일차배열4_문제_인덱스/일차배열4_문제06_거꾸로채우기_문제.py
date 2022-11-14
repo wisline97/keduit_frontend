@@ -15,6 +15,28 @@
 
 '''
 
-a = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+import random
+
+r_index = 1
+r = 9
+
+print("랜덤 인덱스",r_index)
+print("랜덤 개수",r)
+
+a = [0, 0, 0, 0, 0, 0, 0, 0, 0, 3]
+
+run = 1
+
+i = 0
 
 
+while run == 1:
+	a[r_index] = i+1
+	r_index -= 1
+	
+	i+=1
+
+	if i == r:
+		run = 0
+
+print(a)
