@@ -11,7 +11,25 @@
 			[67, 100, 98, 97] "상품"
 			[53, 25, 12, 41] "벌칙"
 '''
+
+import random
+
 a = []
+count = 0
+for i in range(4):
+	num = random.randint(0,100)
+	a.append(num)
 
+for i in range(len(a)):
+	if a[i] >= 60:
+		count += 1
 
+if count == 4:
+	print(a,"상품")
+
+elif count == 0:
+	print(a,"벌칙")
+
+else:
+	print(a,"상품, 벌칙 둘 다 없음")
 

@@ -10,6 +10,42 @@
 		[ 1, 7, 7, 1, 1, 7, 1]  "꽝"
 		[ 1, 1, 1, 7, 7, 7, 1]  "당첨"
 '''
-
+import random
 lotto = []
 
+a = 1
+b = 7
+
+a_count=0
+b_count=0
+
+victory_count = 0
+
+temp =0
+
+당첨유무 = "꽝"
+
+for i in range(7):
+	rand = random.randint(0,1)
+
+	if rand == 0:
+		a_count += 1
+		victory_count = 0
+		if a_count > 4:
+			lotto.append(b)
+		else:
+			lotto.append(a)
+
+	else:
+		b_count += 1
+		
+		if b_count > 3:
+			lotto.append(a)
+		else:
+			victory_count += 1
+			lotto.append(b)
+			
+	if victory_count == 3:
+		당첨유무 = "당첨"
+
+print(lotto, 당첨유무)

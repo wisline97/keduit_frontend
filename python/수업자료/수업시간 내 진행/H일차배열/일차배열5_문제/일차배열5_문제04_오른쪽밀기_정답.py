@@ -16,7 +16,7 @@ for i in range(len(a)):
 		temp = a[idx]
 		a[idx] = a[j]
 		a[j] = temp
-
 		idx -= 1
 	j -= 1
+	
 print(a)
