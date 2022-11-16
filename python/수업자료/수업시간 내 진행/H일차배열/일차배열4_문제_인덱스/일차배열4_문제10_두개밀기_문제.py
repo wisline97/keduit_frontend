@@ -10,5 +10,20 @@ a = [1 ,3, 7]
 b = [0, 0, 0, 0, 0, 0]
 
 
+a_index = 0
+b_index = len(b)-1
+run = 1
+count = 0
+while run == 1:
+   b[b_index] = a[a_index]
+   b_index -= 1
+   count += 1
+   if count == 2:
+      a_index += 1
+      count = 0
+   if b_index == 0:
+      b[b_index] = a[a_index]
+      run = 0
 
+print(b)
 

@@ -11,6 +11,43 @@
         
 '''
 
+import random
+
 monster = [9,7,8,6]
 power = 5
+run = True
+count = 0
 
+while run == True:
+    select = random.randint(0,3)
+    print("공격 대상 선택",select,"번")
+
+    # 공격 대상 오른쪽 공격
+    if select + 1 <= len(monster)-1 and monster[select] != 0:
+        if monster[select+1] > 0:
+            monster[select+1] -= 1
+
+    # 공격 대상 왼쪽 공격
+    if monster[select-1] > 0 and select - 1 >= 0 and monster[select] != 0:
+        monster[select-1] -= 1
+
+    # 공격 대상 공격
+    if monster[select] == 0:
+        print(select,"번째 몬스터는 이미 체력이 0입니다.", "대상을 다시 선택해주세요.",end =" ")
+
+    elif monster[select] - power > 0:
+        print(select,"번째 몬스터를 공격합니다" ,end =" ")
+        monster[select] -= power
+        
+        count += 1
+    else:
+        print(select,"번 째 몬스터를 공격합니다",end =" ")
+        monster[select] = 0
+        count += 1
+
+    # 5번 반복하면 바로 실행 중지
+    if count == 5:
+        run = False
+    
+    print(monster)
+    
