@@ -10,3 +10,14 @@
 c = [10,20,30,40,50,60]
 a = []
 b = []
+
+center = len(c)//2
+
+for i in range(len(c)):
+	if i < center:
+		a.append(c[i])
+	else:
+		b.append(c[i])
+
+print(a)
+print(b)

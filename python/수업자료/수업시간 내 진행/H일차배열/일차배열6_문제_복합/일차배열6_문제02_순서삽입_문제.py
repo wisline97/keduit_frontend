@@ -10,6 +10,26 @@
         a = [10,20,30,40,50,54,60]
 
 '''
-
+import random
+num = random.randint(1,70)
+#random.randint(1,70)
 a = [10, 20, 30, 40, 50, 60]
 
+print(num)
+
+
+idx = len(a) - 1
+
+temp = a[idx]
+i = 0
+
+while True:
+    if a[i] > num:
+        a.insert(i,num)
+        break
+    if num >= max(a):
+        a.append(num)
+        break
+    else:
+        i+= 1
+print(a)

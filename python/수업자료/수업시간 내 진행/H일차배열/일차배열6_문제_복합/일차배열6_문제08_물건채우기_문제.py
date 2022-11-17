@@ -20,4 +20,35 @@
 
 list = [3, 5, 2, 1, 2]
 count = 6
+max = 5
+need = 0
 
+for i in range(len(list)):
+	if list[i] >= 5:
+		print(i+1,"번째 진열장에 필요한 재고 개수:", 0,"개", end = " ")
+		pass
+
+	elif list[i] < 5:
+		need = max - list[i]
+		print(i+1,"번째 진열장에 필요한 재고 개수:", need,"개", end = " ")
+
+		if count < need:
+			print("필요한 라면 개수보다 재고 개수가 적습니다.")
+			print("남은 재고", count, "개 만큼만 채웁니다.")
+			list[i] += count
+			count = 0
+
+		else:
+			list[i] += need
+			count -= need
+	if count == 0:
+		print(i+1,"번째 진열장을 채울 재고가 없습니다.")
+		break
+	print("남은 재고:", count,"개")
+
+print("==============")
+print("진열장 현황")
+print("==============")
+
+for i in range(len(list)):
+	print(i+1,"번 째 진열장 라면 개수:", list[i],"개")

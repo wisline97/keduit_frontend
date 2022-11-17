@@ -7,4 +7,15 @@
 		점수 = 82
 '''
 a = [1001, 40, 1002, 82, 1003, 65, 1004, 70]
+first_score = 0
+first_num = 0
 
+for i in range(len(a)):
+	if i % 2 == 1:
+		if a[i]>first_score:
+			first_score = a[i]
+			first_num = a[i-1]
+
+
+print("일등 학생 번호:", first_num)
+print("일등 학생 점수:", first_score)

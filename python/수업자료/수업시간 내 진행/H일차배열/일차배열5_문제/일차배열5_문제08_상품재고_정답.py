@@ -20,6 +20,8 @@
 		(5) order = 2 , count = [2,0,1,0]
 		(6) order = 2 , count = [2,0,0,0]
 		(7) order = 1 , "주문불가"
+
+		총 금액 = 12600
 '''
 item = [1001, 1002, 1003, 1004]
 price =[500, 1200, 4300, 2300]
@@ -33,11 +35,10 @@ for i in range(len(order)):
 	if count[order[i]] > 0:
 		count[order[i]] -= 1
 		print(count)
+
+		total += price[order[i]]
 	else:
 		print("주문불가")
-print(order)
 
 
-
-
-
+print(total)

@@ -21,6 +21,7 @@
 		(6) order = 2 , count = [2,0,0,0]
 		(7) order = 1 , "주문불가"
 '''
+
 item = [1001, 1002, 1003, 1004]
 price =[500, 1200, 4300, 2300]
 count = [3, 1, 2, 1]
@@ -30,13 +31,22 @@ order = [0, 1, 3, 3, 2, 2, 1]
 total = 0
 
 for i in range(len(order)):
-	if count[order[i]] > 0:
-		count[order[i]] -= 1
-		print(count)
-	else:
-		print("주문불가")
-print(order)
+	count[order[i]] -= 1
 
+	if count[order[i]] < 0:
+		count[order[i]] = 0
+		print("=======================================================================")
+		print([order[i]],"번 제품은 현재 재고가 부족하여 주문이 불가합니다.")
+		print("=======================================================================")
+	
+	else:
+		total += price[order[i]]
+		print([order[i]],"번 제품 가격 :", price[order[i]],"원", "지금까지 구매하신 제품의 합계는 :", total)
+		print([order[i]],"번 제품 구매 완료")
+
+
+print("재고현황 :",count)
+print("총 합계 :",total)
 
 
 

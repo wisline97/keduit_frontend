@@ -6,7 +6,20 @@
 		b = [20,40,60]
 '''
 
-c = [10,20,30,40,50,60]
+c = [10,20,30,40,50,60,70,80,90,100,110]
 
 a = []
 b = []
+
+c_index= 0
+
+while c_index < len(c):
+	if  c_index % 2 == 0:
+		a.append(c[c_index])
+	else:
+		b.append(c[c_index])
+	c_index+=1
+
+
+print(a)
+print(b)

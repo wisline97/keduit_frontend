@@ -14,6 +14,7 @@ r = random.randint(1, 100)
 print("r =", r)
 
 i = 0
+
 while True:
     if i == len(a):
         break

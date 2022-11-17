@@ -30,6 +30,7 @@ for i in range(7):
 
 	if rand == 0:
 		a_count += 1
+		
 		victory_count = 0
 		if a_count > 4:
 			lotto.append(b)
