@@ -18,6 +18,7 @@ for i in range(len(text)):
         b += 'i'
     else:
         b += text[i]
+        print(b)
 text = b # 수정한 변수를 넣어준다.
 print(text)
 print("--------------------")

@@ -9,5 +9,22 @@
 '''
 password = "qwer1234"
 sample = "abcdefghijklmnopqrstuvwxyz"
+new_password = ""
+count = 0
 
+password_idx = len(password)
 
+i = 0
+
+while True:
+    new_password += password[i]
+    new_password += sample[i]
+    count += 1
+
+    if count == password_idx:
+        print(count, password_idx)
+        break
+    else:
+        i += 1
+
+print(new_password)

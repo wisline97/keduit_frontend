@@ -15,34 +15,74 @@
 
 import random
 
-needsize = random.randint(1,5)
+needsize = random.randint(1,3)
+
 available_size = 0
+available_size_min = 1
+available_size_max = 0
+
 가능여부 = False
+
 a = [0,1,0,0,0,1,0,0]
 
-print("보관할 수 있는 물건 크기의 범위 : 1~3")
-
 for i in range(len(a)):
-	if available_size == needsize:
-		가능여부 = True
-
 	if a[i] == 0:
 		available_size += 1
+		if available_size_max < available_size:
+			available_size_max = available_size
+		elif available_size_min > available_size:
+			available_size_min = available_size
 	else:
 		available_size = 0
 
+print("남은 인벤토리 칸 :",available_size_min,"~",available_size_max)
 print("보관해야 할 물건의 크기는 :",needsize)
 
 
+if needsize <= available_size_max:
+		가능여부 = True
 
+
+
+# a = [0,1,0,0,0,1,0,0]
+i = 0
+count = 0
 if 가능여부 == True:
 	print("보관가능")
-	i = 0
-	while available_size >= 0:
-		if needsize < available_size:
-			a[i] = 1
+	while True:
+		if needsize == available_size_min:
+			a[i] += 1
+			count += 1
+
+		elif needsize != available_size_min and needsize <= available_size_max:
+			a[i+2] += 1
+			i += 1
+			count += 1
+
+		if count == needsize:
 			break
-		elif needsize == available_size:
+
 
 else:
 	print("보관불가")
+
+print(a)
+
+# 드디어 풀었다................
+
+'''
+실행안되는 코드
+
+	while True:
+		if needsize == 0:
+			break
+		elif needsize != 0 and needsize < 2:
+			a[i] += 1
+			needsize -= 1
+			print("메롱",a[i], available_size)
+		else:
+			a[i+2] = 1
+			needsize -= 1
+			i += 1
+		
+'''

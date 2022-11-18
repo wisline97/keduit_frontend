@@ -8,4 +8,18 @@
     [정답]
         qwer1234
 '''
-password = "qawbecrd1e2f3g4h"
+new_password = "qawbecrd1e2f3g4h"
+new_password_idx = len(new_password)
+
+password = ""
+password_idx = new_password_idx / 2
+
+i = 0
+count = 0
+while True:
+    if count == password_idx:
+        break
+    print(new_password[i], end = "")
+    count += 1
+
+    i += 2
