@@ -13,4 +13,36 @@
 		[0,1,0,0,0,1,0,0]  : "창고부족"
 '''
 
+import random
+
+needsize = random.randint(1,5)
+available_size = 0
+가능여부 = False
 a = [0,1,0,0,0,1,0,0]
+
+print("보관할 수 있는 물건 크기의 범위 : 1~3")
+
+for i in range(len(a)):
+	if available_size == needsize:
+		가능여부 = True
+
+	if a[i] == 0:
+		available_size += 1
+	else:
+		available_size = 0
+
+print("보관해야 할 물건의 크기는 :",needsize)
+
+
+
+if 가능여부 == True:
+	print("보관가능")
+	i = 0
+	while available_size >= 0:
+		if needsize < available_size:
+			a[i] = 1
+			break
+		elif needsize == available_size:
+
+else:
+	print("보관불가")
