@@ -12,5 +12,39 @@ stname = ["김철수" , "이만수" , "신정아" , "이영희"]
 stkor = [8 , 25 , 34 , 40]
 steng = [60 , 30 , 32 , 23]
 
+idx = len(stkor) - 1
 
+num1 = random.randint(0,idx)
+num2 = random.randint(0,idx)
 
+while True:
+    if num1 == num2:
+        num1 = random.randint(0,idx)
+        num2 = random.randint(0,idx)
+    if num1 != num2:
+        break
+
+print(stno[num1],"번",stname[num1],"학생과",stno[num2],"번",stname[num2],"학생의 국어점수를 교환합니다.")
+
+temp = stkor[num1]
+stkor[num1] = stkor[num2]
+stkor[num2] = temp
+
+print(stno[num1],"번",stname[num1],"학생 국어점수:",stkor[num1],"점")
+print(stno[num2],"번",stname[num2],"학생의 국어점수:", stkor[num2],"점")
+
+total = []
+
+for i in range(idx + 1):
+    total.append(stkor[i]+steng[i])
+
+max = 0
+first = 0
+
+for i in range(idx + 1):
+    if total[i] > max:
+        max = total[i]
+        first = i
+
+print("국어점수와 영어점수의 총합이 1등인 학생은")
+print(stno[first],"번", stname[first],"학생")
