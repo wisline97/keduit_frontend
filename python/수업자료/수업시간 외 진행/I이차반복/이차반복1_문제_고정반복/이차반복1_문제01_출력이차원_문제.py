@@ -12,3 +12,13 @@
 		5 5 5
 		6 6 6
 '''
+import random
+
+num = random.randint(3,6)
+
+print("랜덤넘버:",num)
+
+for i in range(num):
+	for y in range(3):
+		print(i+1,end=" ")
+	print()

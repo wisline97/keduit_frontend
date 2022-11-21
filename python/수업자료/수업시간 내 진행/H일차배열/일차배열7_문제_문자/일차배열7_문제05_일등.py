@@ -23,16 +23,16 @@ while True:
         num2 = random.randint(0,idx)
     if num1 != num2:
         break
-
+print("=====================================================================")
 print(stno[num1],"번",stname[num1],"학생과",stno[num2],"번",stname[num2],"학생의 국어점수를 교환합니다.")
-
+print("=====================================================================")
 temp = stkor[num1]
 stkor[num1] = stkor[num2]
 stkor[num2] = temp
 
 print(stno[num1],"번",stname[num1],"학생 국어점수:",stkor[num1],"점")
 print(stno[num2],"번",stname[num2],"학생의 국어점수:", stkor[num2],"점")
-
+print("=====================================================================")
 total = []
 
 for i in range(idx + 1):
@@ -45,6 +45,12 @@ for i in range(idx + 1):
     if total[i] > max:
         max = total[i]
         first = i
+
+print("국어점수와 영어점수의 총합")
+
+for i in range(idx + 1):
+    print(stno[i],"번",stname)
+
 
 print("국어점수와 영어점수의 총합이 1등인 학생은")
 print(stno[first],"번", stname[first],"학생")

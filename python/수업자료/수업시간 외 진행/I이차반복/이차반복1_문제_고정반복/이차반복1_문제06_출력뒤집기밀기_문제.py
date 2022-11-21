@@ -10,3 +10,11 @@
 		4 3 2
 		3 2 1
 '''
+import random
+num = random.randint(3,6)
+
+while True:
+	if num-2 == 0:
+		break
+	print(num, num-1,num-2)
+	num-=1

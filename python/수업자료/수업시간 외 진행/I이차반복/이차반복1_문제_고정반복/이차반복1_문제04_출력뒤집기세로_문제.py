@@ -12,6 +12,16 @@
 		14 8 2
 		13 7 1
 '''
+import random
 
+num = random.randint(3,6)
 
+print("랜덤넘버:",num)
 
+count = num * 3
+
+for i in range(num):
+	for y in range(3):
+		print(count, end=" ")
+		count -= 1
+	print()

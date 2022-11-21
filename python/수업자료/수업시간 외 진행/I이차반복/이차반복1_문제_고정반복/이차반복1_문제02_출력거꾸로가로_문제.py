@@ -12,7 +12,14 @@
 		15 14 13
 		18 17 16
 '''
+import random
 
+num = random.randint(3,6)
 
-
-
+print("랜덤넘버:",num)
+count = 1
+for i in range(num):
+	print(count+2,count+1,count,end=" ")
+	for y in range(3):
+		count+=1
+	print()

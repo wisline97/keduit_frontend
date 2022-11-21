@@ -8,3 +8,12 @@
 		...      	...				    ...
 		2 * 9 = 18	3 * 9 = 27 	 ...	9 * 9 = 81
 '''
+
+
+for i in range(9):
+	y = i + 1
+	for j in range(8):
+		print(j+2,"X",y,"=", (j+2)*y, end ="\t")
+
+	i+=1
+	print()

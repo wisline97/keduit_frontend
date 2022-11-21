@@ -25,3 +25,13 @@
 		9 X 9 = 81
 '''
 
+for i in range(10):
+	if i < 2:
+		pass
+	else:
+		for y in range(10):
+			if y == 0:
+				pass
+			else:
+				print(i,"X",y,"=", i*y)
+		print()
