@@ -8,4 +8,10 @@
 		****
 		**
 '''
-
+max = 4
+for i in range(4):
+	for j in range(max):
+		print("**",end="")
+		
+	max -= 1
+	print()

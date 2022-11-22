@@ -7,3 +7,10 @@
 		1 2 3 4
 		1 2
 '''
+
+for i in range(4):
+	l = 1
+	for j in range(4-i):
+		print(l,l+1, end=" ")
+		l+=2
+	print()

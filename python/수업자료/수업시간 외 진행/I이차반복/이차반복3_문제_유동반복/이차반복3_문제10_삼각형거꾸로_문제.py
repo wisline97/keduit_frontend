@@ -10,3 +10,11 @@
 		2 3 4 5 6 7
 		1 2 3 4 5 6 7
 '''
+
+for i in range(7):
+	num = 7
+	num -= i
+	for j in range(i+1):
+		print(num, end=" ")
+		num += 1
+	print()

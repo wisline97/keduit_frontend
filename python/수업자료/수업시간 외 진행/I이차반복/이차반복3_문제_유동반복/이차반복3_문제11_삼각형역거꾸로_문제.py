@@ -10,4 +10,11 @@
 		6 7
 		7
 '''
-
+max = 7
+for i in range(max):
+	num = 1
+	num += i
+	for j in range(max-i):
+		print(num, end=" ")
+		num += 1
+	print()
