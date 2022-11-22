@@ -9,3 +9,9 @@
 		1 2 3 4 5	
 '''
 
+max = 5
+
+for i in range(max):
+	for j in range(i+1):
+		print(j+1, end=" ")
+	print()

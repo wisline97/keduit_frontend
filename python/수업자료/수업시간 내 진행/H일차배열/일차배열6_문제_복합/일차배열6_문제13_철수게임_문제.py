@@ -29,6 +29,48 @@
 		map2 = [0,0,0,0,0,0,0,0,0,0]
 			
 '''
-
+import random
+turn_max = 4
 map1 = [1,0,0,0,0,0,0,0,0,0]
 map2 = [0,0,0,0,0,0,0,0,0,0]
+map_idx = len(map1) - 1
+total_dice= 0
+position = 0
+print("===================시작===================")
+print(map1)
+print(map2)
+print("==========================================")
+for i in range(turn_max):
+	for j in range(len(map1)):
+		if map1[j] == 1:
+			현재맵 = map1
+			다음맵 = map2
+			철수위치 = j
+			pass
+		elif map2[j] == 1:
+			현재맵 = map2
+			다음맵 = map1
+			철수위치 = j
+			pass
+
+	dice1 = random.randint(1,6)
+	dice2 = random.randint(1,6)
+
+	total_dice = dice1+dice2
+
+	print("주사위 합:",total_dice)
+
+	if total_dice <= map_idx - 철수위치:
+		현재맵[철수위치] = 0
+		position += total_dice
+		position %= len(map1)
+		현재맵[position] = 1
+
+	elif total_dice > map_idx - 철수위치:
+		현재맵[철수위치] = 0
+		position += total_dice
+		position %= len(map1)
+		다음맵[position] = 1
+
+	print(map1)
+	print(map2)

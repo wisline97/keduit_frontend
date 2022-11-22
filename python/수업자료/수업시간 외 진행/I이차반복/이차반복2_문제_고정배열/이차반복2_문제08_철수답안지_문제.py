@@ -28,4 +28,14 @@ a = [4, 65, 23, 1, 45, 7]
 b = [61, 2, 54, 3, 5, 6]
 정답지 = []
 
+for i in range(len(a)):
+	정답지.append(a[i]+b[i])
+
 철수 = [67, 13, 2, 22, 65, 4]
+count = 0
+for i in range(len(정답지)):
+	for j in range(len(철수)):
+		if 정답지[i] == 철수[j]:
+			count += 1
+
+print("철수가 문제를 맞춘 개수", count,"개")

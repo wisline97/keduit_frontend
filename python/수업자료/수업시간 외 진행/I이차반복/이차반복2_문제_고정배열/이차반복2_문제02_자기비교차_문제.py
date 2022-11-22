@@ -13,4 +13,12 @@
 a = [10, 20, 30, 40]
 total = []
 
-
+for i in range(len(a)):
+	calc = a[i]
+	for j in range(len(a)):
+		if i == j:
+			pass
+		else:
+			calc -= a[j]
+	total.append(calc)
+	print("total:",total)

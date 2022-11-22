@@ -8,3 +8,10 @@
 		12
 		1
 '''
+
+max = 5
+
+for i in range(max):
+	for j in range(max-i):
+		print(j+1,end="")
+	print()

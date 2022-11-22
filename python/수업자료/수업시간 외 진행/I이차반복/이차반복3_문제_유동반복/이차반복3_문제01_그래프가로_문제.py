@@ -12,3 +12,12 @@
 		1   : *	
 '''
 
+import random
+max = 5
+
+for i in range(max):
+	num = random.randint(0,10)
+	print(num,":",end="")
+	for j in range(num):
+		print("*",end="")
+	print()

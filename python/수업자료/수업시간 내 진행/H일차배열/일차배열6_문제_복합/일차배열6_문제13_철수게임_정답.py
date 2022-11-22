@@ -64,5 +64,3 @@ for i in range(4):
 	
 	print("map1 =", map1, turn)
 	print("map2 =", map2, turn)
-	
-	

@@ -16,3 +16,9 @@ score =  [4,    65,   23,   1,    45,   7]
 
 search = [1002, 1004, 1003, 1001, 1005]
 
+for i in range(len(search)):
+	anwser = 0
+	for j in range(len(number)):
+		if search[i] == number[j]:
+			anwser = score[j]
+	print(search[i],":",anwser)
