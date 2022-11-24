@@ -25,7 +25,7 @@ while True:
 		if num % (i + 1) == 0:
 			count += 1
 	
-	if count == 2:
+	if count == 2:  
 		print("소수 =", num)
 		break
 

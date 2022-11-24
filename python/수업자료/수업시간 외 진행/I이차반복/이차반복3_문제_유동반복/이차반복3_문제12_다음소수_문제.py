@@ -10,3 +10,26 @@
 		r = 500
 	    소수 = 503
 '''
+
+import random
+
+num1 = random.randint(2,1000)
+print(num1)
+num2 = num1+1
+
+while True:
+	count = 0
+	print(num2,"가 소수인지 아닌지 판별합니다.")
+	for y in range(num2):
+		if num2 % (y+1) == 0 :
+			print(num2,"의 약수는",y+1,"입니다.")
+			count += 1
+
+	if count == 2:
+		print(num2,"는 소수입니다.")
+		break
+	else:
+		print("현재",num2,"는 소수가 아닙니다.")
+		print("현재",num2,"에 1을 더합니다.")
+		num2 += 1
+		

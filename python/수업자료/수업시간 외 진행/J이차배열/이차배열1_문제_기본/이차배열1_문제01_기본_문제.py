@@ -12,6 +12,14 @@ a = []
         [9, 70, 29] 
 '''
 print("[문제1]")
+for i in range(3):
+    a.append([0,0,0])
+
+for i in range(len(a)):
+    for y in range(len(a)):
+        r = random.randint(1,100)
+        a[i][y] = r
+print(a)
 
 '''         
     [문제2]

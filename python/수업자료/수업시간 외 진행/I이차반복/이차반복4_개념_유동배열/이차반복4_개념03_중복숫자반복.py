@@ -11,14 +11,20 @@ import random
 a = []
 
 count = 0
+
 while True:
 	r = random.randint(1,4)
 	check = False
 	for i in range(len(a)):
 		if a[i] == r:
 			check = True
-			break
+
 	if check == False:
 		a.append(r)
+		count += 1
+
+	if count == 4:
+		break
+
 print(a)
 

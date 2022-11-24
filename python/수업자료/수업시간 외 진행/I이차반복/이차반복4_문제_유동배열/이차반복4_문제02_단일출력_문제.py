@@ -7,3 +7,20 @@
 '''
 a = [1,1,2,2,3,3,4,100,3]
 
+b = []
+
+idx = len(a)
+
+
+answer = []
+
+for i in range(idx):
+	check = False
+	for y in range(i+1):
+		if i != y:
+			if a[i] == a[y]:
+				check = True
+				break
+
+	if check == False:
+		print(a[i])
