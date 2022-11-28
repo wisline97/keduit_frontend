@@ -26,6 +26,6 @@ age = int(age)
 age = input("[2] 당신의 나이를 입력하세요 : ")
 age = int(age)
 
-# 방법 3)
+# 방법 3)2
 age = int(input("[3]당신의 나이를 입력하세요 : "))
 print(age)
