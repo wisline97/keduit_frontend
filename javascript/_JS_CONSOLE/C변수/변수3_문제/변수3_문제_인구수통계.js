@@ -7,3 +7,13 @@
 	[정답] 
 		40000
  */
+
+let total = 400000;
+let percent = total / 100;
+
+let teenager = percent * 35;
+let midager = percent * 25;
+
+let answer = teenager - midager;
+
+console.log(answer, "명");

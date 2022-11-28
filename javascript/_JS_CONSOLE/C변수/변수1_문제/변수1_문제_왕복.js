@@ -11,3 +11,17 @@
 	[정답] 
 		4000
  */
+
+let chulsu = 0;
+
+chulsu = chulsu + 1800;
+
+chulsu = chulsu + 300;
+
+chulsu = chulsu + 200;
+
+chulsu = chulsu + 200;
+
+chulsu = chulsu + 1500;
+
+console.log(chulsu, "m");

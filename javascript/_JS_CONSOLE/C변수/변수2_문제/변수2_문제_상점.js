@@ -7,3 +7,11 @@
 	[정답]
 		170
  */
+
+let total = 250;
+let morning = (250 / 100) * 84;
+let afternoon = (250 / 100) * 16;
+
+let diff = morning - afternoon;
+
+console.log(diff, "개 차이");

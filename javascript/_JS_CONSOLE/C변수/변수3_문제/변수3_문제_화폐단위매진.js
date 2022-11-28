@@ -8,3 +8,13 @@
 		 오만원  : 3 , 일만원  : 2 , 오천원 : 0, 
 		 일천원  : 0 , 오백원  : 9 , 일백원 : 4
  */
+
+let total = 174900;
+
+let $50000 = Math.floor(total / 50000);
+let $10000 = Math.floor((total % 50000) / 10000);
+let $5000 = Math.floor((total % 10000) / 5000);
+let $500 = Math.floor((total % 10000) / 500);
+let $100 = Math.floor((total % 500) / 100);
+console.log("오만원 :", $50000, ", 일만원 :", $10000, ", 오천원 :", $5000);
+console.log("일천원 :", 0, ", 오백원 :", $500, ", 일백원 :", $100);

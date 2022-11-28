@@ -8,3 +8,10 @@
 	[정답] 
 		12113.60
  */
+
+let chulsuTime = 3600 * 1 + 15 * 60 + 20;
+let chulsuSecond = chulsuTime / 25;
+
+let answer = chulsuSecond * 67;
+
+console.log(answer.toFixed(2), "초");

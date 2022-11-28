@@ -10,3 +10,10 @@
 	
 	
 */
+let chulsu = 56 / 4;
+let minsu = 84 / 7;
+
+console.log("철수가 1바퀴 도는 데 걸리는 시간", chulsu, "분");
+console.log("민수가 1바퀴 도는 데 걸리는 시간", minsu, "분");
+
+console.log("정답은", chulsu * 3 - minsu * 3, "분");

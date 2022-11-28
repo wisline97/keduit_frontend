@@ -10,3 +10,11 @@
 	 [정답]
 	 	15
  */
+
+let total = 40;
+
+let minsu = (40 / 100) * 40;
+let younghee = 9;
+let chulsu = total - minsu - younghee;
+
+console.log("철수의 득표는", chulsu, "표");

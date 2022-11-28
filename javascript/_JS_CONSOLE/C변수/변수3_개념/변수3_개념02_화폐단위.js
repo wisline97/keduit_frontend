@@ -6,3 +6,21 @@
 	[정답]
 		오천원 : 1 , 일천원  : 3 , 오백원  : 1 , 일백원 : 2
  */
+
+let change = 8700;
+
+let $5000 = Math.floor((change % 10000) / 5000);
+let $1000 = Math.floor((change % 5000) / 1000);
+let $500 = Math.floor((change % 1000) / 500);
+let $100 = Math.floor((change % 500) / 100);
+
+console.log(
+  "오천원:",
+  $5000,
+  "일천원:",
+  $1000,
+  "오백원:",
+  $500,
+  "일백원:",
+  $100
+);

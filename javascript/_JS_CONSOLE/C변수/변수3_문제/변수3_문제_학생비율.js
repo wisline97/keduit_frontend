@@ -10,3 +10,13 @@
 	[정답] 
 		25.00
  */
+
+let total = 16;
+
+let volunteer = 8 + 4;
+
+let nonvolunteer = total - volunteer;
+
+let answer = (100 / 16) * nonvolunteer;
+
+console.log(answer.toFixed(2), "%");

@@ -9,3 +9,12 @@
  	 	
  	 	[정답] 37.50
  */
+
+let total = 40;
+
+let minsu = (40 / 100) * 40;
+let younghee = 9;
+let chulsu = total - minsu - younghee;
+
+console.log("철수는", chulsu, "표를 득표했다");
+console.log("정답은", ((100 / 40) * chulsu).toFixed(2), "%");

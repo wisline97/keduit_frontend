@@ -9,3 +9,8 @@
 	[정답] 
 		500
  */
+
+let rest = 345 / 69;
+let total = rest * 100;
+
+console.log(total, "개");

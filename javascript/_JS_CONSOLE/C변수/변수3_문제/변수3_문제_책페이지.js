@@ -10,3 +10,10 @@
 		34.32
 		
  */
+
+let total = 132;
+let percent = total / 100;
+
+let answer = percent * 26;
+
+console.log(answer, "페이지");

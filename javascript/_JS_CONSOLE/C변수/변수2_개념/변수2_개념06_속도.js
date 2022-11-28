@@ -9,3 +9,7 @@
 		39.53
 	
 */
+
+let inMint = ((850 * 2) / 43) * 1;
+
+console.log("철수의 분속은", inMint.toFixed(2), "m/s");

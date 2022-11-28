@@ -7,3 +7,13 @@
   	[정답] 
   		20
  */
+
+let total = 250;
+let morning = 120;
+let afternoon = 80;
+
+let rest = total - morning - afternoon;
+
+let percent = (100 / 250) * rest;
+
+console.log(percent, "%");

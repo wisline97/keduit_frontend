@@ -6,3 +6,7 @@
 	[정답] 
 		125
  */
+
+let percent = (1350 / 90) * 10;
+let year = percent + 1350;
+console.log(year / 12, "만원");

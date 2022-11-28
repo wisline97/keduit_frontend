@@ -7,3 +7,10 @@
 	[정답] 
 		157.82
  */
+
+let time = 3600 * 2;
+let second = 37876 / time;
+
+let answer = second * 30;
+
+console.log(answer.toFixed(2), "m");

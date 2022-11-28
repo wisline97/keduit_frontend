@@ -9,3 +9,10 @@
 	[정답] 
 		43.75
  */
+
+let total = 128;
+let percent = 100 / total;
+
+let answer = percent * 72;
+
+console.log(answer, "%");

@@ -7,3 +7,12 @@
 	[정답] 
 		3200
  */
+
+let total = 10000;
+let snack = 1200;
+let count = 6;
+let discount = (200 * count) / 3;
+
+let change = total - snack * count + discount;
+
+console.log(change, "원");

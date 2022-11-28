@@ -9,3 +9,10 @@
 	[정답]
 		1741.08
  */
+
+let apple = 1056 / 8;
+let pear = apple * 1.17;
+
+let total = apple * 5 + pear * 7;
+
+console.log(total.toFixed(2), "g");

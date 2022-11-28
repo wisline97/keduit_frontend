@@ -7,3 +7,10 @@
 		인형 125개가있다. 인형1개는 몇퍼센트인지 구하시오.
 		
 */
+
+let doll = 125;
+
+let onePercent = (125 / 100) * 1;
+let dollOne = (100 / 125) * 1;
+console.log("[1]", onePercent, "개");
+console.log("[2]", dollOne, "%");

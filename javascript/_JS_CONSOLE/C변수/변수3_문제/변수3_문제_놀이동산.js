@@ -8,3 +8,12 @@
 	[정답] 
 		40
  */
+
+let total = 15000;
+
+let chulsu = 9000;
+
+let discount = 15000 - 9000;
+let percent = (100 / 15000) * discount;
+
+console.log(percent, "% 할인받음");
