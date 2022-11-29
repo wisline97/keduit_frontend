@@ -1,5 +1,4 @@
-<script>
-    /*
+/*
 		[do while] 
 		
 		 while 의 변형된형태이다.
@@ -11,9 +10,8 @@
 		 4) 주의 ; 을 반드시 붙여야한다. 
 	*/
 
-    var i = 0;
-		do {
-			console.log(i);
-			i += 1;
-		}while(i < 6);
-</script>
+var i = 0;
+do {
+  console.log(i);
+  i += 1;
+} while (i < 6);

@@ -1,5 +1,4 @@
-<script>
-    /*
+/*
 		[문제]		
     a 는 랜덤으로 1~99를 랜던저장한다.
     b 는 랜덤으로 101~199 를 랜덤저장한다.
@@ -11,23 +10,18 @@
     
 
 	 */
-     var a = parseInt(Math.random() * 99) + 1
-     var b = 100;
-     var c = parseInt(Math.random() * 99) + 101;
-    console.log(a + " " + b + " " + c);
-    var r1 = b-a;
-    var r2 = c-b;
+var a = parseInt(Math.random() * 99) + 1;
+var b = 100;
+var c = parseInt(Math.random() * 99) + 101;
+console.log(a + " " + b + " " + c);
+var r1 = b - a;
+var r2 = c - b;
 
-    if(r1 > r2){
-      console.log("c가 가깝다");
-    }
-    if(r2 > r1){
-      console.log("a가 가깝다");
-    }
-    else{
-      console.log("같다");
-    }
-    
-
-
-</script>
+if (r1 > r2) {
+  console.log("c가 가깝다");
+}
+if (r2 > r1) {
+  console.log("a가 가깝다");
+} else {
+  console.log("같다");
+}

@@ -1,4 +1,3 @@
-<script>
 /*
 	[문제]
 		귤 6개의 무개는 840g, 사과 3개의 무게는 750g 입니다.
@@ -6,4 +5,7 @@
 	   사과 4개의 무게가 귤 7개의 무게보다 크면 true를 출력하시오.
 */
 
-</script>
+let kyul = 840 / 6;
+let apple = 750 / 3;
+
+console.log(5 * kyul > 2 * apple && 4 * apple > 7 * kyul);

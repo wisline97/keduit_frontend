@@ -1,4 +1,3 @@
-<script>
 /*
 	[문제] 과락
 		3과목의 평균이 60점 이상이면 합격입니다.
@@ -9,5 +8,16 @@
 		math = 49;		
 */
 
+let kor = 100;
+let eng = 87;
+let math = 49;
 
-</script>
+let average = (kor + eng + math) / 3;
+
+let standard = 50;
+
+if (average >= 60 && kor > 50 && eng > 50 && math > 50) {
+  console.log("합격");
+} else {
+  console.log("불합격");
+}

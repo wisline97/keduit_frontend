@@ -1,5 +1,4 @@
-<script>
-	/*
+/*
 	 [반복문 while]
 	 구조
 		1) while ==> 키워드 
@@ -8,11 +7,8 @@
 				   단,반복문은 if 와 다르게  기능종료후 다시 while 실행한다.
 		4) 중요 ==> 반복문은 반드시 종료 조건을 만들어야한다. (무한반복 방지)
 	*/
-    var i = 1;
-    while(i <= 5){
-        console.log(i);
-        i = i + 1;
-    }
-
-
-</script>
+var i = 1;
+while (i <= 5) {
+  console.log(i);
+  i = i + 1;
+}

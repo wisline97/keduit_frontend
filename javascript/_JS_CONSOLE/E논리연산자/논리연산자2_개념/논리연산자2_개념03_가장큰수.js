@@ -1,4 +1,3 @@
-<script>
 /*
 	[문제]
 		아래 변수 a , b , c 중에서 a에 가장큰수가 저장되어있는지 확인합니다.
@@ -11,4 +10,8 @@
 		
 */
 
-</script>
+let a = 6;
+let b = 2;
+let c = 5;
+
+console.log(a > b && a > c);

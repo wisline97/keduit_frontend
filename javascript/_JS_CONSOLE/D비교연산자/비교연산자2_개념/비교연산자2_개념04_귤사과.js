@@ -7,3 +7,8 @@
 	[문제]
 		위 설명을 식으로 표현하고 풀이를 주석으로 표현하시오.
 */
+
+let kyul = 840 / 6;
+let apple = 750 / 3;
+
+console.log(4 * kyul > 2 * apple);

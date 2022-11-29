@@ -1,6 +1,3 @@
-<script>
-
-    
 /*
 	[문제] 
 		국어점수가 100점이거나 수학점수가 100점이면 장학생입니다.
@@ -12,4 +9,8 @@
 		
 		
  */
-</script>
+
+let korean = 99;
+let math = 99;
+
+console.log(korean == 100 && math == 100);

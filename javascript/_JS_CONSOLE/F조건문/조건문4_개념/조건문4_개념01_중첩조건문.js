@@ -1,4 +1,3 @@
-<script>
 /*
 	[문제]
 
@@ -17,27 +16,26 @@
 		23 ==> 재시험
 */
 
-	var 점수 = parseInt(Math.random() * 100) + 1;
-	console.log("점수 : " + 점수);
-	if (점수 >= 91 && 점수 <= 100){
-		var 일 = 점수 % 10;
-		if(일 >= 8){
-			console.log("A+");
-		}
-		if(일 < 8){
-			console.log("A");
-		}
-	}
-	if (점수 >= 81 && 점수 <= 90){
-		var 일 = 점수 % 10;
-		if(일 >= 8){
-			console.log("B+");
-		}
-		if(일 < 8){
-			console.log("B");
-		}
-	}
-	if (점수 >= 0 && 점수 <= 80){
-		console.log("재시험");
-	}
-</script>
+var 점수 = parseInt(Math.random() * 100) + 1;
+console.log("점수 : " + 점수);
+if (점수 >= 91 && 점수 <= 100) {
+  var 일 = 점수 % 10;
+  if (일 >= 8) {
+    console.log("A+");
+  }
+  if (일 < 8) {
+    console.log("A");
+  }
+}
+if (점수 >= 81 && 점수 <= 90) {
+  var 일 = 점수 % 10;
+  if (일 >= 8) {
+    console.log("B+");
+  }
+  if (일 < 8) {
+    console.log("B");
+  }
+}
+if (점수 >= 0 && 점수 <= 80) {
+  console.log("재시험");
+}

@@ -6,3 +6,15 @@
     [문제]
         위식을 표현하고, 풀이과정을 주석으로 작성하시오.
     */
+
+/* 
+45 + 89 + a >= 180
+a >= 180 - 45 - 89
+a >= 46
+*/
+
+let korean = 45;
+let math = 89;
+let science = 46;
+
+console.log((korean + math + science) / 3 >= 60);

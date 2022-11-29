@@ -1,4 +1,3 @@
-<script>
 /*
 	[문제]
   
@@ -9,28 +8,21 @@
  
  */
 
- 		var join_id = "qwer1234";
-		var join_pw = "1234qwer";
-		
-		var log_id = "qwer1234";
-		var log_pw = "1234qwer";
+var join_id = "qwer1234";
+var join_pw = "1234qwer";
 
-    
-		if(join_id == log_id && join_pw == log_pw) {
-			console.log("로그인");
-		}
-		if(join_id != log_id || join_pw != log_pw) {
-			console.log("로그인실패");
-		}		
-        console.log("------------------------------");
-		if(join_id == log_id && join_pw == log_pw) {
-			console.log("로그인");
-		}
-		else {
-			console.log("로그인실패");
-		}	
+var log_id = "qwer1234";
+var log_pw = "1234qwer";
 
-
-
-
-</script>
+if (join_id == log_id && join_pw == log_pw) {
+  console.log("로그인");
+}
+if (join_id != log_id || join_pw != log_pw) {
+  console.log("로그인실패");
+}
+console.log("------------------------------");
+if (join_id == log_id && join_pw == log_pw) {
+  console.log("로그인");
+} else {
+  console.log("로그인실패");
+}

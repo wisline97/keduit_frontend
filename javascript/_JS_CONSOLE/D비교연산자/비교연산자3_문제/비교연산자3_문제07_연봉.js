@@ -8,3 +8,9 @@
 		[문제]
 			위식을 표현하고, 풀이과정을 주석으로 작성하시오.
 	 */
+
+let lastYear = 970;
+let thisYear = lastYear + lastYear * 0.11;
+let average = 91 * 12;
+
+console.log(thisYear > average);

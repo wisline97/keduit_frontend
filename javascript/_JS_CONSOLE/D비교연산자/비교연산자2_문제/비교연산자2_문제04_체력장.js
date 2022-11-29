@@ -6,3 +6,8 @@
 	[문제]
 		위 내용을 식으로 표현하고, 풀이과정을 주석으로 작성하시오.
 */
+
+let chulsu = 123 / 200;
+
+console.log(chulsu * 60);
+console.log(chulsu * 60 >= 35);

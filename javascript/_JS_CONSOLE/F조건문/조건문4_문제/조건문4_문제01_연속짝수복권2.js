@@ -1,4 +1,3 @@
-<script>
 /*
 	[연속짝수복권]
 		100~900 사이의 랜덤숫자를 출력한다. 
@@ -14,29 +13,27 @@
 		456 ==> 4,5,6 두자리가 짝수이지만 연속이 아니므로 ==> 꽝
 		782 ==> 7,8,2 두자리가 짝수이고 8,2연속이므로 ==> 2등 	
 */
-	var num = parseInt(Math.random() * 801) + 100; 
-	var a = parseInt(num / 100);
-	var b = parseInt(num % 100 / 10);
-	var c = parseInt(num % 10);
-	console.log(num);
-	var win = 0;
-	if(a % 2 == 0 && b % 2 == 0 && c % 2 == 0){
-		win = 1;
-	}
-	if(a % 2 == 0 && b % 2 == 0 && c % 2 == 1){
-		win = 2;
-	}
-	if(a % 2 == 1 && b % 2 == 0 && c % 2 == 0){
-		win = 2;
-	}
-	if(win == 1){
-		console.log("1등");
-	}
-	if(win == 2){
-		console.log("2등");
-	}
-	if(win == 0){
-		console.log("꽝");
-	}
-
-</script>
+var num = parseInt(Math.random() * 801) + 100;
+var a = parseInt(num / 100);
+var b = parseInt((num % 100) / 10);
+var c = parseInt(num % 10);
+console.log(num);
+var win = 0;
+if (a % 2 == 0 && b % 2 == 0 && c % 2 == 0) {
+  win = 1;
+}
+if (a % 2 == 0 && b % 2 == 0 && c % 2 == 1) {
+  win = 2;
+}
+if (a % 2 == 1 && b % 2 == 0 && c % 2 == 0) {
+  win = 2;
+}
+if (win == 1) {
+  console.log("1등");
+}
+if (win == 2) {
+  console.log("2등");
+}
+if (win == 0) {
+  console.log("꽝");
+}

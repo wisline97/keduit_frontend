@@ -10,7 +10,8 @@
 
 		
 */
-
+a = 2;
+b = 2;
 console.log(a * 3 == 6);
 console.log(b > a / 2);
 /*
