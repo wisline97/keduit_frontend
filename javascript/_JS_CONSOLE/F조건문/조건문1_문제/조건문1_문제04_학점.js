@@ -18,3 +18,13 @@
  *     	82 ==> B
  *     	23 ==> 재시험
  */
+
+const test = parseInt(Math.random() * 101);
+console.log("시험점수는", test, "점");
+if (test >= 91) {
+  console.log("A학점");
+} else if (test <= 90 && test >= 81) {
+  console.log("B학점");
+} else {
+  console.log("재시험");
+}

@@ -9,3 +9,23 @@
 		16	==> 짝
 		 7	==> 7
 */
+
+const num = parseInt(Math.random()*99)+1
+const num10 = num >= 10 ? parseInt(num/10) : undefined
+const num1 = num%10 == 0 ? undefined : num%10
+
+console.log(num)
+let count = 0
+if(num10 % 3 == 0){
+	count += 1
+}
+if(num1%3==0){
+	count += 1
+}
+
+
+if(count == 1){
+	console.log("짝")
+} else if(count == 2){
+	console.log("짝짝")
+}

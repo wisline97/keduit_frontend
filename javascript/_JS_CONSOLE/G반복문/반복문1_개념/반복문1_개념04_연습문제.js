@@ -5,3 +5,12 @@
 			  [조건2] 숫자가 홀수일떄는 "홀수"를 함께 출력한다.
 		 
 	 */
+let num = 1
+while (num <= 10){
+	if(num%2 == 0){
+		console.log(num, "짝수")
+	}else{
+		console.log(num, "홀수")
+	}
+	num += 1
+}

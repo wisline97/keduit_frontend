@@ -3,3 +3,12 @@
 		[정답] 15
 	
 	*/
+let num = 0
+let y = 0
+let i = 1
+while (i <= 5){
+	num += i
+	console.log(y,"+",i,"=",num)
+	y = num
+	i+=1
+}

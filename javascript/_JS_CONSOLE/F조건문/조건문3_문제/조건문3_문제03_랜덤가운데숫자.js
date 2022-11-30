@@ -7,3 +7,9 @@
 	  		[출력] ==> 9
 	  	
 	 */
+
+const num = parseInt(Math.random()*80000) + 10000
+const midNum = parseInt(num % 1000 / 100)
+
+console.log(num)
+console.log(midNum)

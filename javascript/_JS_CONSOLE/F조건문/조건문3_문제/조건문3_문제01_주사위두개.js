@@ -9,3 +9,16 @@
         1 , 2 ==> 3
         1 , 1 ==> 2 + 6
     */
+const dice1 = parseInt(Math.random()*6)+1
+const dice2 = parseInt(Math.random()*6)+1
+
+let 합 = 0
+
+if (dice1 == dice2){
+    합 = dice1 + dice2 + 6
+} else{
+    합 = dice1 + dice2
+}
+
+console.log("주사위 1:",dice1,"주사위2:",dice2)
+console.log("두 주사위의 합은",합)

@@ -6,3 +6,9 @@
  *
  */
 var r = parseInt(Math.random() * 100) + 1;
+
+if (r % 4 == 0) {
+  console.log(r, true);
+} else {
+  console.log(r, false);
+}

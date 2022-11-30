@@ -13,3 +13,32 @@
 		 
 			  for를 사용하시오.
 	 */
+console.log("============================")
+console.log("문제1")
+for(i = 1; i<=10; i++){
+	if(i>= 5 && i <=9){
+		console.log(i)
+	}
+}
+console.log("============================")
+console.log("문제2")
+for(i = 10; i>=1; i--){
+	if(i>= 3 && i <=6){
+		console.log(i)
+	}
+}
+console.log("============================")
+console.log("문제3")
+for(i = 1; i<=10; i++){
+	if(i%2==0){
+		console.log(i)
+	}
+}
+console.log("============================")
+console.log("문제4")
+for(i = 1; i<=10; i++){
+	if(i%3 == 0){
+		console.log(i)
+	}
+}
+console.log("============================")

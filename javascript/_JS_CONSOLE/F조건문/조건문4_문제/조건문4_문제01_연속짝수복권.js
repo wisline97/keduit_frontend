@@ -13,3 +13,44 @@
 		456 ==> 4,5,6 두자리가 짝수이지만 연속이 아니므로 ==> 꽝
 		782 ==> 7,8,2 두자리가 짝수이고 8,2연속이므로 ==> 2등 	
 */
+
+/* 
+num = 100
+*/
+
+const num = parseInt(Math.random()*800)+100
+const num100 = parseInt(num / 100)
+const num10 = num%100 / 10 != 0 ? parseInt(num%100 / 10) : 0
+const num1 = num%10 > 0 ? num%10 : 0
+
+console.log(num)
+console.log(num100)
+console.log(num10)
+console.log(num1)
+
+let count = 0
+
+if (num100%2 == 0 && num10%2 == 0 && num1%2 == 0){
+	count += 3
+}
+
+if (num100%2 == 0 && num10%2 == 0){
+	count += 2
+}
+
+if (num10%2 == 0 && num1%2 == 0){
+	count += 2
+}
+
+
+if (count == 0){
+	console.log("꽝")
+}
+
+if (count == 2){
+	console.log("2등")
+}
+
+if (count >= 3){
+	console.log("1등")
+}

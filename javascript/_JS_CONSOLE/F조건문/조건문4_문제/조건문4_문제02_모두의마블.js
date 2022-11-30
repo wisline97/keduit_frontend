@@ -23,3 +23,57 @@
 	
 		 [4] 20 이상의 값이 나오면 "승리" 를 출력한다.
 	 */
+
+let 현재위치 = 9
+const bonus = 6
+let dice1 = parseInt(Math.random()*6)+1
+let dice2 = parseInt(Math.random()*6)+1
+
+console.log("현재위치", 현재위치)
+console.log("=========================================================")
+
+console.log("첫번째 턴")
+
+console.log("주사위 1:",dice1)
+console.log("주사위 2:",dice2)
+console.log("=========================================================")
+if(dice1 == dice2){
+	console.log("주사위 1과, 주사위 2의 값이 같습니다")
+	console.log("보너스로 6칸 더 이동하세요.")
+	현재위치 = 현재위치 + dice1 + dice2 + bonus
+} else{
+	console.log("주사위 1과, 주사위 2의 합만큼 이동합니다.")
+	현재위치 = 현재위치 + dice1 + dice2
+}
+console.log("=========================================================")
+console.log("현재위치는", 현재위치)
+console.log("=========================================================")
+if (현재위치 >= 20){
+	console.log("승리!")
+} else{
+	if(현재위치>=14 && 현재위치 <= 16){
+		console.log("함정에 빠졌습니다.")
+		console.log("=========================================================")
+		console.log("주사위를 한 번 더 굴립니다.")
+		console.log("=========================================================")
+
+		dice1 = parseInt(Math.random()*6)+1
+		dice2 = parseInt(Math.random()*6)+1
+		console.log("두번째 턴")
+		console.log("주사위 1:",dice1)
+		console.log("주사위 2:",dice2)
+		console.log("=========================================================")
+		if(dice1 + dice2 <= 6){
+			console.log("주사위1과 주사위2의 합이 6 이하입니다. 처음 위치로 이동합니다.")
+			현재위치 = 0
+		} else{
+			console.log("함정에서 탈출했습니다.")
+			현재위치 = 현재위치 + dice1 + dice2
+		}
+	} else{
+		console.log("현재위치는",현재위치)
+	}
+
+
+
+}

@@ -17,7 +17,7 @@
 		철수가 지불해야하는 금액을 출력하시오.
 		
 */
-var 볼펜 = parseInt(Math.random() * 21) + 10;
+var 볼펜 = 24
 var 볼펜가격 = 1200;
 var 구입가격 = 0;
 var 할인가격 = 0;
@@ -33,7 +33,7 @@ console.log("할인 가격 : " + 할인가격);
 구입가격 = 구입가격 - 할인가격;
 console.log("할인후 가격 : " + 구입가격);
 
-var 회원등급 = parseInt(Math.random() * 3) + 1;
+var 회원등급 = 3
 console.log("회원등급 : " + 회원등급);
 if (회원등급 == 1) {
   구입가격 = 구입가격 * 0.85;

@@ -10,3 +10,25 @@
 		 
 			for를 사용하시오.
 	*/
+	console.log("============================")
+	console.log("문제1")
+	let total = 0
+	for(i = 1; i<=5; i++){
+		total += i
+	}
+	console.log(total)
+	console.log("============================")
+	console.log("문제2")
+	for(i = 1; i<=10; i++){
+		if(i < 3 || i >= 7){
+			console.log(i)
+		}
+	}
+	console.log("============================")
+	console.log("문제3")
+	for(i = 1; i<=10; i++){
+		if(i>=3 && i <= 7){
+			console.log(i)
+		}
+	}
+	console.log("============================")

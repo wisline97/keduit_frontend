@@ -12,3 +12,14 @@
 		   	10 ==> 1
         
 		 */
+
+/* const num = parseInt(Math.random()*1000)+1
+let page = parseInt(num / 10) + 1
+console.log(num)
+console.log(page) */
+
+
+const num = 30
+let page = num % 10 != 0 ? 1 + parseInt(num / 10)*10 : (parseInt(num / 10) - 1) * 10 + 1
+console.log(num)
+console.log(page)

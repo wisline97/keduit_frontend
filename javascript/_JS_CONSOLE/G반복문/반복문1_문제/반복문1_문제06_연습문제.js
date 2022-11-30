@@ -5,3 +5,17 @@
 		[3] 그외는 전부 숫자를 출력한다. 
 		
  */
+
+		let i = 1
+
+		while(i<=15){
+			if(i>5 && i < 10){
+				if(i%3 ==0){
+					console.log("안녕")
+				}else{
+					console.log(i)
+				}}else{
+			console.log(i)
+		}
+			i+=1
+		}

@@ -6,3 +6,18 @@
 		 [정답2] 4,3,2,1
  
 	 */
+
+// [1]
+
+let i = 1
+
+while (i <= 4){
+	console.log(i)
+	i+=1
+}
+console.log("========================")
+let y = 4
+while (y > 0){
+	console.log(y)
+	y-=1
+}
