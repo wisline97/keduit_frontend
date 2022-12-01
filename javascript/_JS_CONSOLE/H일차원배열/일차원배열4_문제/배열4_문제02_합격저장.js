@@ -1,4 +1,3 @@
-<script>
 
 
 /*
@@ -9,7 +8,6 @@
     var score = [ 50, 83, 78 ];
     var win1 = [ 0,0,0 ];
 */
-var number = [ 1001, 1002, 1003 ];
-    var score = [ 50, 83, 78 ];
-    var win1 = [ 0,0,0 ];
-</script>
+var number = [1001, 1002, 1003];
+var score = [50, 83, 78];
+var win1 = [0, 0, 0];
