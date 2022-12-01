@@ -11,3 +11,18 @@
 	 * (4) 6/1 6/2 6/3 6/4 6/5 6/6	==> count=4	==> (소수x)
 	 * (4) 2/1 2/2 	==> count=2	==>(소수)
 	 */
+
+
+const num = parseInt(Math.random() * 100) + 1
+let count = 0
+for (i = 1; i <= num; i++) {
+	if (num % i == 0) {
+		count += 1
+	}
+}
+
+if (count <= 2) {
+	console.log(num, "은 소수입니다.")
+} else {
+	console.log(num, "은 소수가 아닙니다.")
+}

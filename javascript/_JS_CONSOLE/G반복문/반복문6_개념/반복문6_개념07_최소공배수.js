@@ -6,3 +6,16 @@
 			 예) 12 24....
 			 여기서 24가 최소공배수이다.
 	*/
+
+let min = 8
+let max = 12
+
+let count = 0
+
+for (i = 1; count < 1; i++) {
+	if (i % min == 0 && i % max == 0) {
+		count += 1
+		console.log(i)
+	}
+
+}

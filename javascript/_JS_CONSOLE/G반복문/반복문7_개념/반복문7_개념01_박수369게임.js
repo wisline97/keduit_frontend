@@ -16,3 +16,32 @@
  * [4] 카운트한 숫자에 맞춰서 결과를 출력한다.
  *
  */
+let min = 1
+let max = 50
+let min10 = 0
+let min1 = 0
+let count = 0
+for (min; min <= max; min++) {
+    min10 = min > 9 ? parseInt(min / 10) : 0
+    min1 = min % 10
+    count = 0
+    if (min1 > 0) {
+        if (min1 % 3 == 0) {
+            count += 1
+        }
+    }
+    if (min10 > 0) {
+        if (min10 % 3 == 0) {
+            count += 1
+        }
+    }
+    if (count == 0) {
+        console.log(min)
+    }
+    if (count == 1) {
+        console.log("짝")
+    }
+    if (count == 2) {
+        console.log("짝짝")
+    }
+}

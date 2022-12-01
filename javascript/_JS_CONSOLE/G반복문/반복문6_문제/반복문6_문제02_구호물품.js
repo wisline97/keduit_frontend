@@ -5,3 +5,12 @@
 			최대한많은 환자에게 나눠줄때 몇명인지 구하시오.
 			
 	 */
+
+let num1 = 72
+let num2 = 120
+
+for (i = 1; i <= num2; i++) {
+	if (num1 % i == 0 && num2 % i == 0) {
+		console.log(i)
+	}
+}
