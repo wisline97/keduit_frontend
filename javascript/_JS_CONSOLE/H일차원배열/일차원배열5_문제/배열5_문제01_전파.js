@@ -9,4 +9,13 @@
 	(예) 4 ==> [9,9,9,0,0]
 		
  */
-var arr = [9, 9, 9, 9, 9];
+var arr = [0, 0, 0, 0, 0];
+let idx = arr.length
+let num1 = parseInt(Math.random() * idx)
+console.log("랜덤 인덱스는", num1, "입니다.")
+for (i = 0; i < num1; i++) {
+	arr[i] = 9
+}
+
+console.log(arr)
+

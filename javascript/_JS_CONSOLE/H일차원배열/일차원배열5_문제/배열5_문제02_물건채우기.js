@@ -21,3 +21,30 @@
 
 var 라면진열장 = [3, 5, 2, 1, 2];
 var 재고 = 6;
+
+var max = 5;
+var idx = 라면진열장.length
+var diff = 0
+for (i = 0; i < idx; i++) {
+	diff = max - 라면진열장[i]
+	console.log("남은 재고:", 재고)
+	if (재고 > 0) {
+		if (재고 > diff) {
+			라면진열장[i] += diff
+			재고 -= diff
+		}
+		else {
+			if (diff < 재고) {
+				라면진열장[i] += diff
+			} else {
+				라면진열장[i] += 재고
+				break
+			}
+		}
+	}
+	if (재고 == 0) {
+		console.log("재고가 없습니다.")
+		break
+	}
+}
+console.log(라면진열장)

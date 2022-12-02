@@ -10,3 +10,21 @@
 	*/
 
 var arr = [10, 20, 30, 40, 50, 60];
+var num1 = 0
+var num2 = 0
+var temp = 0
+
+for (i = 0; i < 10; i++) {
+	num1 = parseInt(Math.random() * 5)
+	num2 = parseInt(Math.random() * 5)
+	if (num1 != num2) {
+		temp = arr[num1]
+		arr[num1] = arr[num2]
+		arr[num2] = temp
+		console.log(num1, num2)
+	} else {
+		console.log("num1 과 num2의 값이 같습니다")
+		console.log("아무런 변화도 일어나지 않습니다")
+	}
+	console.log(arr)
+}

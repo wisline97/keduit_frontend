@@ -18,3 +18,16 @@
  */
 var arr = [1001, 20, 30, 1002, 43, 23, 1003, 45, 1];
 var b = [];
+
+let idx = arr.length - 1
+let y = 0
+
+for (i = 0; i <= idx; i += 3) {
+    if (i < idx) {
+        if (arr[i + 1] > arr[i + 2]) {
+            b[y] = arr[i]
+            y += 1
+        }
+    }
+}
+console.log(b)
