@@ -11,3 +11,14 @@
 var number = [1001, 1002, 1003];
 var score = [50, 83, 78];
 var win1 = [0, 0, 0];
+
+var idx = number.length
+var y = 0
+for (i = 0; i < idx; i++) {
+    if (score[i] >= 60) {
+        win1[y] = number[i]
+        y += 1
+    }
+}
+
+console.log(win1)

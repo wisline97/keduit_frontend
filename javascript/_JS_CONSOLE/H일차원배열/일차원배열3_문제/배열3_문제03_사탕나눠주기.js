@@ -17,3 +17,13 @@
 var 사탕 = [80, 53, 36, 22];	// 각종류의 사탕수 
 var 사람수 = [0, 0, 0, 0];
 var 나머지 = [0, 0, 0, 0];
+
+var idx = 사탕.length
+
+for (i = 0; i < idx; i++) {
+	사람수[i] = parseInt(사탕[i] / 25);
+	나머지[i] = 사탕[i] % 25
+}
+
+console.log(사람수)
+console.log(나머지)

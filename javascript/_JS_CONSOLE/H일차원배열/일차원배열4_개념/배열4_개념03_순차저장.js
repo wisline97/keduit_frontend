@@ -8,3 +8,13 @@
  */
 var arr = [1, 45, -10, -30, 2];
 var b = [0, 0, 0, 0, 0];
+let idx = arr.length
+let y = 0
+for (i = 0; i < idx; i++) {
+	if (arr[i] < 0) {
+		b[y] = arr[i]
+		y += 1
+	}
+}
+
+console.log(b)

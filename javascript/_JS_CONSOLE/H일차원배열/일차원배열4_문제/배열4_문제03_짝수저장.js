@@ -14,3 +14,16 @@ var a = [10, 20, 30, 40, 50];
 var b = [13, 54, 17, 42, 1];
 var c = [0, 0, 0, 0, 0];
 var d = [0, 0, 0, 0, 0];
+
+let idx = a.length
+let y = 0
+for (i = 0; i < idx; i++) {
+    c[i] = a[i] + b[i]
+    if (c[i] % 2 == 0) {
+        d[y] = c[i]
+        y += 1
+    }
+}
+
+console.log(c)
+console.log(d)

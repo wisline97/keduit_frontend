@@ -9,3 +9,18 @@
 		int[] arr1 = {1, 2, 3, 1, 2, 3};
 		int[] arr2 = {1, 2, 3, 5, 2, 3};
  */
+
+let check = true
+
+let arr1 = [1, 2, 3, 1, 2, 3];
+let arr2 = [1, 2, 3, 2, 2, 3];
+
+let idx = arr1.length
+
+for (i = 0; i < idx; i++) {
+	if (arr1[i] != arr2[i]) {
+		check = false
+	}
+}
+
+console.log(check)

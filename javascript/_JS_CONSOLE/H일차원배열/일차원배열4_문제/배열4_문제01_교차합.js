@@ -20,3 +20,12 @@ int b[] = new int[5];
 var arr1 = [11, 21, 31, 41, 51];
 var arr2 = [25, 26, 27, 28, 29];
 var b = [];
+
+var idx = arr1.length
+var i = 0
+var y = idx - 1
+
+for (i = 0; i < idx; i++) {
+    b[i] = arr1[i] + arr2[y]
+    y -= 1
+}

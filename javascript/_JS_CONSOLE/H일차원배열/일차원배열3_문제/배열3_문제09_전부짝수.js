@@ -6,4 +6,28 @@
 		단, 0은 짝수이다.
 	
  */
-var arr = [];
+let num = 0
+let i = 0
+let arr = []
+while (true) {
+	num = parseInt(Math.random() * 201) - 100
+	arr[i] = num
+	i += 1
+	if (i == 4) {
+		break
+	}
+}
+
+console.log(arr)
+
+
+let idx = arr.length
+let check = true
+
+for (i = 0; i < idx; i++) {
+	if (arr[i] % 2 != 0) {
+		check = false
+	}
+}
+
+console.log(check)

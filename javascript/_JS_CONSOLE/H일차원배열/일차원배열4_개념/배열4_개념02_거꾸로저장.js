@@ -6,3 +6,12 @@
 
 var a = [10, 20, 30, 40, 50];
 var b = [];
+
+let aIdx = a.length
+let y = 0
+for (i = aIdx - 1; i >= 0; i--) {
+  b[y] = a[i]
+  y += 1
+}
+
+console.log(b)

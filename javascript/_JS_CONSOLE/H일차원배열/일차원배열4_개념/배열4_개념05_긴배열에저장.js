@@ -13,3 +13,28 @@
 var a = [10, 20, 30];
 var b = [40, 50, 60];
 var c = [0, 0, 0, 0, 0, 0];
+
+let cIdx = a.length + b.length
+
+let aCount = a.length
+let i = 0
+let y = 0
+
+while (true) {
+	if (aCount != 0) {
+		c[i] = a[i]
+		i += 1
+		aCount -= 1
+	}
+	if (aCount == 0) {
+		c[i] = b[y]
+		i += 1
+		y += 1
+	}
+	if (i == cIdx) {
+		break
+	}
+
+}
+
+console.log(c)

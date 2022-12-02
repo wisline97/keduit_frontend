@@ -8,3 +8,14 @@
  */
 var arr = [10, 49, 51, 36, 17];
 var c = [0, 0, 0, 0, 0];
+
+let cIdx = c.length - 1
+let y = c.length - 1
+for (i = 0; i <= cIdx; i++) {
+    if (arr[i] % 2 == 1) {
+        c[y] = arr[i]
+        y -= 1
+    }
+}
+
+console.log(c)

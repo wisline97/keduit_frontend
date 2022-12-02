@@ -10,3 +10,18 @@
 var d = [10, 20, 30, 40, 50, 60];
 var e = [0, 0, 0];
 var f = [0, 0, 0];
+
+var idx = d.length - 1
+var y = 0
+for (i = 0; i <= idx; i++) {
+      if (i < e.length) {
+            e[i] = d[i]
+      }
+      if (i >= e.length) {
+            f[y] = d[i]
+            y += 1
+      }
+}
+
+console.log(e)
+console.log(f)

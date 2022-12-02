@@ -10,4 +10,20 @@
 		  [9,2,1,0,7]  ==> 에서 홀수만모으면 917 
 		
  */
+var num = 0
 var arr = [];
+
+for (i = 0; i < 5; i++) {
+	num = parseInt(Math.random() * 10)
+	arr[i] = num
+}
+console.log(arr)
+var str = ""
+
+for (i = 0; i < 5; i++) {
+	if (arr[i] % 2 == 1) {
+		str += arr[i]
+	}
+}
+
+console.log(str)

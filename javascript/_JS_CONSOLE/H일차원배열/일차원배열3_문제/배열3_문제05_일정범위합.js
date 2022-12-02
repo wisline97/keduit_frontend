@@ -17,5 +17,24 @@
   
  */
 var array = [10, 43, 25, 76, 3, 100, 56];
-var index1 = -1;
-var index2 = -1;
+var idx = array.length
+var index1 = parseInt(Math.random() * idx);
+var index2 = parseInt(Math.random() * idx);
+console.log(index1, index2)
+
+var total = 0
+
+for (i = 0; i < idx; i++) {
+	if (index2 > index1) {
+		if (i >= index1 && i <= index2) {
+			total += array[i]
+		}
+	}
+	else {
+		if (i >= index2 && i <= index1) {
+			total += array[i]
+		}
+	}
+}
+
+console.log(total)
