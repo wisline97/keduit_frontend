@@ -12,4 +12,40 @@
 
 var com = [];
 var me = [];
+var check = false
+var count = 0
+var i = 0
 
+for (j = 0; j < 3; j++) {
+	com[j] = NaN
+	me[j] = NaN
+}
+
+while (true) {
+	var num = parseInt(Math.random() * 10);
+	check = false
+	console.log(num)
+	for (k = 0; k < com.length; k++) {
+		if (num == com[k]) {
+			check = true
+		}
+	}
+	if (check == false) {
+		com[i] = num
+		i += 1
+		count += 1
+	} else {
+		continue
+	}
+	if (count == 3) {
+		break
+	}
+}
+
+console.log(com)
+
+me[0] = 3
+me[1] = 5
+me[2] = 1
+
+console.log(me)
