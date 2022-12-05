@@ -1,0 +1,30 @@
+<script>
+    /*
+        [배열]
+            랜덤으로 1~9사이의 숫자를 저장한다. 
+            arr 배열안에 랜덤숫자있으면 인덱스를 출력
+            arr 배열안에 랜덤숫자가 없으면 "x" 를 출력 
+        [예시]
+            r = 3 : "x"
+            r = 7 : 3
+    */
+    console.log("문제3")
+    arr = [4, 5, 6, 7, 8]
+    num = parseInt(Math.random() * 9) + 1;
+    console.log("랜덤숫자는", num)
+    check = false
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i] == num) {
+            answer = i
+            check = true
+        }
+    }
+
+    if (check) {
+        console.log("정답:", answer)
+    }
+
+    if (check == false) {
+        console.log("X")
+    }
+</script>

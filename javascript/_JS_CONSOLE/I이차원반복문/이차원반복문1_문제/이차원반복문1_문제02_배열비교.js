@@ -11,4 +11,19 @@ var a = [10, 20, 30, 40];
 var b = [10, 5, 20, 9];
 var c = [];
 var ci = 0;
+var check = 0
+for (i = 0; i < a.length; i++) {
+	check = true
+	for (y = 0; y < b.length; y++) {
+		if (a[i] == b[y]) {
+			console.log(a[i], b[y])
+			check = false
+		}
+	}
+	if (check) {
+		c[ci] = a[i]
+		ci += 1
+	}
+}
 
+console.log(c)

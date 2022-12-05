@@ -29,3 +29,6 @@ for (i = 0; i < idx; i++) {
     b[i] = arr1[i] + arr2[y]
     y -= 1
 }
+
+
+console.log(b)

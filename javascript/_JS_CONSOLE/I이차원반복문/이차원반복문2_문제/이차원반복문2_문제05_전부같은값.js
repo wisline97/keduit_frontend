@@ -8,19 +8,20 @@
  */
 var arr1 = [1, 2, 3, 1, 2, 3];
 var arr2 = [3, 2, 1, 2, 3, 1];
+var check = true
+var count = arr1.length
 
-for (var i = 0; i < arr1.length; i++) {
-	for (var j = 0; j < arr2.length; j++) {
+for (i = 0; i < arr1.length; i++) {
+	for (j = 0; j < arr2.length; j++) {
 		if (arr1[i] == arr2[j]) {
-			arr1[i] = 0;
-			arr2[j] = 0;
+			count -= 1
+			break
 		}
 	}
 }
-var check = true;
-for (var i = 0; i < arr1.length; i++) {
-	if (arr1[i] != 0 || arr2[i] != 0) {
-		check = false;
-	}
+
+if (count == 0) {
+	console.log(true)
+} else {
+	console.log(false)
 }
-console.log(check);

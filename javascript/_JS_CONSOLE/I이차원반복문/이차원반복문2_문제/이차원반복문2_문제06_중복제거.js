@@ -11,6 +11,14 @@
 var a = [10, 20, 30, 40, 20];
 var b = [10, 3, 20, 10, 20, 50];
 
+
+
+
+
+
+
+
+/* 
 for (var i = 0; i < a.length; i++) {
 	var val = 0;
 	for (var j = 0; j < b.length; j++) {
@@ -25,3 +33,4 @@ for (var i = 0; i < a.length; i++) {
 		}
 	}
 }
+ */
