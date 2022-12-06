@@ -15,3 +15,20 @@
 
 var seatList = [1003, 1003, 0, 0, 1002, 0, 1001];
 var find = [1004, 1003, 1001, 1005];
+
+for (i = 0; i < seatList.length; i++) {
+	var check = false
+	for (j = 0; j < find.length; j++) {
+		if (find[j] == seatList[i]) {
+			check = true
+		}
+	}
+	if (check) {
+		console.log(seatList[i], "번 회원님의 좌석은")
+		console.log(i, "번 좌석입니다.")
+		console.log("========================================")
+	} else if (seatList[i] != 0 && check == false) {
+		console.log(seatList[i], "번은 없는 회원 번호 입니다.")
+		console.log("========================================")
+	}
+}

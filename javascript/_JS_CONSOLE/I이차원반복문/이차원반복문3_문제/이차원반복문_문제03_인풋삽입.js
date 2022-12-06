@@ -21,3 +21,29 @@
 var arr = [10, 20, 30, 40, 50];
 var indexList = [2, 1, 0, 3];
 var valueList = [60, 70, 80, 90];
+
+for (i = 0; i < indexList.length; i++) {
+	var idx = indexList[i]
+	var end = arr.length - 1
+	var size = end - idx
+	for (j = 0; j < size; j++) {
+		arr[end] = arr[end - 1]
+		end -= 1
+	}
+	arr[idx] = valueList[i]
+}
+
+console.log(arr)
+
+/* for (var i = 0; i < indexList.length; i++) {
+	index = indexList[i];
+	end = arr.length - 1;
+	size = end - index;
+	console.log(index, end, size);
+	for (var j = 0; j < size; j++) {
+		arr[end] = arr[end - 1];
+		end -= 1;
+	}
+	arr[index] = valueList[i];
+	console.log(arr);
+} */

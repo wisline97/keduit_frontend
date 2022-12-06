@@ -7,45 +7,59 @@
 		[4] com 과 me 를 비교해서 숫자가 같고 자리가 틀리면 ball + 1;
 		[5] 사용자에게 strike 와 ball  개수를 출력한다. 
 		매턴마다 위를 반복하면서 strike += 3 이 될때까지 반복한다.
-
  */
-
 var com = [];
-var me = [];
-var check = false
-var count = 0
+var me = [0, 0, 0];
 var i = 0
-
-for (j = 0; j < 3; j++) {
-	com[j] = NaN
-	me[j] = NaN
-}
-
-while (true) {
-	var num = parseInt(Math.random() * 10);
-	check = false
-	console.log(num)
-	for (k = 0; k < com.length; k++) {
-		if (num == com[k]) {
-			check = true
-		}
-	}
-	if (check == false) {
-		com[i] = num
-		i += 1
-		count += 1
-	} else {
-		continue
-	}
-	if (count == 3) {
-		break
-	}
-}
-
-console.log(com)
+var check = false
 
 me[0] = 3
 me[1] = 5
 me[2] = 1
 
-console.log(me)
+
+
+var strike = 0
+var ball = 0
+
+var turn = 0
+while (strike < 3) {
+	console.log("[비교대상 me]")
+	console.log(me)
+	var com = [NaN, NaN, NaN]
+	i = 0
+	console.log(turn + 1, "번째 턴")
+	while (true) {
+		var num = parseInt(Math.random() * 10);
+		check = false
+		for (k = 0; k < com.length; k++) {
+			if (num == com[k]) {
+				check = true
+			}
+		}
+		if (check == false) {
+			com[i] = num
+			i += 1
+		}
+		if (i > 2) {
+			break
+		}
+	}
+	console.log(com)
+
+	for (var meIdx = 0; meIdx < me.length; meIdx++) {
+		if (me[meIdx] == com[meIdx]) {
+			strike += 1
+			console.log("스트라이크!")
+			console.log("+1 점")
+		}
+	}
+
+	console.log("현재 스트라이크 점수 :", strike, "점")
+
+	turn += 1
+	console.log("=======================================")
+
+}
+
+

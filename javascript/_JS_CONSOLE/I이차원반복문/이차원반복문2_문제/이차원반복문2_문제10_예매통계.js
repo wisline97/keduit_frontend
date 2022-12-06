@@ -15,3 +15,16 @@
 var seatList = [1003, 1003, 0, 0, 1002, 0, 1001];
 var numList = [1001, 1002, 1003, 1004];
 var countList = [];
+var count = 0
+
+for (i = 0; i < numList.length; i++) {
+	var count = 0
+	for (j = 0; j < seatList.length; j++) {
+		if (numList[i] == seatList[j]) {
+			count += 1
+		}
+	}
+	countList[i] = count
+}
+
+console.log(countList)

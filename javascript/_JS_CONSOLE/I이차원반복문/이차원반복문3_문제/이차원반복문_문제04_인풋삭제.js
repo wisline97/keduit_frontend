@@ -12,3 +12,26 @@
 */
 var arr = [10, 20, 30, 40, 50];
 var indexList = [2, 1, 0, 3];
+var end = arr.length - 1
+
+for (i = 0; i < indexList.length; i++) {
+	var idx = indexList[i]
+	var count = end - idx
+	if (arr[idx] == 0) {
+		console.log("삭제불가")
+		console.log(i, arr)
+		break
+	}
+	for (j = 1; j < count; j++) {
+		arr[idx] = arr[end - 1]
+		arr[end - 1] = arr[end]
+	}
+	arr[end] = 0
+	end -= 1
+	console.log(i, arr)
+}
+
+
+
+
+

@@ -14,4 +14,58 @@
 	 8  ==> a[] =  {16,8,8} ==> {16,16} ==> {32}	
  */
 var input = [8, 4, 2, 2, 4, 4, 8];
-var a = [0, 0, 0, 0, 0, 0, 0];	
+var a = [0, 0, 0, 0, 0, 0, 0];
+
+for (i = 0; i < a.length; i++) {
+	for (j = i + 1; j < input.length; j++) {
+		if (input[i] == input[j]) {
+			a[i] = input[i] + input[j]
+		} else {
+			a[i] = input[i]
+		}
+	}
+}
+
+console.log(a)
+
+for (i = 0; i < a.length; i++) {
+	for (j = i + 1; j < input.length; j++) {
+		if (a[i] == a[j]) {
+			a[i] = a[i] + a[j]
+			a[j] = 0
+		} else {
+			a[i] = a[i]
+		}
+	}
+}
+
+
+console.log(a)
+
+for (i = 0; i < a.length; i++) {
+	for (j = i + 1; j < input.length; j++) {
+		if (a[i] == a[j]) {
+			a[i] = a[i] + a[j]
+			a[j] = 0
+		} else {
+			a[i] = a[i]
+		}
+	}
+}
+
+
+console.log(a)
+
+for (i = 0; i < a.length; i++) {
+	for (j = i + 1; j < input.length; j++) {
+		if (a[i] == a[j]) {
+			a[i] = a[i] + a[j]
+			a[j] = 0
+		} else {
+			a[i] = a[i]
+		}
+	}
+}
+
+
+console.log(a)

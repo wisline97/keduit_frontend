@@ -18,3 +18,36 @@ int array[] = {1,3,3,6,5,6,1,8,9};
 var array = [1, 3, 3, 6, 5, 6, 1, 8, 9];
 var input1 = [6, 1, 8];
 var input2 = [6, 3];
+var check = false
+
+for (i = 0; i < input1.length; i++) {
+	for (j = 0; j < array.length; j++) {
+		if (i <= 6) {
+			if (input1[i] == array[j]) {
+				if (input1[i + 1] == array[j + 1]) {
+					if (input1[i + 2] == array[j + 2])
+						check = true
+				}
+			}
+		}
+	}
+}
+
+console.log("input1 결과", check)
+
+check = false
+
+for (i = 0; i < input2.length; i++) {
+	for (j = 0; j < array.length; j++) {
+		if (i <= 6) {
+			if (input2[i] == array[j]) {
+				if (input2[i + 1] == array[j + 1]) {
+					if (input2[i + 2] == array[j + 2])
+						check = true
+				}
+			}
+		}
+	}
+}
+
+console.log("input2 결과", check)
