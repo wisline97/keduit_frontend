@@ -11,8 +11,43 @@
 
 */
 var arr = [10, 20, 30, 40, 50];
-var indexList = [2, 1, 0, 3];
+var indexList = [2, 1, 0, 3, 0];
 var end = arr.length - 1
+
+for (i = 0; i < indexList.length; i++) {
+	var idx = indexList[i]
+	var turn = end - idx
+	for (j = indexList[i]; j < end; j++) {
+		arr[j] = arr[j + 1]
+		arr[j + 1] = arr[j + 2]
+	}
+	if (arr[idx] == 0) {
+		console.log("삭제불가")
+		console.log(arr)
+	} else {
+		arr[end] = 0
+		end -= 1
+		console.log(arr)
+	}
+	console.log(i, "=======================")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* var end = arr.length - 1
 
 for (i = 0; i < indexList.length; i++) {
 	var idx = indexList[i]
@@ -29,7 +64,7 @@ for (i = 0; i < indexList.length; i++) {
 	arr[end] = 0
 	end -= 1
 	console.log(i, arr)
-}
+} */
 
 
 

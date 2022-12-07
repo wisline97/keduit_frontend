@@ -1,4 +1,3 @@
-<script>
 /*
 	아래배열에 랜덤으로 1~10 사이의숫자  3개를 저장한다.
 	[조건]
@@ -8,30 +7,28 @@
 		[예] 9,10,1
 	
  */
-	function sum(arr){
+function sum(arr) {
 
-		while(true){
-			var total = 0;
-			for(var i = 0; i < 3; i++ ){
-				arr[i] = parseInt(Math.random()* 10) + 1;
-				total += arr[i];
-			}
+	while (true) {
+		var total = 0;
+		for (var i = 0; i < 3; i++) {
+			arr[i] = parseInt(Math.random() * 10) + 1;
+			total += arr[i];
+		}
 
-			var check = false;
-			if(arr[0] != arr[1] && arr[1] != arr[2] && arr[0] != arr[2]){
-				check = true;
-			}
+		var check = false;
+		if (arr[0] != arr[1] && arr[1] != arr[2] && arr[0] != arr[2]) {
+			check = true;
+		}
 
-			if(total == 20 && check == true){
-				break;
-			}
+		if (total == 20 && check == true) {
+			break;
 		}
 	}
+}
 
 
-	var arr=[];
-	sum(arr);
+var arr = [];
+sum(arr);
 
-	console.log(arr);
-
-</script>
+console.log(arr);

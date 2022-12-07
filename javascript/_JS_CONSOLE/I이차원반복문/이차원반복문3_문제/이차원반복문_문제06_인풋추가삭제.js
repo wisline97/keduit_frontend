@@ -18,4 +18,47 @@
 
 var arr = [0, 0, 0];
 var keyword = ["추가", "삭제", "추가", "삭제", "추가", "삭제"];
-var valueList = [10, 20, 30, 10, 30, 30];	
+var valueList = [10, 20, 30, 10, 30, 30];
+var idx = 0
+var check = false
+var deleteIdx = NaN
+
+for (i = 0; i < keyword.length; i++) {
+	var check = false
+	deleteIdx = NaN
+	if (keyword[i] == "삭제") {
+		for (y = 0; y < arr.length; y++) {
+			if (valueList[i] == arr[y]) {
+				check = true
+				deleteIdx = y
+				break
+			}
+		}
+		if (check == false) {
+			console.log("배열 안에", valueList[i], "값이 존재하지 않습니다.(삭제불가)")
+		}
+		if (check == true) {
+			arr[deleteIdx] = arr[deleteIdx + 1]
+			arr[deleteIdx + 1] = 0
+		}
+	}
+	if (keyword[i] == "추가") {
+		console.log(valueList[i])
+		for (j = 0; j < arr.length; j++) {
+			if (arr[j] == valueList[i]) {
+				console.log(valueList[i], "값은 이미 저장되어 있습니다.(중복)")
+				check = true
+			}
+		}
+		if (check == false) {
+			arr[idx] = valueList[i]
+			idx += 1
+		}
+		if (idx == 3) {
+			break
+		}
+	}
+	console.log(arr)
+	console.log("=====================================")
+}
+
