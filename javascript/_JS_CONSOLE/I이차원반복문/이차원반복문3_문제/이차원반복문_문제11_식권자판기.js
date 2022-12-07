@@ -19,3 +19,19 @@ var chargeList = [1, 1, 1, 1, 4, 10];
 var price = 3200;		// 식권 가격
 var input = 10000;
 var count = 2;
+
+var change = input - (price * count)
+
+while (true) {
+	if (change == 0) {
+		break
+	}
+	for (i = 0; i < chargeList.length; i++) {
+		if (change != 0 && moneyData[i] <= change && chargeList[i] != 0) {
+			chargeList[i] -= 1
+			change -= moneyData[i]
+			console.log("거스름돈 잔액", change)
+			console.log("남은 잔돈", chargeList)
+		}
+	}
+}

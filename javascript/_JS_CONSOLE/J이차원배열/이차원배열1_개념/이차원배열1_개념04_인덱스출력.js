@@ -5,3 +5,11 @@
 */
 var arr = [[10, 20, 30], [40, 50, 60], [70, 80, 90]];
 
+var idx1 = parseInt(Math.random() * 3)
+var idx2 = parseInt(Math.random() * 3)
+
+console.log("idx1:", idx1)
+console.log("idx2:", idx2)
+
+
+console.log(arr[idx1][idx2])

@@ -11,3 +11,12 @@
 var val = [10, 20, 30, 40, 50, 60, 70, 80, 90];
 var arr = [[10, 20, 30], [40, 50, 60], [70, 80, 90]];
 
+var num = parseInt(Math.random() * 9)
+
+for (i = 0; i < arr.length; i++) {
+    for (j = 0; j < arr[i].length; j++) {
+        if (val[num] == arr[i][j]) {
+            console.log("arr 배열의", val[num], "값의 인덱스는", i, j, "이다")
+        }
+    }
+}

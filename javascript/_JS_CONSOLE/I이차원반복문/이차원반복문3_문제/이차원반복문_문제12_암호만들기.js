@@ -9,3 +9,19 @@
  */
 var input = "qwer1234";
 var password = ["", "", "", "", "", "", "", ""];
+
+for (i = 0; i < input.length; i++) {
+	if (i < input.length - 2) {
+		password[i + 2] = input[i]
+	}
+
+	if (i == 6) {
+		password[i - (input.length - 2)] = input[i]
+	}
+
+	if (i == 7) {
+		password[i - (input.length - 2)] = input[i]
+	}
+}
+
+console.log(password)

@@ -8,4 +8,21 @@ var a = [
   [70, 80, 90]
 ];
 var b = [10, 2, 54, 90, 50];
+var check = false
 
+for (x = 0; x < b.length; x++) {
+  for (y = 0; y < a.length; y++) {
+    for (z = 0; z < a[y].length; z++) {
+      if (b[x] == a[y][z]) {
+        b[x] = 0
+        a[y][z] = 0
+      }
+    }
+  }
+}
+
+
+console.log(a[0])
+console.log(a[1])
+console.log(a[2])
+console.log(b)
