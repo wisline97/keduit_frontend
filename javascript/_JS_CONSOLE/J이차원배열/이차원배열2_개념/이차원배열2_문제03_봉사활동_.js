@@ -12,3 +12,27 @@ var a = [
 ];
 var b = ["조춘자", "김말숙", "이진상", "최민식"];
 var c = [];
+var cIdx = 0
+
+for (i = 0; i < a.length; i++) {
+    var check = false
+    for (j = 0; j < a[i].length; j++) {
+        for (y = 0; y < b.length; y++) {
+            if (b[y] == a[i][j]) {
+                check = true
+                console.log(c)
+            }
+        }
+        if (check == false) {
+            console.log("체크가 거짓일 때", a[i][j])
+            console.log("===================")
+            c[cIdx] = a[i][j]
+            cIdx += 1
+        } else {
+            console.log("체크가 참일 때", a[i][j])
+            console.log("===================")
+        }
+    }
+}
+
+console.log(c)

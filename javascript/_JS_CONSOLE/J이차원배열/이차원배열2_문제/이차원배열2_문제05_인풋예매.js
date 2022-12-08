@@ -62,4 +62,21 @@ var input = [
     [0, 0, 1006],
     [1, 1, 1007],
     [0, 0, 1006],
-]; 
+];
+
+for (i = 0; i < input.length; i++) {
+    var user = input[i][2]
+    var x = input[i][1]
+    var y = input[i][0]
+    if (영화관[y][x] == 0) {
+        console.log(y, "열", x, "석을 예매합니다.")
+        영화관[y][x] = user
+    } else if (영화관[y][x] != 0 && 영화관[y][x] == user) {
+        console.log(y, "열", x, "석 예매를 취소합니다.")
+        영화관[y][x] = 0
+    } else if (영화관[y][x] != 0 && 영화관[y][x] != user) {
+        console.log(y, "열", x, "석은 이미 선점된 좌석입니다.")
+    }
+}
+
+console.log(영화관)

@@ -19,3 +19,58 @@ var dataList = [
 ];
 var input = [1, 2, 2, 0, 0, 2, 1, 1];
 var sellPrice = 0;
+for (i = 0; i < input.length; i++) {
+	input[i] += 1
+}
+// input = [2, 3, 3, 1, 1, 3, 2, 2]
+console.log("===================================")
+for (i = 0; i < input.length; i++) {
+	var 판매체크 = false
+	if (dataList[input[i]][2] == 0) {
+		console.log("[주문", i + 1, "]", dataList[input[i]][0], "1개")
+		console.log("재고 부족으로 인한 판매불가")
+		console.log("===================================")
+	} else {
+		console.log("[주문", i + 1, "]", dataList[input[i]][0], "1개")
+	}
+	for (j = 1; j < dataList.length; j++) {
+		for (y = 0; y < dataList[j].length; y++) {
+			if (dataList[input[i]][2] != 0 && 판매체크 == false) {
+				dataList[input[i]][2] -= 1
+				sellPrice += dataList[input[i]][1]
+				console.log("[판매]", dataList[input[i]][0], "1개")
+				console.log("[남은 재고]", dataList[input[i]][2])
+				console.log("===================================")
+				판매체크 = true
+			}
+		}
+	}
+
+}
+
+console.log(sellPrice, "원")
+
+
+/* //카페에 올라온 정답
+var dataList = [
+	["새우깡", 1000, 3],
+	["감자깡", 2300, 1],
+	["고래밥", 3100, 1]
+];
+var input = [1, 2, 2, 0, 0, 2, 1, 1];
+var sellPrice = 0;
+
+for (var i = 0; i < input.length; i++) {
+	var index = input[i]
+	var price = dataList[index][1];
+	var stock = dataList[index][2];
+	console.log(dataList[index][0], dataList[index][1], dataList[index][2]);
+	if (stock > 0) {
+		sellPrice += price;
+		dataList[index][2] -= 1;
+	} else {
+		console.log("재고부족")
+	}
+}
+
+console.log(sellPrice) */

@@ -19,4 +19,32 @@ var arr = [
 	[301, 302, 303, 304]];
 
 var garo = [];
+var garoIdx = 0
 var sero = [];
+var seroIdx = 0
+
+//가로 합 구하기
+for (i = 0; i < arr.length; i++) {
+	var total = 0
+	for (j = 0; j < arr[i].length; j++) {
+		total += arr[i][j]
+	}
+	garo[garoIdx] = total
+	garoIdx += 1
+}
+
+console.log("가로 합:", garo)
+
+
+
+//세로 합 구하기
+for (i = 0; i < arr[1].length; i++) {
+	var total = 0
+	for (j = 0; j < arr.length; j++) {
+		total += arr[j][i]
+	}
+	sero[seroIdx] = total
+	seroIdx += 1
+}
+
+console.log("세로 합:", sero)

@@ -20,3 +20,57 @@ var pay = [
 	[4100, 2000, 1000],
 	[3000, 1600, 800]
 ];
+
+console.log("==========================================")
+console.log("[문제 1]")
+
+for (i = 0; i < apt.length; i++) {
+	console.log("---------------------------------")
+	var total = 0
+	for (j = 0; j < apt[i].length; j++) {
+		total += pay[i][j]
+	}
+	console.log(i + 1, "층 관리비 총합", total, "원")
+
+}
+console.log("==========================================")
+console.log("[문제 2]")
+
+var input = 302
+
+for (i = 0; i < apt.length; i++) {
+	for (j = 0; j < apt[i].length; j++) {
+		if (input == apt[i][j]) {
+			console.log(input, "호의 관리비는", pay[i][j], "원입니다.")
+		}
+	}
+}
+console.log("==========================================")
+console.log("[문제 3]")
+
+var min = 9999
+var max = 0
+
+for (i = 0; i < apt.length; i++) {
+	for (j = 0; j < apt[i].length; j++) {
+		if (pay[i][j] > max) {
+			max = pay[i][j]
+		}
+		if (pay[i][j] < min) {
+			min = pay[i][j]
+		}
+	}
+}
+for (i = 0; i < apt.length; i++) {
+	for (j = 0; j < apt[i].length; j++) {
+		if (pay[i][j] == max) {
+			console.log("관리비가 가장 많이 나온 호수는", apt[i][j], "호")
+			console.log("---------------------------------")
+		}
+		if (pay[i][j] == min) {
+			console.log("관리비가 가장 적게 나온 호수는", apt[i][j], "호")
+		}
+	}
+}
+
+console.log("==========================================")
