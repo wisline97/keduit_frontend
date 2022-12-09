@@ -8,3 +8,26 @@
 	 * 5. 전교생(10명)의 총점과 평균을 출력한다.
 	   6. 1등의 번호와 점수를 출력한다.
 	 */
+
+var max = 0
+var total = 0
+
+for (i = 0; i < 10; i++) {
+	var num = parseInt(Math.random() * 101)
+	if (num >= 60) {
+		console.log(i + 1, "번", num, "점", "[합격]")
+	}
+	if (num < 60) {
+		console.log(i + 1, "번", num, "점", "[불합격]")
+	}
+	if (num > max) {
+		max = num
+		var maxNum = i
+	}
+	total += num
+}
+console.log("======================================================")
+console.log("전교생의 총점은", total, "점")
+console.log("전교생의 평균은", total / 10, "점")
+console.log("======================================================")
+console.log("1등 학생의 번호와 점수는", maxNum + 1, "번", max, "점")

@@ -15,3 +15,18 @@
 
 var arr = [0, 1, 0, 0, 0, 1, 0, 0];
 var count = 0;
+var idx = 0
+for (i = 0; i < arr.length; i++) {
+	count = 0;
+	for (j = 0; idx < arr.length; j++) {
+		if (arr[idx] == 0) {
+			count += 1
+			idx += 1
+		}
+		if (arr[idx + 1] == 1 || idx + 1 > 7) {
+			break
+		}
+	}
+
+	console.log(count)
+}
