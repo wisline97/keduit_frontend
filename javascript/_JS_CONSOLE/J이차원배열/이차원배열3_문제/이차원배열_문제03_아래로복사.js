@@ -10,7 +10,17 @@
 		[ 3, 1, 2, 5, 6 ],
 		[ 2, 5, 1, 3, 5 ],				
  */
+
 var arr = [
 	[3, 1, 2, 5, 6],
 	[2, 5, 1, 3, 5],
 	[1, 2, 1, 3, 9]];
+
+temp = arr[0]
+arr[0] = [0, 0, 0, 0, 0]
+arr[2] = arr[1]
+arr[1] = temp
+
+console.log(arr[0])
+console.log(arr[1])
+console.log(arr[2])

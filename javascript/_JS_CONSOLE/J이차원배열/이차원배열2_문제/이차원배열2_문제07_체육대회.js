@@ -16,3 +16,42 @@ var 배구 = [
     ["이민자", "유명새", "조춘자"],
 ];
 var c = [];
+var cIdx = 0
+
+for (x = 0; x < 달리기.length; x++) {
+    for (y = 0; y < 달리기[x].length; y++) {
+        var check = false
+        for (z = 0; z < 배구.length; z++) {
+            for (k = 0; k < 배구[z].length; k++) {
+                if (달리기[x][y] == 배구[z][k]) {
+                    check = true
+                }
+            }
+        }
+        if (check == false) {
+            console.log(달리기[x][y])
+            c[cIdx] = 달리기[x][y]
+            cIdx += 1
+        }
+    }
+}
+
+for (x = 0; x < 배구.length; x++) {
+    for (y = 0; y < 배구[x].length; y++) {
+        var check = false
+        for (z = 0; z < 달리기.length; z++) {
+            for (k = 0; k < 달리기[z].length; k++) {
+                if (배구[x][y] == 달리기[z][k]) {
+                    check = true
+                }
+            }
+        }
+        if (check == false) {
+            console.log(배구[x][y])
+            c[cIdx] = 배구[x][y]
+            cIdx += 1
+        }
+    }
+}
+
+console.log(c)

@@ -32,3 +32,73 @@
 */
 
 var arr = [[], [], []];
+var num = 1
+var input = parseInt(Math.random() * 4) + 1
+
+console.log("인풋값은", input, "입니다")
+
+if (input == 1) {
+	for (i = 0; i < 3; i++) {
+		for (y = 0; y < 3; y++) {
+			arr[i][y] = num
+			num += 1
+		}
+	}
+	console.log(arr[0])
+	console.log(arr[1])
+	console.log(arr[2])
+}
+
+if (input == 2) {
+	num = 1
+	for (i = 2; i >= 0; i--) {
+		if (i % 2 == 0) {
+			for (y = 0; y < arr.length; y++) {
+				arr[y][i] = num
+				num += 1
+			}
+		}
+		else if (i % 2 == 1) {
+			for (y = 2; y >= 0; y--) {
+				arr[y][i] = num
+				num += 1
+			}
+		}
+	}
+	console.log(arr[0])
+	console.log(arr[1])
+	console.log(arr[2])
+}
+
+if (input == 3) {
+	for (i = 2; i >= 0; i--) {
+		for (y = 2; y >= 0; y--) {
+			arr[i][y] = num
+			num += 1
+		}
+	}
+	console.log(arr[0])
+	console.log(arr[1])
+	console.log(arr[2])
+}
+
+if (input == 4) {
+	num = 1
+	for (i = 0; i < arr.length; i++) {
+		if (i % 2 == 0) {
+			for (y = 2; y >= 0; y--) {
+				arr[y][i] = num
+				num += 1
+			}
+		}
+		else if (i % 2 == 1) {
+			for (y = 0; y < arr.length; y++) {
+				arr[y][i] = num
+				num += 1
+			}
+		}
+	}
+	console.log(arr[0])
+	console.log(arr[1])
+	console.log(arr[2])
+}

@@ -31,4 +31,23 @@ var data = [
 	[2, 1, 4, 3, 3],
 ];
 
-var test = [[], [], [], [], []];
+var test = [
+	[0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0]
+];
+
+for (x = 0; x < data.length; x++) {
+	for (y = 0; y < data[x].length; y++) {
+		test[y][x] = data[x][y]
+	}
+}
+
+
+console.log(test[0])
+console.log(test[1])
+console.log(test[2])
+console.log(test[3])
+console.log(test[4])

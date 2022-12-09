@@ -19,3 +19,12 @@ var arr = [
 	[2, 5, 1, 3, 5],
 	[1, 2, 1, 3, 9]
 ];
+
+temp = arr[2]
+arr[0] = arr[1]
+arr[1] = temp
+arr[2] = [0, 0, 0, 0, 0]
+
+console.log(arr[0])
+console.log(arr[1])
+console.log(arr[2])
