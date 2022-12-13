@@ -8,3 +8,17 @@
 
 var input = "";
 var password = ["q", "4", "w", "3", "e", "2", "r", "1"];
+
+for (i = 0; i < password.length; i++) {
+	if (i % 2 == 0) {
+		input += password[i]
+	}
+}
+
+for (i = password.length - 1; i >= 0; i--) {
+	if (i % 2 == 1) {
+		input += password[i]
+	}
+}
+
+console.log(input)

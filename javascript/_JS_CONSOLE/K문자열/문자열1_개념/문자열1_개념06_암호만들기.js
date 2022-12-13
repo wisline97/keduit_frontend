@@ -8,4 +8,9 @@
  */
 
 var input = "qwer1234";
-var password = [];
+var inputFront = input.substring(0, input.length - 2)
+var inputEnd = input.substring(input.length - 2, input.length)
+var after = inputEnd + inputFront
+var password = after.split("");
+
+console.log(password)

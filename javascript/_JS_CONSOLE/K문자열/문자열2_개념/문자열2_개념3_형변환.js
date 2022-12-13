@@ -5,4 +5,6 @@
 */
 
 var score = [11, 100, 89];
-var str = "";
+var str = score.join("/");
+
+console.log(str)

@@ -13,3 +13,5 @@ console.log(result_1 + "****");
 var test = "hi my name is john";
 
 
+var result_2 = test.substring(12, test.length - 2);
+console.log(result_2);

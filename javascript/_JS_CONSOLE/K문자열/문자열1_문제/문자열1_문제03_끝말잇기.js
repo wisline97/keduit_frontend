@@ -10,12 +10,40 @@
 	아래 배열을 가지고 끝말잇기 판정을 하고 서유기에서 오답이라고 나오며 누가 이겼는지
 	출력하시오. 철수가 먼저 시작하고, 민수와 번갈아 가면서 플레이 했다. 
 	
- */
+ */console.log("==========================================")
 var test = "안녕하세요";
-console.log(test[0]) // 첫글자
-console.log(test[test.length - 1]); // 마지막글자
-
+/* console.log(test[0]) // 첫글자
+console.log(test[test.length - 1]); // 마지막글자 */
+var 민수점수 = 0
+var 철수점수 = 0
 var game = ["자전거", "거미", "미용실", "실업자", "자석", "서유기", "기러기"];
-
-
-
+for (i = 0; i < game.length; i++) {
+	var 첫글자 = game[i][0]
+	if (i != 0) {
+		if (첫글자 == 끝글자) {
+			if (i % 2 == 0) {
+				console.log("철수 득점", game[i])
+				철수점수 += 1
+			} else {
+				console.log("민수 득점", game[i])
+				민수점수 += 1
+			}
+		}
+		if (첫글자 != 끝글자) {
+			if (i % 2 == 0) {
+				console.log("철수 오답", game[i])
+			} else {
+				console.log("민수 오답", game[i])
+			}
+		}
+	}
+	var 끝글자 = game[i][game[i].length - 1]
+}
+console.log("==========================================")
+if (철수점수 > 민수점수) {
+	console.log("철수 승리!")
+	console.log("철수 :", 철수점수, "점", "민수 :", 민수점수, "점")
+} else {
+	console.log("민수 승리!")
+	console.log("철수 :", 철수점수, "점", "민수 :", 민수점수, "점")
+}

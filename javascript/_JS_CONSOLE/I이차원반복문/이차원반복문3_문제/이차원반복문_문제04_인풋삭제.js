@@ -11,7 +11,7 @@
 
 */
 var arr = [10, 20, 30, 40, 50];
-var indexList = [2, 1, 0, 3, 0];
+var indexList = [2, 1, 0, 3];
 var end = arr.length - 1
 
 for (i = 0; i < indexList.length; i++) {

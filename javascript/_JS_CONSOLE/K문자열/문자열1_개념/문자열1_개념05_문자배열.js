@@ -7,4 +7,5 @@
  */
 
 var input = "qwer1234";
-var password = [];
+var password = input.split("");
+console.log(password)

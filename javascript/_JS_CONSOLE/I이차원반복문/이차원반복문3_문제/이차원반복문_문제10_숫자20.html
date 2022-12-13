@@ -1,0 +1,103 @@
+<script>
+	/*
+	[오징어 게임]
+	
+	[강화유리]
+	
+	유리가 왼쪽오른쪽 2개씩 20개가 연결되어있다.
+	한쪽의 유리는 강화유리 이고 , 한쪽의 유리는 그냥유리이다.
+	참가자는 매번 강화유리를 선택해야지 다음 턴을 진행할수있다.
+	게임은 10회 진행이된다.
+	
+	참가자는 강화유리 판별을 위해 유리전문가와 팀을 맺었다.
+	유리전문가는 강화유리강도를 20 이라고했고 , 그냥유리는 17이라고했다.
+	각 유리별로 랜덤으로 숫자 3개씩 출력되고 숫자3개의 합이 유리강도이다.
+	예) [4 9 7] [8,3,6] : 왼쪽이 강화유리이다.
+	게임을 10회 출력하고 강화유리만 선택해서 승리해보자.
+	단, 반드시 유리는 강화유리 한개 , 그냥 유리 한개 출력되어야하며,
+	매번 숫자는 랜덤으로 출력되어야한다.
+	
+	[1]left , [2]right 를 선택한다.
+	
+	*/
+
+
+	var winCount = 0;
+
+	for (j = 0; j < 10; j++) {
+		var arr1 = [];
+		var arr2 = [];
+		var total1 = 0;
+		var total2 = 0;
+		while (true) {
+			if (total1 != 20 && total1 != 17) {
+				while (true) {
+					if (total1 == 20 || total1 == 17) {
+						break
+					}
+					if (total1 != 20 && total1 != 17) {
+						total1 = 0;
+						for (i = 0; i < 3; i++) {
+							var num1 = parseInt(Math.random() * 10) + 1;
+							arr1[i] = num1;
+						} for (i = 0; i < arr1.length; i++) {
+							total1 += arr1[i];
+						}
+					}
+				}
+			} if (total1 == 20) {
+				while (true) {
+					if (total2 == 17) {
+						break
+					} if (total2 != 17) {
+						total2 = 0;
+						for (i = 0; i < 3; i++) {
+							var num2 = parseInt(Math.random() * 10) + 1;
+							arr2[i] = num2;
+						} for (i = 0; i < arr2.length; i++) {
+							total2 += arr2[i];
+						}
+					}
+				}
+			} if (total1 == 17) {
+				while (true) {
+					if (total2 == 20) { break } if (total2 != 20) {
+						total2 = 0;
+						for (i = 0; i < 3; i++) {
+							var num2 = parseInt(Math.random() * 10) + 1;
+							arr2[i] = num2;
+						} for (i = 0; i < arr2.length; i++) {
+							total2 += arr2[i];
+						}
+					}
+				}
+			}
+			console.log(j + 1, "번째 턴");
+			console.log("========================================");
+			if (total1 == 17 && total2 == 20) {
+				console.log(" 왼쪽 유리는", total1);
+				console.log("오른쪽 유리는", total2);
+				console.log(arr1, arr2);
+				break
+			} else if (total1 == 20 && total2 == 17) {
+				console.log("왼쪽 유리는", total1);
+				console.log("오른쪽 유리는", total2);
+				console.log(arr1, arr2);
+				break
+			}
+		}
+		console.log("========================================");
+
+		var answer = window.prompt((j + 1) + "번째 턴" + " [1] " + arr1 + " [2] " + arr2,);
+
+		if (total1 == 20 && answer == "1" || total2 == 20 && answer == "2") {
+			winCount += 1
+		}
+	}
+
+	if (winCount == 10) {
+		console.log("승리!");
+	} else {
+		console.log("패배!")
+	};
+</script>

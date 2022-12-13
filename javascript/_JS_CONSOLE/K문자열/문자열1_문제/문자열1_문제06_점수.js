@@ -11,3 +11,21 @@
 
 var userData = "1001,1002,1003,1004";
 var scoreData = "10,21,43,12";
+
+var userDataArr = userData.split(",")
+var scoreDataArr = scoreData.split(",")
+
+var $1st = [0, 0];
+var total = 0
+for (i = 0; i < userDataArr.length; i++) {
+	if ($1st[1] < scoreDataArr[i]) {
+		$1st[0] = userDataArr[i]
+		$1st[1] = scoreDataArr[i]
+	}
+	total += parseInt(scoreDataArr[i])
+}
+
+var 평균 = total / 4
+
+console.log($1st)
+console.log(평균, "점")

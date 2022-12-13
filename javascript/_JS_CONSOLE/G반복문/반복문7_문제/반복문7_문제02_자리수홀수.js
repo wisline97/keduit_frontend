@@ -11,8 +11,43 @@
 	 
 	 */
 
-var num = parseInt(Math.random() * 10001)
+var num = parseInt(Math.random() * 10000) + 1
+console.log(num)
+/* 
+10 % 로 나온 값을 기준으로 count 세기
 
+num = 764
+
+num%10 = 3
+num = num//10 = 76
+
+
+num%10 = 6
+num = num//10 = 7
+
+num%10 = 7
+num = num//10 = 0
+
+num == 0 되면
+break
+*/
+
+var count = 0
+
+while (true) {
+	var odd = num % 10
+	if (odd % 2 == 1) {
+		count += 1
+	}
+	num = parseInt(num / 10)
+	if (num == 0) {
+		break
+	}
+}
+console.log(count)
+
+
+/* 
 var num1 = num >= 10 ? num % 10 : num
 var num10 = num >= 10 ? parseInt((num % 100) / 10) : undefined
 var num100 = num >= 100 ? parseInt((num % 1000) / 100) : undefined
@@ -31,3 +66,4 @@ for (i = 0; i < count.length; i++) {
 	}
 }
 console.log(odd, "개")
+*/

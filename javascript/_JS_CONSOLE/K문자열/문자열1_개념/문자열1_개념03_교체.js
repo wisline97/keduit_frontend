@@ -4,4 +4,4 @@
 */
 var s = "Hong's number is 123-4567.";
 var result = s.replace("Hong's", "Kim's");
-console.log(result_1 + "****");
+console.log(result + "****");
