@@ -18,6 +18,51 @@
 
     
  */
+function insertItem(진열장, 재고) {
+	var index1 = 0;
+	var index2 = 0;
+
+	while (true) {
+		var c = 0;
+		for (var i = 0; i < 재고.length; i++) {
+			if (재고[i] == 0) {
+				c += 1;
+			}
+		}
+		if (c == 재고.length) {
+			break;
+		}
+
+		var c = 0;
+		for (var i = 0; i < 진열장.length; i++) {
+			if (진열장[i] == 10) {
+				c += 1;
+			}
+		}
+		if (c == 진열장.length) {
+			break;
+		}
+
+
+		if (진열장[index1] == 10) {
+			index1 += 1;
+		}
+		else if (재고[index2] == 0) {
+			index2 += 1;
+
+		} else {
+
+			진열장[index1] += 1;
+			재고[index2] -= 1;
+		}
+
+	}
+	console.log(진열장, 재고);
+
+}
+
 var 진열장 = [4, 0, 9, 3, 1];
 
 var 재고 = [5, 5, 5, 5];
+
+insertItem(진열장, 재고);

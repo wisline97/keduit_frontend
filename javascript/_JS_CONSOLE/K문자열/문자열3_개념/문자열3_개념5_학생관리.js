@@ -18,6 +18,68 @@ var jsonArr = [
     [문제3]
         rank 항목을 추가하고 총합에대한 등수 저장 
 */
+console.log("=====================================================")
 
+for (i = 0; i < jsonArr.length; i++) {
+    if (jsonArr[i]["kor"] > jsonArr[i]["math"]) {
+        console.log(jsonArr[i]["num"], "번", jsonArr[i]["name"], "학생")
+    }
+}
+console.log("=====================================================")
+var total = 0;
+var average = 0;
+
+for (i = 0; i < jsonArr.length; i++) {
+    var win = false
+    total += jsonArr[i]["kor"] + jsonArr[i]["math"] + jsonArr[i]["eng"]
+    average = total / 3
+    if (average >= 30) {
+        win = true
+        console.log(jsonArr[i]["name"], "학생 합격")
+        console.log(win)
+    } else {
+        console.log(jsonArr[i]["name"], "학생 불합격")
+        console.log(win)
+    }
+    total = 0
+}
+
+total = 0
+var arr = [];
+console.log("=====================================================================================")
+
+//3과목 점수 총합 key와 value 추가
+for (i = 0; i < jsonArr.length; i++) {
+    total += jsonArr[i]["kor"] + jsonArr[i]["math"] + jsonArr[i]["eng"]
+    jsonArr[i]["total"] = total
+    total = 0
+}
+//등수 정렬
+for (i = 0; i < jsonArr.length - 1; i++) {
+    if (jsonArr[i]["total"] > jsonArr[i + 1]["total"]) {
+        var temp = jsonArr[i]
+        jsonArr[i] = jsonArr[i + 1]
+        jsonArr[i + 1] = temp
+    }
+}
+
+console.log(jsonArr[0])
+console.log(jsonArr[1])
+console.log(jsonArr[2])
+console.log(jsonArr[3])
+
+console.log("=====================================================================================")
+
+var num = 1
+//등수 저장
+for (i = jsonArr.length - 1; i >= 0; i--) {
+    jsonArr[i]["rank"] = num
+    num += 1
+}
+
+console.log(jsonArr[0])
+console.log(jsonArr[1])
+console.log(jsonArr[2])
+console.log(jsonArr[3])
 
 

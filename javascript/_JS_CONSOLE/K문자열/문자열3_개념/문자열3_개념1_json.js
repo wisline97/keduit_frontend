@@ -13,4 +13,4 @@ var st = { 'name': 'Hong', 'age': 19 };   // json 은 0 , 1 대신 name , age �
 console.log(arr[0] + " " + arr[1]);
 console.log(arr);
 console.log(st['name'] + " " + st['age']); // json 은 index 라고 하지않고 key 라고한다.
-console.log(st);
+console.log(st); 

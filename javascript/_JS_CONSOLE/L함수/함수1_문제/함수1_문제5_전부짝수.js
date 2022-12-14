@@ -7,3 +7,17 @@
 	
 */
 var arr = [10, 0, 2, 6];
+
+function allEven(a) {
+	var check = false
+	for (i = 0; i < a.length; i++) {
+		if (a[i] % 2 == 0) {
+			check = true
+		} else {
+			check = false
+		}
+	}
+	console.log(check)
+}
+
+allEven(arr)
