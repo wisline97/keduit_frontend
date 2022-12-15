@@ -16,9 +16,31 @@
 		 y 가 2감소해  x : 5 , y : 7 이된다. 
 		 
 		 6번 모두 이동한후 택시의 위치를 출력하시오. 
-			
  */
 var speed = [4, 2, 1, 5, 4, 2];
 var dir = [0, 1, 3, 2, 2, 1];
 var x = 5;
 var y = 5;
+
+// a = speed
+// b = dir
+
+function taxi(a, b) {
+	for (i = 0; i < speed.length; i++) {
+		if (b[i] == 0) {
+			y += a[i]
+		}
+		if (b[i] == 1) {
+			x += a[i]
+		}
+		if (b[i] == 2) {
+			y -= a[i]
+		}
+		if (b[i] == 3) {
+			x -= a[i]
+		}
+	}
+}
+
+taxi(speed, dir)
+console.log(x, y)

@@ -31,7 +31,9 @@ for (i = end; i > 0; i--) {
 }
 
 console.log(arr) */
-function solution(n) {
+
+
+/* function solution(n) {
     console.log(n)
     var str = String(n)
     var arr = str.split("")
@@ -49,4 +51,12 @@ function solution(n) {
     console.log(arr)
 }
 
-solution(118372)
+solution(118372) */
+
+var nums = [0, 1, 2, 3]
+var answer = []
+for (i = 0; i < nums.length; i++) {
+    answer[i] = nums[nums[i]]
+}
+
+console.log(answer)

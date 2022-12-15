@@ -7,12 +7,31 @@
 function testArr(arr) {
     arr[1] = 100;
 }
-var arr = [1, 2, 3, 4];
+var arr = [];
 testArr(arr);
 console.log(arr);
 
+/* function testArr(arr) {
+    arr[1] = 100;
+}
+
+function main() {
+    var arr = [1, 2, 3, 4];
+    testArr(arr);
+    console.log(arr);
+} */
+
+console.log("============================");
 
 var test = [1, 2, 3];
 var test2 = test;
 test[1] = 100;
 console.log(test2);
+
+console.log("============================");
+
+var a = 1
+var a2 = a
+console.log(a2)
+a = 3
+console.log(a2)
