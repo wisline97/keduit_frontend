@@ -53,10 +53,30 @@ console.log(arr) */
 
 solution(118372) */
 
-var nums = [0, 1, 2, 3]
+/* var nums = [0, 1, 2, 3]
 var answer = []
 for (i = 0; i < nums.length; i++) {
     answer[i] = nums[nums[i]]
+}
+
+console.log(answer) */
+// "10e1"
+// "0001e0"
+
+var answer = 0;
+var str = "0001e0"
+var NaNorNot = Number(str)
+
+console.log(NaNorNot)
+console.log(isNaN(NaNorNot))
+console.log(str.length)
+
+if (isNaN(NaNorNot)) {
+    answer = false
+} else if (str.length == 4 || str.length == 6) {
+    answer = true
+} else {
+    answer = false
 }
 
 console.log(answer)

@@ -7,8 +7,33 @@
  */
 
 var number = [1001, 1002, 1003];
-var name = ["김철수", "이만수", "조영민"];
+var userName = ["김철수", "이만수", "조영민"];
 var score = [32, 54, 12];
 
 var data = [];
+var dataIdx = 0;
+
+// a = number
+// b = name
+// c = score
+function oneLine(a, b, c) {
+	var idx = 0;
+	while (true) {
+		data[dataIdx] = a[idx]
+		dataIdx += 1
+		data[dataIdx] = b[idx]
+		dataIdx += 1
+		data[dataIdx] = c[idx]
+		idx += 1
+
+		if (idx == a.length) {
+			break
+		}
+	}
+	console.log(data)
+}
+
+oneLine(number, userName, score)
+
+
 
