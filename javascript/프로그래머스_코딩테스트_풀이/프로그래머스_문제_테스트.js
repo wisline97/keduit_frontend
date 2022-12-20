@@ -32,7 +32,6 @@ for (i = end; i > 0; i--) {
 
 console.log(arr) */
 
-
 /* function solution(n) {
     console.log(n)
     var str = String(n)
@@ -63,20 +62,65 @@ console.log(answer) */
 // "10e1"
 // "0001e0"
 
-var answer = 0;
-var str = "0001e0"
-var NaNorNot = Number(str)
-
-console.log(NaNorNot)
-console.log(isNaN(NaNorNot))
-console.log(str.length)
-
-if (isNaN(NaNorNot)) {
-    answer = false
-} else if (str.length == 4 || str.length == 6) {
-    answer = true
-} else {
-    answer = false
+/* var answer = 0;
+var str = "a234";
+const regExp = /[a-zA-Z]/g;
+var check = true;
+for (var i = 0; i < str.length; i++) {
+  if (regExp.test(str[i])) {
+    check = false;
+    console.log(str[i], "x");
+  } else {
+    console.log(str[i], "o");
+  }
 }
 
-console.log(answer)
+if (check == false) {
+  answer = false;
+} else if ((check == true && str.length == 4) || str.length == 6) {
+  answer = true;
+}
+console.log(check);
+console.log(answer);
+/*
+var NaNorNot = Number(str);
+
+console.log("str를 숫자로 변형하면", NaNorNot);
+console.log(isNaN(NaNorNot));
+console.log(str.length);
+
+if (isNaN(NaNorNot)) {
+  answer = false;
+} else if (str.length == 4 || str.length == 6) {
+  answer = true;
+} else {
+  answer = false;
+}
+
+function solution(s) {
+    var answer = 0;
+    if(isNaN(Number(s))){
+        answer = false
+    } else if(s.length === 4 || s.length === 6){
+        answer = true
+    } else {
+    answer = false
+}
+    return answer;
+}
+*/
+
+var arr = [1, 0, 0, 0];
+var answer = [];
+var temp = 0;
+var idx = 0;
+
+for (i = 0; i < arr.length; i++) {
+  if (arr[i] != temp) {
+    answer[idx] = arr[i];
+    idx += 1;
+  }
+  temp = arr[i];
+}
+
+console.log(answer);

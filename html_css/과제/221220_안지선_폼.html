@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .six,
+      .seven {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .first {
+        text-align: center;
+        font-weight: bold;
+      }
+      div {
+        margin-bottom: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="one">
+      <h1>버튼예제</h1>
+      <form>
+        <button>새 탭 열기</button>
+        <button>메세지</button>
+        <hr />
+        <button>새 탭 열기</button>
+        <button>메세지</button>
+      </form>
+    </div>
+
+    <div class="two">
+      <h1>체크박스 예제</h1>
+      <form>
+        과일 선택: <input type="checkbox" />Apple <input type="checkbox" />Grape
+        <input type="checkbox" />Orange
+      </form>
+      <h1>체크박스 예제(미리 선택해놓기)</h1>
+      <form>
+        과목 선택: <input type="checkbox" checked />국어
+        <input type="checkbox" />수학 <input type="checkbox" />영어
+      </form>
+    </div>
+
+    <div class="three">
+      <h1>라디오 예제</h1>
+      <form>성별: <input type="radio" />남성 <input type="radio" />여성</form>
+      <h1>라디오 예제(미리 선택해놓기)</h1>
+      <form>
+        성별: <input type="radio" checked />남성 <input type="radio" />여성
+      </form>
+    </div>
+
+    <div class="four">
+      <h1>셀렉트 예제</h1>
+      <form>
+        <select>
+          <option>BMW</option>
+          <option>현대자동차</option>
+        </select>
+      </form>
+      <h1>셀렉트 예제(미리선택 해놓기)</h1>
+      <form>
+        <select>
+          <option>BMW</option>
+          <option selected>현대자동차</option>
+        </select>
+      </form>
+    </div>
+
+    <div class="five">
+      <h1>textarea 예제</h1>
+      <form>
+        <textarea cols="60" rows="10" placeholder="메모를 작성하세요.">
+        </textarea>
+      </form>
+    </div>
+
+    <div class="six">
+      <h1>회원가입</h1>
+      <table border="1" width="500px">
+        <tr>
+          <td width="200px">아이디</td>
+          <td width="400px">
+            <form>
+              <input placeholder="아이디를 입력하세요." />
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>비밀번호</td>
+          <td>
+            <form>
+              <input placeholder="비밀번호를 입력하세요." />
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>비밀번호 확인</td>
+          <td>
+            <form>
+              <input />
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>이메일</td>
+          <td>
+            <form>
+              <input />
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>성별</td>
+          <td>
+            <form>남성<input type="radio" /> 여성<input type="radio" /></form>
+          </td>
+        </tr>
+        <tr>
+          <td>수강과목</td>
+          <td>
+            <form>
+              Java<input type="checkbox" /> JSP<input type="checkbox" />
+              Spring<input type="checkbox" />
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>관심분야</td>
+          <td>
+            <form>
+              <select>
+                <option value="프론트엔드">프론트엔드</option>
+
+                <option value="백엔드">백엔드</option>
+              </select>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>메모</td>
+          <td>
+            <form><textarea rows="7" cols="40"> </textarea></form>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <form
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+              "
+            >
+              <button style="margin-right: 5px">가입하기</button>
+              <button>다시작성</button>
+            </form>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="seven">
+      <h1>게시판</h1>
+      <table border="1">
+        <caption>
+          전체 게시글 수 : 93개
+        </caption>
+        <tr class="first">
+          <td>번호</td>
+          <td>작성자</td>
+          <td>작성일</td>
+          <td>제목</td>
+          <td>내용</td>
+          <td>삭제</td>
+        </tr>
+        <tr>
+          <td>31</td>
+          <td>작성자31</td>
+          <td>2022-04-16</td>
+          <td>제목31</td>
+          <td>내용31</td>
+          <td><button width="100%">삭제하기</button></td>
+        </tr>
+        <tr>
+          <td>32</td>
+          <td>작성자32</td>
+          <td>2022-04-16</td>
+          <td>제목32</td>
+          <td>내용32</td>
+          <td><button width="100%">삭제하기</button></td>
+        </tr>
+        <tr>
+          <td>33</td>
+          <td>작성자33</td>
+          <td>2022-04-16</td>
+          <td>제목33</td>
+          <td>내용33</td>
+          <td><button width="100%">삭제하기</button></td>
+        </tr>
+        <tr>
+          <td>34</td>
+          <td>작성자34</td>
+          <td>2022-04-16</td>
+          <td>제목34</td>
+          <td>내용34</td>
+          <td><button width="100%">삭제하기</button></td>
+        </tr>
+        <tr>
+          <td>35</td>
+          <td>작성자35</td>
+          <td>2022-04-16</td>
+          <td>제목35</td>
+          <td>내용35</td>
+          <td><button width="100%">삭제하기</button></td>
+        </tr>
+        <tr>
+          <td colspan="6"><button>메인화면</button></td>
+        </tr>
+      </table>
+      <article style="text-align: center; display: flex; margin-right: 5px">
+        <a href="#"><p>[이전]</p></a>
+        <a href="#"><p>[7]</p></a>
+        <a href="#"><p>[8]</p></a>
+        <a href="#"><p>[9]</p></a>
+        <a href="#"><p>[이후]</p></a>
+      </article>
+    </div>
+  </body>
+</html>

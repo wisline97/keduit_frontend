@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>table 행열 합치기</h1>
+    <table border="1">
+      <tr>
+        <td>100</td>
+        <td>200</td>
+        <td>300</td>
+      </tr>
+      <tr>
+        <td rowspan="2">400</td>
+        <td>500</td>
+        <td>600</td>
+      </tr>
+      <tr>
+        <td>700</td>
+        <td>800</td>
+      </tr>
+      <tr>
+        <td colspan="3">900</td>
+      </tr>
+    </table>
+    <hr />
+    <!-- ################################################### -->
+    <table border="1">
+      <tr>
+        <td>Column 1</td>
+        <td>Column 2</td>
+        <td>Column 3</td>
+      </tr>
+      <tr>
+        <td rowspan="2">Row 1 Cell1</td>
+        <td>Row 1 Cell2</td>
+        <td>Row 1 Cell3</td>
+      </tr>
+      <tr>
+        <td>Row 2 Cell2</td>
+        <td>Row 2 Cell3</td>
+      </tr>
+      <tr>
+        <td colspan="3">Row 3 Cell1</td>
+      </tr>
+    </table>
+    <hr />
+    <!-- ################################################### -->
+    <table border="1">
+      <tr>
+        <td colspan="3">공연요금</td>
+      </tr>
+      <tr>
+        <td>구분</td>
+        <td>s석</td>
+        <td>vip</td>
+      </tr>
+      <tr>
+        <td>성인</td>
+        <td>40,000원</td>
+        <td>60,000원</td>
+      </tr>
+      <tr>
+        <td>청소년</td>
+        <td>30,000원</td>
+        <td>50,000원</td>
+      </tr>
+      <tr>
+        <td>소인</td>
+        <td colspan="2">미취학 아동 일반 요금의 50%</td>
+      </tr>
+      <tr>
+        <td rowspan="2">공연시간</td>
+        <td>1회</td>
+        <td>13:00 ~ 15:00</td>
+      </tr>
+      <tr>
+        <td>2회</td>
+        <td>17:00 ~ 19:00</td>
+      </tr>
+    </table>
+    <hr />
+    <!-- ################################################### -->
+    <table border="1">
+      <tr>
+        <td rowspan="4" width="100px">사진</td>
+        <td colspan="4">이력서</td>
+      </tr>
+      <tr>
+        <td rowspan="2">성명</td>
+        <td rowspan="2">홍길동</td>
+        <td colspan="2">주민등록번호</td>
+      </tr>
+      <tr>
+        <td colspan="2">921225-1018293</td>
+      </tr>
+      <tr>
+        <td colspan="4">생년월일 1992년 12월 25일생(만 28세)</td>
+      </tr>
+      <tr>
+        <td>주소</td>
+        <td colspan="4"></td>
+      </tr>
+      <tr>
+        <td rowspan="2">연락처</td>
+        <td>집</td>
+        <td></td>
+        <td rowspan="2">전자우편</td>
+        <td rowspan="2"></td>
+      </tr>
+      <tr>
+        <td>핸드폰</td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+</html>

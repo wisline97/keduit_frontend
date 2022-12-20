@@ -6,17 +6,22 @@ def solution(n):
     while True:
         # print(temp)
         a += str(temp % 3)
+        
         temp = temp // 3
         if temp == 0:
             break
         b *= 3
+        
     #print("b : " , b)
     #print("a : " , a)
     for i in range(len(a)):
         c = int(a[i]) * b
         answer += c
         b //= 3
+    print(a,"a")
+    print(temp,"temp")
     return answer
-n = 45
+
+n = 20
 result = solution(n)
 print(result)
