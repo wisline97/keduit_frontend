@@ -1,0 +1,19 @@
+.main_title {
+  margin-bottom: 30px;
+}
+section {
+  border: 1px solid black;
+  padding: 20px 50px;
+  margin: 0 auto;
+  width: 600px;
+}
+.input {
+  margin-left: 30px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+.title {
+  font-weight: bold;
+}
