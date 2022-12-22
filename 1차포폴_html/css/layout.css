@@ -1,0 +1,215 @@
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.top-banner-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(26, 26, 26);
+}
+
+.top-banner-img img {
+  margin: 0 auto;
+}
+
+.top {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 62px;
+}
+
+.top img {
+  margin-left: 20px;
+}
+
+.search-bar {
+  font-size: 14px;
+  width: 30%;
+  padding: 10px 40px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.user li {
+  display: inline;
+  border-radius: 3px;
+  background-color: aqua;
+}
+
+.enter {
+  padding: 3px 10px;
+  font-weight: bold;
+  font-size: 12px;
+  border: 1px solid;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+nav {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3px;
+}
+
+nav ul {
+  margin-right: 190px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+}
+
+nav li {
+  padding: 0 9px;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline;
+}
+
+.underline {
+  width: 100%;
+  background-color: #dddddd;
+  height: 1px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.sale {
+  color: #f70061;
+}
+
+.woman {
+  color: #0c00ff;
+}
+
+.handbag {
+  color: #f46b24;
+}
+
+.beauty {
+  color: #00d26d;
+}
+
+.etc {
+  color: #ccc;
+}
+
+.search-rank p {
+  display: inline;
+  font-size: 12px;
+}
+
+.banner {
+  width: 1120px;
+  margin: 0 auto;
+}
+.banner img {
+  width: 100%;
+}
+
+.circles {
+  position: relative;
+  top: -40px;
+  left: 20px;
+}
+
+.circles ul {
+  display: flex;
+}
+
+.circles li {
+  margin: 0 4px;
+  background-color: #d6d6d646;
+  border-radius: 50px;
+  width: 11px;
+  height: 11px;
+}
+
+.default {
+  background-color: white !important;
+}
+
+.grid-wrapper {
+  width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.grid-wrapper div {
+  margin: 0 6px;
+  width: 100%;
+  height: auto;
+}
+
+.grid-wrapper div img {
+  width: 100%;
+  height: auto;
+}
+
+.selcetion {
+  width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.selcetion div {
+  padding: 10px;
+  margin: 0 -4px;
+}
+
+.selcetion div img {
+  width: 100%;
+  height: auto;
+}
+
+.product-rank {
+  width: 1120px;
+  margin: 0 auto;
+}
+
+.product-rank-div {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.product-rank-div div {
+  padding: 10px;
+  margin: 0 -4px;
+}
+
+.product-rank-div div img {
+  width: 100%;
+  height: auto;
+}
+
+.rank-txt {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.rank-underline {
+  margin-top: 12px;
+  border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+.rank-subtxt {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #999999;
+}
