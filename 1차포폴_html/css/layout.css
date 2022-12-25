@@ -1,3 +1,21 @@
+:root {
+  --main-color: #f70061;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  line-height: 1.5;
+}
+
+.search i {
+  position: relative;
+  left: 30px;
+  color: #ddd;
+}
+
 h3 {
   font-size: 24px;
   font-weight: bold;
@@ -16,29 +34,33 @@ h3 {
 }
 
 .top {
+  width: 1120px;
   margin: 0 auto;
+  margin-top: 5px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-between;
   height: 62px;
 }
 
-.top img {
-  margin-left: 20px;
+.search {
+  display: flex;
+  align-items: center;
+  width: 550px;
 }
 
 .search-bar {
   font-size: 14px;
-  width: 30%;
+  width: 100%;
   padding: 10px 40px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
 
 .user li {
+  margin-right: 10px;
   display: inline;
   border-radius: 3px;
-  background-color: aqua;
 }
 
 .enter {
@@ -51,9 +73,10 @@ h3 {
 }
 
 nav {
+  width: 1120px;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding-bottom: 3px;
 }
@@ -74,6 +97,7 @@ nav li {
 
 .underline {
   width: 100%;
+  margin-bottom: 32px;
   background-color: #dddddd;
   height: 1px;
 }
@@ -84,7 +108,7 @@ a {
 }
 
 .sale {
-  color: #f70061;
+  color: var(--main-color);
 }
 
 .woman {
@@ -162,7 +186,7 @@ a {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  margin-bottom: 32px;
+  margin-bottom: 10px;
 }
 
 .selcetion div {
@@ -177,6 +201,7 @@ a {
 
 .product-rank {
   width: 1120px;
+  height: 546px;
   margin: 0 auto;
 }
 
@@ -187,20 +212,27 @@ a {
   margin-bottom: 25px;
 }
 
-.product-rank-div div {
+.product-rank-div .product {
   padding: 10px;
   margin: 0 -4px;
 }
 
-.product-rank-div div img {
+.product-rank-div .product img {
   width: 100%;
   height: auto;
+  margin-bottom: -50px;
 }
 
+.rank-txt-brand,
 .rank-txt {
-  margin-top: 12px;
+  margin-top: 16px;
   font-size: 14px;
   font-weight: 700;
+}
+
+.rank-txt-brand:hover,
+.rank-subtxt:hover {
+  text-decoration: underline;
 }
 
 .rank-underline {
@@ -209,7 +241,63 @@ a {
 }
 
 .rank-subtxt {
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 6px;
   font-size: 14px;
   color: #999999;
+}
+
+.go-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 0 24px 7px rgb(0 0 0 / 6%);
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  top: 25px;
+  left: 210px;
+  width: 40px;
+  height: 40px;
+}
+
+.go-cart i {
+  color: #ccc;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.price-sale:hover,
+.price:hover {
+  text-decoration: none;
+}
+
+.price-sale {
+  margin-right: 8px;
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.label {
+  margin-top: 10px;
+  display: flex;
+  margin-right: 5px;
+}
+
+.label .new,
+.label .sale1 {
+  color: #999;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 4px;
+  background-color: #eee;
 }
