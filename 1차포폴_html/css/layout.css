@@ -203,6 +203,7 @@ a {
   width: 1120px;
   height: 546px;
   margin: 0 auto;
+  margin-bottom: 60px;
 }
 
 .product-rank-div {
@@ -300,4 +301,129 @@ a {
   justify-content: center;
   padding: 4px 4px;
   background-color: #eee;
+}
+
+.review_score .fa-star {
+  color: #f7a800;
+}
+
+.review_score .fa-heart {
+  color: rgb(205, 205, 205);
+}
+
+.review_score {
+  color: rgb(205, 205, 205);
+  margin-top: 4px;
+  margin-right: 6px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.bold {
+  color: black;
+  font-weight: 600;
+}
+
+.title,
+.see-all {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.see-all i {
+  margin-left: 10px;
+}
+
+.title {
+  justify-content: space-between;
+}
+
+.popular-category {
+  width: 1120px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.imgs {
+  display: flex;
+}
+
+.imgs div img {
+  width: 100%;
+  height: auto;
+}
+
+.imgs div {
+  margin-top: 25px;
+  margin-right: 4px;
+}
+
+.information1 {
+  margin-top: 50px;
+  font-size: 14px;
+  color: #999999;
+}
+
+.information {
+  border-bottom: 1px solid #eee !important;
+  margin-top: 31px;
+}
+
+strong {
+  font-weight: 500;
+}
+
+footer {
+  width: 1120px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+
+.information2 {
+  margin-top: 15px;
+}
+
+.information2,
+.information2 div {
+  display: flex;
+  align-items: center;
+}
+
+.information2 div {
+  margin-right: 80px;
+}
+
+.information2 img {
+  height: 40px;
+  margin-right: 16px;
+}
+
+.information2 button {
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 3px 10px;
+}
+
+.information2 button:hover {
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  background-color: rgb(228, 228, 228);
+  padding: 3px 10px;
+}
+
+.sns {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icons i {
+  margin-right: 20px;
 }
