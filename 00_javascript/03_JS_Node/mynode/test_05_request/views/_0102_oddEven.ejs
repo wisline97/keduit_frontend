@@ -7,15 +7,11 @@
     <title>Document</title>
   </head>
   <body>
-    <pre>
-        [문제]
-            0~ 9 출력
-       
-    </pre>
-
-    <% var i = 0; while(i < 10) { %> <%= i %> <br />
-    <% i++; } %>
-
-    <a href="main">돌아가기</a>
+    <h2>짝수나 홀수를 입력하세요.</h2>
+    <form action="oddEvenPro">
+      숫자:
+      <input type="text" name="number" placeholder="숫자를 입력해주세요." />
+      <input type="submit" value="입력완료" />
+    </form>
   </body>
 </html>
