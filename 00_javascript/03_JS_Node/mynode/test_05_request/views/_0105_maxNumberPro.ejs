@@ -7,12 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>히든Pro페이지</h1>
-    
-    num1 : <%=num1 %> 
-    <br>
-    num2 : <%=num2 %>  
-    <br>
-    <a href="main">돌아가기</a>
+	<% 
+
+		var arr = [num1, num2, num3]
+		var max = 0
+		for(i=0; i<arr.length; i++){
+			arr[i] = arr[i]/1;
+
+			if(arr[i]>=max){
+				max = arr[i]
+			}
+		}
+	%>
+
+	<h2>가장 큰 수</h2>
+	<h1><%=max
+	%></h1>
+	<br/>
+	<a href="main">돌아가기</a>
 </body>
 </html>

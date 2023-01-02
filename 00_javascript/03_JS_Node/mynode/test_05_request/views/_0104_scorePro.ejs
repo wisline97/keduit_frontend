@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%
+
+        var msg1 = ""
+        var total = (score1/1)+(score2/1)
+        if(total>=0 && total<=200){
+            if(total/2 >= 60 && score1 >= 60 && score2 >= 60){
+                msg = "합격입니다."
+            } else{
+                msg = "불합격입니다."
+            } 
+        } else{
+            msg = "점수를 잘못 입력하셨습니다."
+        }
+
+
+    %>
+
+    <h2>합? 불합?</h2>
+    <p>평균점수: <%=total/2%></p>
+    <h1 style="color: red;"><%=msg%></h1>
+
+    <a href="main">돌아가기</a>
+</body>
+</html>
