@@ -21,7 +21,7 @@
         <hr>
         <%	for(var i=0; i<scoreDB.length; i++) { %>
                 <br><br>
-                번호 : <%=(i + 1) %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                번호 : <%=(i + 1) %> 
                 점수 : <%= scoreDB[i] %>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button><a href="scoreUpdateForm?index=<%=i%>">수정하기</a></button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button><a href="scoreDeletePro?index=<%=i%>">삭제하기</a></button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -1,7 +1,7 @@
 // 서버 세팅 
 var express = require("express");
 var app = express();
-var port = 3301;
+var port = 3501;
 var server = app.listen(port, function(){
 	console.log("서버가 가동되었습니다" + port);
 });
@@ -47,6 +47,7 @@ app.get("/scoreListAll", function(req, res){
 });
 
 
+// 랜덤 값 추가
 app.get("/scoreAddRandomPro", function(req, res){  
     var scoreDB = req.session.scoreDB
     var ran = Math.floor(Math.random() * 101)
@@ -59,6 +60,7 @@ app.get("/scoreAddRandomPro", function(req, res){
     res.redirect("scoreListAll");
 });
 
+//합격생 출력
 app.get("/scoreListPass", function(req, res){  
     var renderData = {
         "scoreDB" : req.session.scoreDB,
@@ -67,13 +69,38 @@ app.get("/scoreListPass", function(req, res){
     res.render("_0102_scoreListPass.ejs" , renderData);
 });
 
-app.get("/scoreUpdateForm", function(req, res){  
+
+
+
+// 점수 삭제 기능
+app.get("/scoreDeletePro", function(req, res){  
     var index = req.query.index
+    var scoreDB = req.session.scoreDB;
+    scoreDB.splice(index , 1)
+
+    req.session.scoreDB = scoreDB;
+    res.redirect("scoreListAll");
+});
+
+//전체삭제기능
+app.get("/scoreDeleteAllPro", function(req, res){  
+    var scoreDB = req.session.scoreDB;
+    scoreDB = []
+
+    req.session.scoreDB = scoreDB;
+    res.redirect("scoreListAll");
+});
+
+
+
+
+
+app.get("/scoreUpdateForm", function(req, res){  
+    var index = req.query.index;
     var renderData = {
         "scoreDB" : req.session.scoreDB,
         "index" : index
     };
-
     res.render("_0103_scoreUpdateForm.ejs" , renderData);
 });
 
@@ -84,22 +111,5 @@ app.get("/scoreUpdatePro", function(req, res){
     scoreDB[index] = updateNumber
 
     req.session.scoreDB = scoreDB
-    res.redirect("scoreListAll");
-});
-
-app.get("/scoreDeletePro", function(req, res){  
-    var index = req.query.index
-    var scoreDB = req.session.scoreDB;
-    scoreDB.splice(index , 1)
-
-    req.session.scoreDB = scoreDB;
-    res.redirect("scoreListAll");
-});
-
-app.get("/scoreDeleteAllPro", function(req, res){  
-    var scoreDB = req.session.scoreDB;
-    scoreDB = []
-
-    req.session.scoreDB = scoreDB;
     res.redirect("scoreListAll");
 });
