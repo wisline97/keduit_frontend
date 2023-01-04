@@ -27,3 +27,4 @@ app.get("/main", function(req, res){
 // 라우터 폴더 세팅
 require("./router/game99")(app);
 require("./router/gameBR31")(app);
+require("./router/gameOperate")(app);
