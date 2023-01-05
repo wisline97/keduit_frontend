@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div align="center">
+        <h1>230105 문제풀이</h1>
+        <hr/>
+    <script>
+        var userData = [
+  {
+    "Key": "0",
+    "usrId": "pokemonred",
+    "usrPw1": "rfwef3rr32%^",
+    "usrPw2": "rfwef3rr42%^",
+    "usrName": "김지현",
+    "usrGnd": "여",
+    "usrEmail": "pokemonred@naver.com",
+    "usrContact": "1011112222",
+    "rcntSrch": "후드티",
+    "ttlPrdPrc": "5",
+    "ttlprAmnt": "10000"
+  },
+  {
+    "Key": "1",
+    "usrId": "vermilion9312",
+    "usrPw1": "ar3sejnic3#",
+    "usrPw2": "ar3sejnic33",
+    "usrName": "이지현",
+    "usrGnd": "남",
+    "usrEmail": "vermilion9312@naver.com",
+    "usrContact": "1023457890",
+    "rcntSrch": "샤넬",
+    "ttlPrdPrc": "3",
+    "ttlprAmnt": "20000"
+  },
+  {
+    "Key": "2",
+    "usrId": "wineheaven3",
+    "usrPw1": "fr3902!",
+    "usrPw2": "fr3902!",
+    "usrName": "최지현",
+    "usrGnd": "남",
+    "usrEmail": "wineheaven3@naver.com",
+    "usrContact": "1092761907",
+    "rcntSrch": "디올",
+    "ttlPrdPrc": "7",
+    "ttlprAmnt": "246900"
+  },
+  {
+    "Key": "3",
+    "usrId": "whitewine17",
+    "usrPw1": "Hy9d#2nfwe",
+    "usrPw2": "Hy9d#2nfwe",
+    "usrName": "오지현",
+    "usrGnd": "여",
+    "usrEmail": "whitewine17@naver.com",
+    "usrContact": "1099993333",
+    "rcntSrch": "아디다스",
+    "ttlPrdPrc": "245",
+    "ttlprAmnt": "573567"
+  },
+  {
+    "Key": "4",
+    "usrId": "redforce96",
+    "usrPw1": "r32432f6y$",
+    "usrPw2": "r32432f6y$",
+    "usrName": "안지선",
+    "usrGnd": "여",
+    "usrEmail": "redforce96@naver.com",
+    "usrContact": "1099994444",
+    "rcntSrch": "양말",
+    "ttlPrdPrc": "645",
+    "ttlprAmnt": "3732"
+  },
+  {
+    "Key": "5",
+    "usrId": "keduit",
+    "usrPw1": "gt4seijce$#",
+    "usrPw2": "gt4seijce$#",
+    "usrName": "신짱구",
+    "usrGnd": "남",
+    "usrEmail": "keduit@naver.com",
+    "usrContact": "1077772222",
+    "rcntSrch": "구찌",
+    "ttlPrdPrc": "43",
+    "ttlprAmnt": "13210"
+  },
+  {
+    "Key": "6",
+    "usrId": "bongmiseon",
+    "usrPw1": "fwefgiu39$%3",
+    "usrPw2": "fwefg1u39$%3",
+    "usrName": "봉미선",
+    "usrGnd": "여",
+    "usrEmail": "bongmiseon@naver.com",
+    "usrContact": "1011117777",
+    "rcntSrch": "목도리",
+    "ttlPrdPrc": "5",
+    "ttlprAmnt": "7433"
+  },
+  {
+    "Key": "7",
+    "usrId": "jjang-a",
+    "usrPw1": "g543g%$YHG$",
+    "usrPw2": "g543g%$YHG$",
+    "usrName": "신짱아",
+    "usrGnd": "여",
+    "usrEmail": "jjang-a@naver.com",
+    "usrContact": "1089892323",
+    "rcntSrch": "셀린느버킷햇",
+    "ttlPrdPrc": "8",
+    "ttlprAmnt": "435250"
+  },
+  {
+    "Key": "8",
+    "usrId": "category",
+    "usrPw1": "7%^YHr75%$",
+    "usrPw2": "7%^YHr75%$",
+    "usrName": "김범주",
+    "usrGnd": "여",
+    "usrEmail": "category@naver.com",
+    "usrContact": "1067892345",
+    "rcntSrch": "치마",
+    "ttlPrdPrc": "38",
+    "ttlprAmnt": "43600"
+  },
+  {
+    "Key": "9",
+    "usrId": "newboat",
+    "usrPw1": "f%#UYHT^J",
+    "usrPw2": "f%#UYHT^J",
+    "usrName": "정새배",
+    "usrGnd": "남",
+    "usrEmail": "newboat@naver.com",
+    "usrContact": "1048382233",
+    "rcntSrch": "립스틱",
+    "ttlPrdPrc": "12",
+    "ttlprAmnt": "727288"
+  }
+]
+        var prdData = [
+  {
+    "Key": "0",
+    "invnt": "4",
+    "prdName": "아디다스바지1",
+    "brndName": "아디다스",
+    "prdCode": "C3637735",
+    "prdPrice": "10000",
+    "prdColor": "블랙",
+    "proSize": "S",
+    "dscntRate": "0.6",
+    "dscntAmnt": "6000",
+    "salesQuantity": "2",
+    "prdCategory": "나이키",
+    "likesAmt": "245",
+    "newOrNot": "Y",
+    "saleOrNot": "Y",
+    "상품 최종 금액": "4000"
+  },
+  {
+    "Key": "1",
+    "invnt": "23",
+    "prdName": "나이키목도리22",
+    "brndName": "나이키",
+    "prdCode": "dcd2624",
+    "prdPrice": "20000",
+    "prdColor": "화이트",
+    "proSize": "M",
+    "dscntRate": "0.2",
+    "dscntAmnt": "4000",
+    "salesQuantity": "1",
+    "prdCategory": "기타",
+    "likesAmt": "3733",
+    "newOrNot": "Y",
+    "saleOrNot": "N",
+    "상품 최종 금액": "16000"
+  },
+  {
+    "Key": "2",
+    "invnt": "46",
+    "prdName": "구찌양말",
+    "brndName": "구찌",
+    "prdCode": "jd3226",
+    "prdPrice": "246900",
+    "prdColor": "핑크",
+    "proSize": "XL",
+    "dscntRate": "0.1",
+    "dscntAmnt": "24690",
+    "salesQuantity": "3",
+    "prdCategory": "기타",
+    "likesAmt": "2343",
+    "newOrNot": "Y",
+    "saleOrNot": "N",
+    "상품 최종 금액": "222210"
+  },
+  {
+    "Key": "3",
+    "invnt": "2",
+    "prdName": "뉴발란스운동화레드",
+    "brndName": "뉴발란스",
+    "prdCode": "fr3737",
+    "prdPrice": "573567",
+    "prdColor": "블루",
+    "proSize": "L",
+    "dscntRate": "0.45",
+    "dscntAmnt": "258105.15",
+    "salesQuantity": "1",
+    "prdCategory": "신발",
+    "likesAmt": "2435",
+    "newOrNot": "N",
+    "saleOrNot": "Y",
+    "상품 최종 금액": "315461.85"
+  },
+  {
+    "Key": "4",
+    "invnt": "26",
+    "prdName": "챔피언아대_핑크",
+    "brndName": "챔피언",
+    "prdCode": "c63636",
+    "prdPrice": "3732",
+    "prdColor": "레드",
+    "proSize": "L",
+    "dscntRate": "0.8",
+    "dscntAmnt": "2985.6000000000004",
+    "salesQuantity": "2",
+    "prdCategory": "기타",
+    "likesAmt": "846",
+    "newOrNot": "N",
+    "saleOrNot": "Y",
+    "상품 최종 금액": "746.3999999999996"
+  },
+  {
+    "Key": "5",
+    "invnt": "246",
+    "prdName": "샤넬트위트자켓",
+    "brndName": "샤넬",
+    "prdCode": "j4537rsd",
+    "prdPrice": "13210",
+    "prdColor": "그레이",
+    "proSize": "XS",
+    "dscntRate": "0.15",
+    "dscntAmnt": "1981.5",
+    "salesQuantity": "13",
+    "prdCategory": "상의",
+    "likesAmt": "36",
+    "newOrNot": "Y",
+    "saleOrNot": "N",
+    "상품 최종 금액": "11228.5"
+  },
+  {
+    "Key": "6",
+    "invnt": "77",
+    "prdName": "입생마스카라46",
+    "brndName": "입생로랑",
+    "prdCode": "j2ejht",
+    "prdPrice": "7433",
+    "prdColor": "챠콜",
+    "proSize": null,
+    "dscntRate": "0.2",
+    "dscntAmnt": "1486.6000000000001",
+    "salesQuantity": "49",
+    "prdCategory": "뷰티",
+    "likesAmt": "234",
+    "newOrNot": "N",
+    "saleOrNot": "Y",
+    "상품 최종 금액": "5946.4"
+  },
+  {
+    "Key": "7",
+    "invnt": "0",
+    "prdName": "디올립스틱_45",
+    "brndName": "디올",
+    "prdCode": "cwtl26236",
+    "prdPrice": "435250",
+    "prdColor": "블랙",
+    "proSize": null,
+    "dscntRate": "0.25",
+    "dscntAmnt": "108812.5",
+    "salesQuantity": "0",
+    "prdCategory": "뷰티",
+    "likesAmt": "0",
+    "newOrNot": "Y",
+    "saleOrNot": "Y",
+    "상품 최종 금액": "326437.5"
+  },
+  {
+    "Key": "8",
+    "invnt": "0",
+    "prdName": "디올립타투",
+    "brndName": "디올뷰티",
+    "prdCode": "ask2436",
+    "prdPrice": "43600",
+    "prdColor": "블루",
+    "proSize": null,
+    "dscntRate": "0.4",
+    "dscntAmnt": "17440",
+    "salesQuantity": "0",
+    "prdCategory": "뷰티",
+    "likesAmt": "24",
+    "newOrNot": "N",
+    "saleOrNot": "N",
+    "상품 최종 금액": "26160"
+  },
+  {
+    "Key": "9",
+    "invnt": "27",
+    "prdName": "셀린느버킷햇",
+    "brndName": "셀린느",
+    "prdCode": "sh383ndh",
+    "prdPrice": "727288",
+    "prdColor": "핑크",
+    "proSize": "L",
+    "dscntRate": "0.5",
+    "dscntAmnt": "363644",
+    "salesQuantity": "1",
+    "prdCategory": "기타",
+    "likesAmt": "98",
+    "newOrNot": "N",
+    "saleOrNot": "N",
+    "상품 최종 금액": "363644"
+  }
+]
+
+        document.write("<h2>[문제1]</h2>")
+        document.write("<p>총 상품 구매수량이 10개가 넘고, 총 구매 금액이 20만원이 넘는 회원 출력하기</p>")
+
+        for(i=0; i<userData.length; i++){
+            var 구매수량 = userData[i]["ttlPrdPrc"]/1;
+            var 구매금액 = userData[i]["ttlprAmnt"]/1;
+            if(구매수량 > 10 && 구매금액 > 200000){
+                document.write(userData[i]["usrId"] + " 회원님");
+                document.write("<br/>")
+            }
+        }
+        
+        document.write("<br/>")
+        document.write("<hr/>")
+        document.write("<br/>")
+        document.write("<h2>[문제2]</h2>")
+        document.write("<p>여성회원 남성회원 비율 구하기</p>")
+        
+        var ttlUser = userData.length;
+        var femaleUser = 0
+        var maleUser = 0
+        
+        for(i=0; i<userData.length; i++){
+            if(userData[i]["usrGnd"] == "여"){
+                femaleUser += 1
+            }
+            if(userData[i]["usrGnd"] == "남"){
+                maleUser += 1
+            }
+        }
+        
+        var femaleRatio = (femaleUser / ttlUser)*100;
+        var maleRatio = (maleUser / ttlUser)*100;
+        
+        document.write(`<em>여성회원의 비율은 ${femaleRatio}% 입니다.</em> <br/>`)
+        document.write(`<em>남성회원의 비율은 ${maleRatio}% 입니다. </em>`)
+        
+        document.write("<br/>")
+        document.write("<br/>")
+        document.write("<hr/>")
+        document.write("<br/>")
+        document.write("<h2>[문제3]</h2>")
+        document.write("<p>상품코드가 c로 시작하는 상품 출력하기(대소문자 구분 없음)</p>")
+        
+        for(i=0; i<prdData.length; i++){
+            var prdCode = prdData[i]["prdCode"];
+            if(prdCode[0] === "c" || prdCode[0] === "C"){
+                document.write(`${prdCode} <br/> `);
+            }
+        }
+
+        document.write("<br/>")
+        document.write("<br/>")
+        document.write("<hr/>")
+        document.write("<br/>")
+        document.write("<h2>[문제4]</h2>")
+        document.write("<p>상품이 L사이즈인 것만 출력하기</p>")
+
+        for(i=0; i<prdData.length; i++){
+            var prdSize = prdData[i]["proSize"];
+            var prdName = prdData[i]["prdName"];
+            if(prdSize === "L" || prdSize === "l"){
+                document.write(`<em>${prdName}</em><br/> `);
+            }
+        }
+
+        document.write("<br/>")
+        document.write("<br/>")
+        document.write("<hr/>")
+        document.write("<br/>")
+        document.write("<h2>[문제5]</h2>")
+        document.write("<p>재고량이 0인 상품은 매진으로 표시하기</p>")
+
+        for(i=0; i<prdData.length; i++){
+            var invnt = prdData[i]["invnt"]/1;
+            if(invnt == 0){
+                document.write(`${prdData[i]["prdName"]} 제품은 매진상태입니다. <br/>`)
+            }
+            
+        }
+    </script>
+    </div>
+</body>
+</html>

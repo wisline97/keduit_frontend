@@ -8,8 +8,8 @@ var server = app.listen(port, function(){
 
 // ejs 세팅(views)
 var ejs = require("ejs");
-app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
+app.set("views", __dirname + "/views");
 app.engine("ejs", ejs.renderFile);
 
 
