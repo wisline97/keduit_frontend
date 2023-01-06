@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div align="center">
+        <%
+            x = x/1;
+            y = y/1;
+            answer = answer/1;
+            score = score/1;
+            gameCount = gameCount/1;
+
+            var state = "";
+
+            if(gameCount == 5){
+                state = "종료";
+            } else if(answer === x*y){
+                score += 20
+                state = "정답";
+            } else if(answer !== x*y){
+                state = "오답";
+            }
+        %>
+        <h1>구구단게임</h1>
+        <p>총점은 100점으로 한 문제당 +20점</p>
+        <hr/>
+        <h2><%=gameCount%>번째 게임</h2>
+        <h3>첫번째 문제의 정답은 <%=x*y%></h3>
+        <p>당신이 입력한 정답은 <%=answer%></p>
+        <%if(state == "정답"){%>
+            <h2 style="color: blue;">정답입니다! +20점</h2>
+            <%gameCount += 1%>
+            <button onclick="location.href='99danPlay?score=<%=score%>&gameCount=<%=gameCount%>'">다음 문제 풀기</button>
+            <%} else if(state == "오답"){%>
+                <h2 style="color: red;">오답입니다!</h2>
+                <%gameCount += 1%>
+                <button onclick="location.href='99danPlay?score=<%=score%>&gameCount=<%=gameCount%>'">다음 문제 풀기</button>
+                <%} else if(state == "종료"){
+                    if(answer === x*y){%>
+                        <h2 style="color: blue;">정답입니다! +20점</h2>
+                        <%score += 20%>
+                        <%} else{%>
+                            <h2 style="color: red;">오답입니다!</h2>
+                            <%}%>
+
+                            <h1>게임 종료</h1>
+                            <h2 style="color: blue;">최종 점수는 <%=score%>점</h2>
+                            <button onclick="location.href='99danMain'">구구단 1번부터 다시 풀기</button>
+                        
+                <%}%>
+        <br/>
+        <br/>
+        <hr/>
+        <br/>
+        <button onclick="location.href='/'">메인화면으로 돌아가기</button>
+    </div>
+</body>
+</html>

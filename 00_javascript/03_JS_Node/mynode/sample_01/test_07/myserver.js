@@ -1,24 +1,16 @@
-//server setting
 var express = require("express");
 var app = express();
 var port = 1234;
-app.listen(port, function(){
-    console.log(`port num ${port} th server is working.`)});
+var server = function(){
+    console.log(`${port} th server is working`);
+}
+//server works
+app.listen(port, server());
 
 //ejs setting
 var ejs = require("ejs");
 app.set("view engine", "ejs");
-app.set("views", __dirname +"/views");
-console.log(__dirname)
+app.set("views", __dirname+"/views");
 
-//express-session setting
-var session = require("express-session");
-app.use(session({
-    secret: "abcdefg",
-    resave: false,
-    saveUninitialized: false,
-}));
-
-//router folder setting
-require("./router/basic")(app);
-require("./router/baby")(app);
+require("./router/index")(app);
+require("./router/99dan")(app);

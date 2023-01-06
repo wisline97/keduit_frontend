@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div align="center">
+        <h1>구구단게임</h1>
+        <p>총점은 100점으로 한 문제당 +20점</p>
+        <hr/>
+        <p><%=gameCount%>번째 게임 현재 점수는 <%=score%></p>
+        <%
+        var x = Math.floor(Math.random()*9)+1
+        var y = Math.floor(Math.random()*9)+1
+        var answer = null;
+        %>
+        <h2><%=x%> * <%=y%> = ???</h2>
+        <form action="99danPro">
+            <input type="hidden" name="score" value="<%=score%>">
+            <input type="hidden" name="gameCount" value="<%=gameCount%>">
+            <input type="hidden" name="x" value="<%=x%>">
+            <input type="hidden" name="y" value="<%=y%>">
+            <input type="number" name="answer" value="<%=answer%>">
+            <input type="submit" value="전송">
+        </form>
+        <br/>
+        <hr/>
+        <button onclick="location.href='/'">메인화면으로 돌아가기</button>
+    </div>
+</body>
+</html>
