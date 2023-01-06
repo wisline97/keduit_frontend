@@ -441,3 +441,27 @@ footer {
 .icons i {
   margin-right: 20px;
 }
+
+.sub {
+  font-size: 14px;
+}
+
+.FaQ button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-btn{
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 10px;
+  padding: 6px 10px 4px;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+footer a{
+  text-decoration:underline;
+}
