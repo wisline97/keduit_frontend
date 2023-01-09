@@ -19,9 +19,6 @@ module.exports = function(app){
             "y": req.query.y,
             "answer": req.query.answer,
         }
-
-        
-
         res.render("99dan/99danPro.ejs", renderData)
     })
 
