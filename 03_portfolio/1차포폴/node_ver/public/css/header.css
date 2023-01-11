@@ -56,10 +56,13 @@
     border: 1px solid #ddd;
     border-radius: 4px;
   }
-  
+
+  .user ul{
+    display: flex;
+  }
+
   .user li {
     margin-right: 10px;
-    display: inline;
     border-radius: 3px;
   }
   
@@ -125,4 +128,21 @@
   
   .etc {
     color: #ccc;
+  }
+
+  .cart-count{
+    border: 1px solid white;
+    position: relative;
+    top: -15px;
+    left: 8px;
+    display: flex;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    margin-right: 7px;
   }

@@ -14,24 +14,28 @@
   </head>
   <body>
 
-  <%function mixDataRandom() {
-      for(i=0; i<1000; i++){
-          var temp = null;
-          while(true){
-              var randomIdx1 = parseInt(Math.random()*prdData.length);
-              var randomIdx2 = parseInt(Math.random()*prdData.length);
-              if(randomIdx1 != randomIdx2){
-                  break
-              }
+
+<!--prdData 순서 섞는 함수-->
+<%function sortPrdByKey(prdData) {
+    for(var i=0; i<prdData.length; i++) {
+      var maxNo = prdData[i]["key"];
+      var maxIndex = i;
+
+      for(var j=i; j<prdData.length; j++) {
+          if(maxNo < prdData[j]["key"]) {
+              maxNo = prdData[j]["key"];
+              maxIndex = j;
           }
-        temp = prdData[randomIdx1]; 
-        prdData[randomIdx1] = prdData[randomIdx2];
-        prdData[randomIdx2] = temp;
       }
-  };%>
+
+      var temp = prdData[i];
+      prdData[i] = prdData[maxIndex];
+      prdData[maxIndex] = temp;
+  }
+};%>
 
 
-<%function prdOriginPrice() {
+<%function prdOriginPrice(prdData) {
   for(i=0; i<prdData.length; i++){
     var isInclude = prdData[i]["prdPrice"].includes(",");
   if(isInclude){
@@ -41,8 +45,25 @@
   }
 }};%>
 
-<%mixDataRandom()%>
-<%prdOriginPrice()%>
+<% function sortPrdBySales(prdData) {
+  for(var i=0; i<prdData.length; i++) {
+      var maxNo = prdData[i]["salesQuantity"];
+      var maxIndex = i;
+
+      for(var j=i; j<prdData.length; j++) {
+          if(maxNo < prdData[j]["salesQuantity"]) {
+              maxNo = prdData[j]["salesQuantity"];
+              maxIndex = j;
+          }
+      }
+
+      var temp = prdData[i];
+      prdData[i] = prdData[maxIndex];
+      prdData[maxIndex] = temp;
+  }
+}%>
+
+<%prdOriginPrice(prdData)%>
 
     <%- include ('header.ejs') %>
     <section class="banner">
@@ -118,15 +139,16 @@
       </div>
 
       <div class="product-rank-div">
-      
+      <%sortPrdBySales(prdData)%>
       <%for(i=0; i<4; i++){%>
         <%var prdPrice = prdData[i]["prdPrice"]/1;
           var saleRatio = Math.floor((prdData[i]["dscntRate"] * 100))
           var dscntPrice = prdPrice - parseInt(prdPrice * (prdData[i]["dscntRate"]/1))
         %>
       <div class="product">
-        <a href="#"><img src=<%=prdData[i]["prdImg"]%>></a>
-        <button class="go-cart"><i class="fa-solid fa-cart-plus fa-lg"></i></button>
+        <a href="#"><img src=<%=prdData[i]["prdImg"]%>></a> 
+        <!--장바구니 버튼-->
+        <button class="go-cart"><a href="#"><i class="fa-solid fa-cart-plus fa-lg"></i></a></button>
         <p class="rank-txt"><%=i+1%>위</p>
         <p class="rank-underline"></p>
         <a href="#"><p class="rank-txt-brand"><%=prdData[i]["brndName"]%></p></a>
@@ -136,12 +158,16 @@
           <p class="rank-subtxt price"><%=prdPrice.toLocaleString()%></p>
         </div>
         <div class="label">
+          <%if(prdData[i]["newOrNot"]){%>
           <div class="new">
             <p>신상</p>
           </div>
-          <div class="sale1">
+          <%}%>
+          <%if(prdData[i]["saleOrNot"]){%>
+            <div class="sale1">
             <p>세일</p>
           </div>
+          <%}%>
         </div>
         <div class="review_score">
           <div class="review_score">
@@ -151,9 +177,9 @@
         </div>
       </div>
     <%}%>
-    </div>
+      </div>
     </section>
-
+    <%sortPrdByKey(prdData)%>
     <section class="product-rank">
       <div class="title">
         <h3>단독 상품</h3>
@@ -163,129 +189,42 @@
         </div>
       </div>
       <div class="product-rank-div">
+        <%for(i=0; i<4; i++){%>
+          <%var prdPrice = prdData[i]["prdPrice"]/1;
+            var saleRatio = Math.floor((prdData[i]["dscntRate"] * 100))
+            var dscntPrice = prdPrice - parseInt(prdPrice * (prdData[i]["dscntRate"]/1))
+          %>
         <div class="product">
-          <a href="#"><img src="https://images.seoulstore.com/products/e9a591a4b094acdba40b71511c38ea37.jpg?d=640xauto"></a>
-          <div class="go-cart"><i class="fa-solid fa-cart-plus fa-lg"></i></div>
-          <p class="rank-txt">1위</p>
+          <a href="#"><img src=<%=prdData[i]["prdImg"]%>></a>
+          <button class="go-cart"><i class="fa-solid fa-cart-plus fa-lg"></i></button>
+          <p class="rank-txt"><%=i+1%>위</p>
           <p class="rank-underline"></p>
-          <a href="#"><p class="rank-txt-brand">플레이스스튜디오</p></a>
-          <a href="#"><p class="rank-subtxt">[단독판매] 오버핏 리버시블 스웨이드 크롭 양털 자켓 무스탕 점퍼 2COLOR</p></a>
+          <a href="#"><p class="rank-txt-brand"><%=prdData[i]["brndName"]%></p></a>
+          <a href="#"><p class="rank-subtxt"><%=prdData[i]["prdName"]%></p></a>
           <div class="price-container">
-            <p class="rank-subtxt price-sale">64% 43,000</p>
-            <p class="rank-subtxt price">118,000</p>
+            <p class="rank-subtxt price-sale"><%=saleRatio%>% <%=dscntPrice.toLocaleString()%></p>
+            <p class="rank-subtxt price"><%=prdPrice.toLocaleString()%></p>
           </div>
           <div class="label">
-            <div class="new">
-              <p>신상</p>
-            </div>
-            <div class="sale1">
-              <p>세일</p>
-            </div>
+            <%if(prdData[i]["newOrNot"]){%>
+              <div class="new">
+                <p>신상</p>
+              </div>
+              <%}%>
+              <%if(prdData[i]["saleOrNot"]){%>
+                <div class="sale1">
+                <p>세일</p>
+              </div>
+              <%}%>
           </div>
           <div class="review_score">
             <div class="review_score">
-              <i class="fa-solid fa-star fa-sm"></i>
-              <p class="review_score_txt bold">4.9</p>
-            </div>
-            <div class="review_score">
-              <p class="review_score_txt">(2048) •</p>
-            </div>
-            <div class="review_score">
               <i class="fa-solid fa-heart fa-sm"></i>
-              <p class="review_score_txt">33288</p>
+              <p class="review_score_txt"><%=prdData[i]["likesAmt"]%></p>
             </div>
           </div>
         </div>
-        <div class="product">
-          <a href="#"><img src="https://images.seoulstore.com/products/392c6f6779acb3ffb67574bc20e291de.jpg?d=640xauto"></a>
-          <div class="go-cart"><i class="fa-solid fa-cart-plus fa-lg"></i></div>
-          <p class="rank-txt">2위</p>
-          <p class="rank-underline"></p>
-          <a href="#"><p class="rank-txt-brand">엘노이</p></a>
-          <a href="#"><p class="rank-subtxt">[엘노이] ELNOI MARO bag black</p></a>
-          <div class="price-container">
-            <p class="rank-subtxt price-sale">50% 41,000</p>
-            <p class="rank-subtxt price">82,000</p>
-          </div>
-          <div class="label">
-            <div class="sale1">
-              <p>세일</p>
-            </div>
-          </div>
-          <div class="review_score">
-            <div class="review_score">
-              <i class="fa-solid fa-star fa-sm"></i>
-              <p class="review_score_txt bold">4.9</p>
-            </div>
-            <div class="review_score">
-              <p class="review_score_txt">(2048) •</p>
-            </div>
-            <div class="review_score">
-              <i class="fa-solid fa-heart fa-sm"></i>
-              <p class="review_score_txt">33288</p>
-            </div>
-          </div>
-        </div>
-        <div class="product">
-          <a href="#"><img src="https://images.seoulstore.com/products/0ce9dc88fc5769814f8d804178634583.jpg?d=640xauto"></a>
-          <div class="go-cart"><i class="fa-solid fa-cart-plus fa-lg"></i></div>
-          <p class="rank-txt">3위</p>
-          <p class="rank-underline"></p>
-          <a href="#"><p class="rank-txt-brand">아노에틱</p></a>
-          <a href="#"><p class="rank-subtxt">ANC WOOL TWISTED BUCKET HAT_BLACK</p></a>
-          <div class="price-container">
-            <p class="rank-subtxt price-sale">76% 29,800</p>
-            <p class="rank-subtxt price">125,600</p>
-          </div>
-          <div class="label">
-            <div class="sale1">
-              <p>세일</p>
-            </div>
-          </div>
-          <div class="review_score">
-            <div class="review_score">
-              <i class="fa-solid fa-star fa-sm"></i>
-              <p class="review_score_txt bold">4.9</p>
-            </div>
-            <div class="review_score">
-              <p class="review_score_txt">(2048) •</p>
-            </div>
-            <div class="review_score">
-              <i class="fa-solid fa-heart fa-sm"></i>
-              <p class="review_score_txt">33288</p>
-            </div>
-          </div>
-        </div>
-        <div class="product">
-          <a href="#"><img src="https://images.seoulstore.com/products/7ababaa96555043d9388f9ed2c391263.jpg?d=640xauto"></a>
-          <div class="go-cart"><i class="fa-solid fa-cart-plus fa-lg"></i></div> 
-          <p class="rank-txt">4위</p>
-          <p class="rank-underline"></p>
-          <a href="#"><p class="rank-txt-brand">러브이즈트루</p></a>
-          <a href="#"><p class="rank-subtxt">OW LOVE KNIT(BLACK)</p></a>
-          <div class="price-container">
-            <p class="rank-subtxt price-sale">34% 19,000</p>
-            <p class="rank-subtxt price">29,000</p>
-          </div>
-          <div class="label">
-            <div class="sale1">
-              <p>세일</p>
-            </div>
-          </div>
-          <div class="review_score">
-            <div class="review_score">
-              <i class="fa-solid fa-star fa-sm"></i>
-              <p class="review_score_txt bold">4.9</p>
-            </div>
-            <div class="review_score">
-              <p class="review_score_txt">(2048) •</p>
-            </div>
-            <div class="review_score">
-              <i class="fa-solid fa-heart fa-sm"></i>
-              <p class="review_score_txt">33288</p>
-            </div>
-          </div>
-        </div>
+      <%}%>
       </div>
     </section>
 
