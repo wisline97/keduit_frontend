@@ -372,27 +372,3 @@ app.get("/best", function(req, res){
     };
     res.render("best.ejs", renderData);
 });
-
-
-app.get("/addCartPro", function(req, res){
-    var prdData = req.session.prdData;
-    var cartDB = req.session.cartDB;
-    var key = req.query.key;
-    for(i=0; i<prdData.length; i++){
-        if(prdData[i]["key"] == key){
-            var cart = {"cartNo" : prdData[i]["key"],
-            "cartMemberId" : "qwer",
-            "cartPrdName" : prdData[i]["prdName"],
-            "cartBuyCount" : 1,
-            "cartPrdImage" : prdData[i]["prdImg"],
-            "cartBuyPrdPrice" : prdData[i]["prdPrice"],
-        };
-            cartDB.push(cart);
-        }
-    }
-    var renderData = {
-        "cartDB": cartDB,
-    }
-    req.session.cartDB = cartDB;
-    res.render("addCartPro.ejs", renderData);
-});
