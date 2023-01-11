@@ -13,10 +13,31 @@
     <title>서울스토어</title>
   </head>
 <body>
+
+    <% function sortPrdBySales(prdData) {
+        for(var i=0; i<prdData.length; i++) {
+            var maxNo = prdData[i]["salesQuantity"];
+            var maxIndex = i;
+      
+            for(var j=i; j<prdData.length; j++) {
+                if(maxNo < prdData[j]["salesQuantity"]) {
+                    maxNo = prdData[j]["salesQuantity"];
+                    maxIndex = j;
+                }
+            }
+      
+            var temp = prdData[i];
+            prdData[i] = prdData[maxIndex];
+            prdData[maxIndex] = temp;
+        }
+      }%>
+
+      <%sortPrdBySales(prdData)%>
+
     <%- include ('header.ejs') %>
     <section class="product-rank">
       <div class="title">
-        <h3>뷰티</h3>
+        <h3>베스트</h3>
       </div>
     
       <div class="product-rank-div">
@@ -25,7 +46,6 @@
             var saleRatio = Math.floor((prdData[i]["dscntRate"] * 100))
             var dscntPrice = prdPrice - parseInt(prdPrice * (prdData[i]["dscntRate"]/1))
           %>
-          <%if(prdData[i]["prdCategory"] == "beauty"){%>
           <form action="addCartPro">
           <div class="product">
             <a href="#"><img src=<%=prdData[i]["prdImg"]%>></a>
@@ -59,11 +79,9 @@
             </div>
           </div>
         </form>
-        <%}%>
       <%}%>
       </div>
     </section>
       <%- include ('footer.ejs') %>
 </body>
 </html>
-

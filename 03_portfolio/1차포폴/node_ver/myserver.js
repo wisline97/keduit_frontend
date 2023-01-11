@@ -22,8 +22,8 @@ app.use(session({
     saveUninitialized: false
 }));
 
-function getPrdDataSample(){
-    var prdData = [{
+//화살표함수(호이스팅X)
+var getPrdDataSample = () => [{
         "key" : 0,
         "invnt" : 100,
         "prdName" : "ANC WOOL TWISTED BUCKET HAT_BLACK",
@@ -303,10 +303,9 @@ function getPrdDataSample(){
         "likesAmt" : 19,
         "salesQuantity":1
         }
-    ];
-    return prdData;
-};
+];
 
+//함수선언식(호이스팅O)
 function getCartSample() {
 	var cartDB = [
 		{"cartNo" : 0, "cartMemberId" : "qwer", "cartPrdName" : "[해외] 우먼스 노스페이스 써모볼 트랙션 뮬 V 블랙 NF0A···", "cartBuyCount" : 1, "cartPrdImage" : "img/prdImg20.jpeg", "cartBuyPrdPrice" : "154,900"}
@@ -362,4 +361,38 @@ app.get("/new", function(req, res){
         "cartDB": cartDB,
     };
     res.render("new.ejs", renderData);
+});
+
+app.get("/best", function(req, res){
+    var prdData = req.session.prdData;
+    var cartDB = req.session.cartDB;
+    var renderData = {
+        "prdData": prdData,
+        "cartDB": cartDB,
+    };
+    res.render("best.ejs", renderData);
+});
+
+
+app.get("/addCartPro", function(req, res){
+    var prdData = req.session.prdData;
+    var cartDB = req.session.cartDB;
+    var key = req.query.key;
+    for(i=0; i<prdData.length; i++){
+        if(prdData[i]["key"] == key){
+            var cart = {"cartNo" : prdData[i]["key"],
+            "cartMemberId" : "qwer",
+            "cartPrdName" : prdData[i]["prdName"],
+            "cartBuyCount" : 1,
+            "cartPrdImage" : prdData[i]["prdImg"],
+            "cartBuyPrdPrice" : prdData[i]["prdPrice"],
+        };
+            cartDB.push(cart);
+        }
+    }
+    var renderData = {
+        "cartDB": cartDB,
+    }
+    req.session.cartDB = cartDB;
+    res.render("addCartPro.ejs", renderData);
 });
