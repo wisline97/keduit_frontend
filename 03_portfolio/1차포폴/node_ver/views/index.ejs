@@ -189,7 +189,7 @@
         </div>
       </div>
       <div class="product-rank-div">
-        <%for(i=0; i<4; i++){%>
+        <%for(i=0; i<prdData.length; i++){%>
           <%var prdPrice = prdData[i]["prdPrice"]/1;
             var saleRatio = Math.floor((prdData[i]["dscntRate"] * 100))
             var dscntPrice = prdPrice - parseInt(prdPrice * (prdData[i]["dscntRate"]/1))
@@ -228,6 +228,7 @@
       </div>
     </section>
 
+
     <section class="popular-category">
       <div class="title">
         <h3>인기 카테고리</h3>
@@ -246,6 +247,7 @@
       </div>
     </section>
 
+    
     <%- include ('footer.ejs') %>
   </body>
 </html>

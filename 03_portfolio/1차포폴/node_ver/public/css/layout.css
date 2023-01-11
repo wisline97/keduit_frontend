@@ -72,19 +72,21 @@
 
 .product-rank {
   width: 1120px;
-  height: 546px;
   margin: 0 auto;
   margin-bottom: 60px;
 }
 
 .product-rank-div {
+  width: 1120px;
   margin-top: 20px;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   margin-bottom: 25px;
 }
 
 .product-rank-div .product {
+  width: 268px;
   padding: 10px;
   margin: 0 -4px;
 }

@@ -333,3 +333,33 @@ app.get("/index",function(req, res){
     };
     res.render("index.ejs", renderData);
 });
+
+app.get("/handbag", function(req, res){
+    var prdData = req.session.prdData;
+    var cartDB = req.session.cartDB;
+    var renderData = {
+        "prdData": prdData,
+        "cartDB": cartDB,
+    };
+    res.render("handbag.ejs", renderData);
+});
+
+app.get("/beauty", function(req, res){
+    var prdData = req.session.prdData;
+    var cartDB = req.session.cartDB;
+    var renderData = {
+        "prdData": prdData,
+        "cartDB": cartDB,
+    };
+    res.render("beauty.ejs", renderData);
+});
+
+app.get("/new", function(req, res){
+    var prdData = req.session.prdData;
+    var cartDB = req.session.cartDB;
+    var renderData = {
+        "prdData": prdData,
+        "cartDB": cartDB,
+    };
+    res.render("new.ejs", renderData);
+});
