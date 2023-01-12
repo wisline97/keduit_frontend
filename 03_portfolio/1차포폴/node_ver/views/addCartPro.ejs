@@ -11,6 +11,7 @@
     <%for(i=0; i<cartDB.length; i++){%>
         <%=cartDB[i]["cartPrdName"]%>
         <img src=<%=cartDB[i]["cartPrdImage"]%>>
+        <p><%=cartDB[i]["cartBuyPrdPrice"]%></p>
     <%}%>
 </body>
 </html>

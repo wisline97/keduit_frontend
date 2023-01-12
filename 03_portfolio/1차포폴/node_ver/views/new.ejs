@@ -26,36 +26,39 @@
             var dscntPrice = prdPrice - parseInt(prdPrice * (prdData[i]["dscntRate"]/1))
           %>
           <%if(prdData[i]["newOrNot"]){%>
-          <div class="product">
-            <a href="#"><img src=<%=prdData[i]["prdImg"]%>></a>
-            <button class="go-cart"><i class="fa-solid fa-cart-plus fa-lg"></i></button>
-            <p class="rank-txt"><%=i+1%>위</p>
-            <p class="rank-underline"></p>
-            <a href="#"><p class="rank-txt-brand"><%=prdData[i]["brndName"]%></p></a>
-            <a href="#"><p class="rank-subtxt"><%=prdData[i]["prdName"]%></p></a>
-            <div class="price-container">
-              <p class="rank-subtxt price-sale"><%=saleRatio%>% <%=dscntPrice.toLocaleString()%></p>
-              <p class="rank-subtxt price"><%=prdPrice.toLocaleString()%></p>
-            </div>
-            <div class="label">
-              <%if(prdData[i]["newOrNot"]){%>
-                <div class="new">
-                  <p>신상</p>
+            <form action="addCartPro">
+              <div class="product">
+                <a href="#"><img src=<%=prdData[i]["prdImg"]%>></a>
+                <input type="hidden" name="key" value="<%=prdData[i]["key"]%>">
+                <button onclick="location.href='addCartPro'" type="submit" class="go-cart"><i class="fa-solid fa-cart-plus fa-lg"></i></button>
+                <p class="rank-txt"><%=i+1%>위</p>
+                <p class="rank-underline"></p>
+                <a href="#"><p class="rank-txt-brand"><%=prdData[i]["brndName"]%></p></a>
+                <a href="#"><p class="rank-subtxt"><%=prdData[i]["prdName"]%></p></a>
+                <div class="price-container">
+                  <p class="rank-subtxt price-sale"><%=saleRatio%>% <%=dscntPrice.toLocaleString()%></p>
+                  <p class="rank-subtxt price"><%=prdPrice.toLocaleString()%></p>
                 </div>
-                <%}%>
-                <%if(prdData[i]["saleOrNot"]){%>
-                  <div class="sale1">
-                  <p>세일</p>
+                <div class="label">
+                  <%if(prdData[i]["newOrNot"]){%>
+                    <div class="new">
+                      <p>신상</p>
+                    </div>
+                    <%}%>
+                    <%if(prdData[i]["saleOrNot"]){%>
+                      <div class="sale1">
+                      <p>세일</p>
+                    </div>
+                    <%}%>
                 </div>
-                <%}%>
-            </div>
-            <div class="review_score">
-              <div class="review_score">
-                <i class="fa-solid fa-heart fa-sm"></i>
-                <p class="review_score_txt"><%=prdData[i]["likesAmt"]%></p>
+                <div class="review_score">
+                  <div class="review_score">
+                    <i class="fa-solid fa-heart fa-sm"></i>
+                    <p class="review_score_txt"><%=prdData[i]["likesAmt"]%></p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </form>
         <%}%>
       <%}%>
       </div>
