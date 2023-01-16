@@ -1,236 +1,233 @@
 // 판매량이 높은 순으로 내림차순 정렬하기
 function sortBookByBookSold(bookDB) {
-  
-    for(var i=0; i<bookDB.length; i++) {
-        var maxNo = bookDB[i]["bookSold"];
-        var maxIndex = i;
+  for (var i = 0; i < bookDB.length; i++) {
+    var maxNo = bookDB[i]["bookSold"];
+    var maxIndex = i;
 
-        for(var j=i; j<bookDB.length; j++) {
-            if(maxNo < bookDB[j]["bookSold"]) {
-                maxNo = bookDB[j]["bookSold"];
-                maxIndex = j;
-            }
-        }
-
-        var temp = bookDB[i];
-        bookDB[i] = bookDB[maxIndex];
-        bookDB[maxIndex] = temp;
+    for (var j = i; j < bookDB.length; j++) {
+      if (maxNo < bookDB[j]["bookSold"]) {
+        maxNo = bookDB[j]["bookSold"];
+        maxIndex = j;
+      }
     }
+
+    var temp = bookDB[i];
+    bookDB[i] = bookDB[maxIndex];
+    bookDB[maxIndex] = temp;
+  }
 }
 
 // 번호 순으로 오름차순 정렬하기
 function sortBookByBookNo(bookDB) {
-  
-    for(var i=0; i<bookDB.length; i++) {
-        var minNo = bookDB[i]["bookNo"];
-        var minIndex = i;
+  for (var i = 0; i < bookDB.length; i++) {
+    var minNo = bookDB[i]["bookNo"];
+    var minIndex = i;
 
-        for(var j=i; j<bookDB.length; j++) {
-            if(minNo > bookDB[j]["bookNo"]) {
-                minNo = bookDB[j]["bookNo"];
-                minIndex = j;
-            }
-        }
-
-        var temp = bookDB[i];
-        bookDB[i] = bookDB[minIndex];
-        bookDB[minIndex] = temp;
+    for (var j = i; j < bookDB.length; j++) {
+      if (minNo > bookDB[j]["bookNo"]) {
+        minNo = bookDB[j]["bookNo"];
+        minIndex = j;
+      }
     }
+
+    var temp = bookDB[i];
+    bookDB[i] = bookDB[minIndex];
+    bookDB[minIndex] = temp;
+  }
 }
 
 // 카테고리가 DB/OS인 책정보 가져오기
 function getBookListByOSCategory(bookDB) {
-    var OSCategoryBookList = [];
-    for(var i=0; i<bookDB.length; i++) {
-        if(bookDB[i]["bookCategory"] == "DB/OS") {
-            OSCategoryBookList.push(bookDB[i]);
-        }
+  var OSCategoryBookList = [];
+  for (var i = 0; i < bookDB.length; i++) {
+    if (bookDB[i]["bookCategory"] == "DB/OS") {
+      OSCategoryBookList.push(bookDB[i]);
     }
-    return OSCategoryBookList;
+  }
+  return OSCategoryBookList;
 }
 
 // 카테고리가 프로그래밍인 책정보 가져오기
 function getBookListByProgramCategory(bookDB) {
-    var programCategoryBookList = [];
-    for(var i=0; i<bookDB.length; i++) {
-        if(bookDB[i]["bookCategory"] == "프로그래밍") {
-            programCategoryBookList.push(bookDB[i]);
-        }
+  var programCategoryBookList = [];
+  for (var i = 0; i < bookDB.length; i++) {
+    if (bookDB[i]["bookCategory"] == "프로그래밍") {
+      programCategoryBookList.push(bookDB[i]);
     }
-    return programCategoryBookList;
+  }
+  return programCategoryBookList;
 }
 
 // 카테고리가 컴퓨터공학인 책정보 가져오기
 function getBookListByComputerCategory(bookDB) {
-    var computerCategoryBookList = [];
-    for(var i=0; i<bookDB.length; i++) {
-        if(bookDB[i]["bookCategory"] == "컴퓨터공학") {
-            computerCategoryBookList.push(bookDB[i]);
-        }
+  var computerCategoryBookList = [];
+  for (var i = 0; i < bookDB.length; i++) {
+    if (bookDB[i]["bookCategory"] == "컴퓨터공학") {
+      computerCategoryBookList.push(bookDB[i]);
     }
-    return computerCategoryBookList;
+  }
+  return computerCategoryBookList;
 }
 
 // 책번호로 index 가져오기
+// 요청받은 책번호를 가진 책이 DB의 몇 번째 자리에 위치하고 있는지 찾아내는 함수
 function getBookIndex(bookDB, bookNo) {
-    var index = 0;
+  var index = 0;
 
-    for(var i=0; i<bookDB.length; i++) {
-        if(bookDB[i]["bookNo"] == bookNo) {
-            index = i;
-            break;
-        }
+  for (var i = 0; i < bookDB.length; i++) {
+    if (bookDB[i]["bookNo"] == bookNo) {
+      index = i;
+      break;
     }
+  }
 
-    return index;
+  return index;
 }
 
 // 책 검색하기
 function getSearchBookList(bookDB, bookName) {
+  var searchBookList = [];
 
-    var searchBookList = [];
-
-    var index = -1;
-    for(var i=0; i<bookDB.length; i++) {
-        if(bookDB[i]["bookName"].indexOf(bookName) >= 0) {
-            searchBookList.push(bookDB[i]);
-        }
+  var index = -1;
+  for (var i = 0; i < bookDB.length; i++) {
+    if (bookDB[i]["bookName"].indexOf(bookName) >= 0) {
+      searchBookList.push(bookDB[i]);
     }
-    return searchBookList;
+  }
+  return searchBookList;
 }
 
-module.exports = function(app){
+module.exports = function (app) {
+  // main페이지
+  app.get("/mainBook", function (req, res) {
+    var log = req.session.log;
+    var bookDB = req.session.bookDB;
+    var name = req.session.name;
 
-    // main페이지
-    app.get("/mainBook", function(req, res){ 
-        var log = req.session.log;
-        var bookDB = req.session.bookDB;
-        var name = req.session.name;
+    sortBookByBookSold(bookDB);
 
-        sortBookByBookSold(bookDB);
+    var renderData = {
+      log: log,
+      name: name,
+      bookDB: bookDB,
+    };
+    res.render("book/bookMain.ejs", renderData);
+  });
 
-        var renderData = {	
-            "log" : log,
-            "name" : name,
-            "bookDB" : bookDB
-        };
-        res.render("book/bookMain.ejs", renderData); 
-    });
+  // 책 상세 페이지
+  app.get("/bookInfo", function (req, res) {
+    var log = req.session.log;
+    var bookDB = req.session.bookDB;
+    var name = req.session.name;
 
-    // 책 상세 페이지
-    app.get("/bookInfo", function(req, res){ 
-        var log = req.session.log;
-        var bookDB = req.session.bookDB;
-        var name = req.session.name;
+    var bookNo = req.query.bookNo;
+    var index = getBookIndex(bookDB, bookNo);
 
-        var bookNo = req.query.bookNo;
-        var index = getBookIndex(bookDB, bookNo);
-    
-        var renderData = {	
-            "log" : log,
-            "name" : name,
-            "bookDB" : bookDB,
-            "index" : index
-        };
-        res.render("book/bookInfo.ejs", renderData); 
-    });
-    
-    // 전체 도서 페이지
-    app.get("/bookAllList", function(req, res){ 
-        var log = req.session.log;
-        var bookDB = req.session.bookDB;
-        var name = req.session.name;
+    var renderData = {
+      log: log,
+      name: name,
+      bookDB: bookDB,
+      index: index,
+    };
+    res.render("book/bookInfo.ejs", renderData);
+  });
 
-        sortBookByBookNo(bookDB);
+  // 전체 도서 페이지
+  app.get("/bookAllList", function (req, res) {
+    var log = req.session.log;
+    var bookDB = req.session.bookDB;
+    var name = req.session.name;
 
-        var renderData = {	
-            "log" : log,
-            "name" : name,
-            "bookDB" : bookDB
-        };
-        res.render("book/bookAllList.ejs", renderData); 
-    });   
+    sortBookByBookNo(bookDB);
 
-    // 베스트 도서 페이지
-    app.get("/bookBestList", function(req, res){ 
-        var log = req.session.log;
-        var bookDB = req.session.bookDB;
-        var name = req.session.name;
+    var renderData = {
+      log: log,
+      name: name,
+      bookDB: bookDB,
+    };
+    res.render("book/bookAllList.ejs", renderData);
+  });
 
-        sortBookByBookSold(bookDB);
+  // 베스트 도서 페이지
+  app.get("/bookBestList", function (req, res) {
+    var log = req.session.log;
+    var bookDB = req.session.bookDB;
+    var name = req.session.name;
 
-        var renderData = {	
-            "log" : log,
-            "name" : name,
-            "bookDB" : bookDB
-        };
-        res.render("book/bookBestList.ejs", renderData); 
-    });   
+    sortBookByBookSold(bookDB);
 
-    // DB/OS 카테고리 도서 페이지
-    app.get("/bookOSList", function(req, res){ 
-        var log = req.session.log;
-        var bookDB = req.session.bookDB;
-        var name = req.session.name;
+    var renderData = {
+      log: log,
+      name: name,
+      bookDB: bookDB,
+    };
+    res.render("book/bookBestList.ejs", renderData);
+  });
 
-        var bookOSDB = getBookListByOSCategory(bookDB);
+  // DB/OS 카테고리 도서 페이지
+  app.get("/bookOSList", function (req, res) {
+    var log = req.session.log;
+    var bookDB = req.session.bookDB;
+    var name = req.session.name;
 
-        var renderData = {	
-            "log" : log,
-            "name" : name,
-            "bookDB" : bookOSDB
-        };
-        res.render("book/bookOSList.ejs", renderData); 
-    }); 
+    var bookOSDB = getBookListByOSCategory(bookDB);
 
-    // 프로그래밍 카테고리 도서 페이지
-    app.get("/bookProgramList", function(req, res){ 
-        var log = req.session.log;
-        var bookDB = req.session.bookDB;
-        var name = req.session.name;
+    var renderData = {
+      log: log,
+      name: name,
+      bookDB: bookOSDB,
+    };
+    res.render("book/bookOSList.ejs", renderData);
+  });
 
-        var bookProgramDB = getBookListByProgramCategory(bookDB);
+  // 프로그래밍 카테고리 도서 페이지
+  app.get("/bookProgramList", function (req, res) {
+    var log = req.session.log;
+    var bookDB = req.session.bookDB;
+    var name = req.session.name;
 
-        var renderData = {	
-            "log" : log,
-            "name" : name,
-            "bookDB" : bookProgramDB
-        };
-        res.render("book/bookProgramList.ejs", renderData); 
-    }); 
-    
-    // 컴퓨터공학 카테고리 도서 페이지
-    app.get("/bookComputerList", function(req, res){ 
-        var log = req.session.log;
-        var bookDB = req.session.bookDB;
-        var name = req.session.name;
+    var bookProgramDB = getBookListByProgramCategory(bookDB);
 
-        var bookComputerDB = getBookListByComputerCategory(bookDB);
+    var renderData = {
+      log: log,
+      name: name,
+      bookDB: bookProgramDB,
+    };
+    res.render("book/bookProgramList.ejs", renderData);
+  });
 
-        var renderData = {	
-            "log" : log,
-            "name" : name,
-            "bookDB" : bookComputerDB
-        };
-        res.render("book/bookComputerList.ejs", renderData); 
-    }); 
+  // 컴퓨터공학 카테고리 도서 페이지
+  app.get("/bookComputerList", function (req, res) {
+    var log = req.session.log;
+    var bookDB = req.session.bookDB;
+    var name = req.session.name;
 
-    // 검색 페이지
-    app.get("/bookSearch", function(req, res){ 
-        var log = req.session.log;
-        var bookDB = req.session.bookDB;
-        var name = req.session.name;
+    var bookComputerDB = getBookListByComputerCategory(bookDB);
 
-        var bookName = req.query.bookName;
-        var searchBookList = getSearchBookList(bookDB, bookName);
+    var renderData = {
+      log: log,
+      name: name,
+      bookDB: bookComputerDB,
+    };
+    res.render("book/bookComputerList.ejs", renderData);
+  });
 
-        var renderData = {	
-            "log" : log,
-            "name" : name,
-            "bookName" : bookName,
-            "bookDB" : searchBookList
-        };
+  // 검색 페이지
+  app.get("/bookSearch", function (req, res) {
+    var log = req.session.log;
+    var bookDB = req.session.bookDB;
+    var name = req.session.name;
 
-        res.render("book/bookSearchList.ejs", renderData); 
-    }); 
+    var bookName = req.query.bookName;
+    var searchBookList = getSearchBookList(bookDB, bookName);
+
+    var renderData = {
+      log: log,
+      name: name,
+      bookName: bookName,
+      bookDB: searchBookList,
+    };
+
+    res.render("book/bookSearchList.ejs", renderData);
+  });
 };
