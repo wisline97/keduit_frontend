@@ -25,7 +25,10 @@ ORDER BY SUM(buy_count) DESC;
 # [문제] cart테이블에서 회원이 구입한 도서의 수량이 2개 이상인 회원의 id 가져오기
 DESC cart;
 SELECT buyer, SUM(buy_count) FROM cart GROUP BY buyer;
-SELECT buyer, SUM(buy_count) FROM cart GROUP BY buyer 
+
+SELECT buyer, SUM(buy_count)
+FROM cart
+GROUP BY buyer 
 HAVING SUM(buy_count) >= 2;
 
 # [문제] book테이블에서 2015년에서 2019년 사이에 출간한 도서 중에
