@@ -10,30 +10,23 @@ var conn_info = {
   multipleStatements: true, // 여러 쿼리를 ;를 기준으로 한번에 보낼 수 있게 해줌.
 };
 
-//router
 module.exports = function (app) {
+  //전체회원 조회 페이지
   app.get("/memberListAll", function (req, res) {
-    var conn = mysql.createConnection(conn_info); // db연결
-    var sql = " SELECT * FROM member "; // db 쿼리 작성
-    // db 실행 ==>  conn.query(); 함수 는 위치와 상관없이 가장 나중에 실행된다.
+    var conn = mysql.createConnection(conn_info);
+    var sql = " select * from member ";
     conn.query(sql, function (error, rows) {
-      // db 실행 결과는 rows 에 저장되서 돌아옴
-      // 나머지 코드는 전부 이안에서 작성해야함.
       var renderData = {
         memberDB: rows,
       };
-      conn.end(); // 연결종료.
+      conn.end();
       res.render("member/memberListAll.ejs", renderData);
     });
-
-    // 이부분에 코드를 작성해도 conn.query(); 함수보다 먼저 실행되므로
-    // conn.query(); 이후 동작되어야 할코드는 함수 내부에 작성해야한다.
   });
 
+  //전체회원 정렬 기능
   app.get("/memberListSort", function (req, res) {
     var sortStandard = req.query.sortStandard;
-
-    console.log(sortStandard);
 
     if (sortStandard == "sortNo") {
       sortStandard = "memberNo";
@@ -51,7 +44,6 @@ module.exports = function (app) {
       sortStandard = "memberEmail";
     }
 
-    console.log(sortStandard);
     var conn = mysql.createConnection(conn_info);
     var sql = " SELECT * FROM member ORDER BY " + sortStandard; // ORDER BY 는 + 로 연결해야한다.
 
@@ -61,13 +53,14 @@ module.exports = function (app) {
         memberDB: rows,
       };
       conn.end();
+
       res.render("member/memberListAll.ejs", renderData);
     });
   });
 
+  //회원정보 수정 페이지
   app.get("/memberUpdateForm", function (req, res) {
     var memberNo = req.query.memberNo;
-
     var conn = mysql.createConnection(conn_info);
 
     // db 로 전달될 데이터는 ? 로 표시한다.
@@ -86,6 +79,7 @@ module.exports = function (app) {
     });
   });
 
+  //회원정보 수정 기능
   app.get("/memberUpdatePro", function (req, res) {
     var memberNo = req.query.memberNo;
     var memberId = req.query.memberId;
@@ -109,6 +103,44 @@ module.exports = function (app) {
     conn.query(sql, inputData, function (error) {
       conn.end();
       res.redirect("memberListAll");
+    });
+  });
+
+  app.get("/memberAddForm", function (req, res) {
+    res.render("member/memberAddForm.ejs");
+  });
+
+  app.get("/memberAddPro", function (req, res) {
+    var memberId = req.query.memberId;
+    var memberPw = req.query.memberPw;
+    var memberName = req.query.memberName;
+    var memberEmail = req.query.memberEmail;
+
+    var conn = mysql.createConnection(conn_info);
+
+    var sql1 = "SELECT MAX(memberNo) FROM member";
+
+    conn.query(sql1, function (error, rows) {
+      /*
+                var json = JSON.stringify(rows); 
+                var data = JSON.parse(json);
+
+                위 두과정을 통해 정식 컬럼명이아닌 MAX(memberNo) 를 찾을수있다. 
+                정식 컬럼 명이면 위 두과정을 할필요없다. 
+            */
+      var json = JSON.stringify(rows);
+      console.log(`${json} JSON.stringify`);
+      var data = JSON.parse(json);
+      var memberNo = data[0]["MAX(memberNo)"] + 1;
+
+      var sql2 = "INSERT INTO member VALUES(?, ?, ?, ?, ?)";
+      var inputData = [memberNo, memberId, memberPw, memberName, memberEmail];
+
+      // 두번째 연결
+      conn.query(sql2, inputData, function (error) {
+        conn.end();
+        res.redirect("memberListAll");
+      });
     });
   });
 
@@ -148,47 +180,6 @@ module.exports = function (app) {
       console.log(error);
       conn.end();
       res.redirect("memberListAll");
-    });
-  });
-
-  app.get("/memberAddForm", function (req, res) {
-    res.render("member/memberAddForm.ejs");
-  });
-
-  app.get("/memberAddPro", function (req, res) {
-    /*
-            회원추가 경우는 마지막번호를 알아야 하기때문에 db연동을 두번한다. 
-        */
-    var memberId = req.query.memberId;
-    var memberPw = req.query.memberPw;
-    var memberName = req.query.memberName;
-    var memberEmail = req.query.memberEmail;
-
-    var conn = mysql.createConnection(conn_info);
-
-    var sql1 = "SELECT MAX(memberNo) FROM member";
-
-    // 첫번째 연결
-    conn.query(sql1, function (error, rows) {
-      /*
-                var json = JSON.stringify(rows); 
-                var data = JSON.parse(json);
-
-                위 두과정을 통해 정식 컬럼명이아닌 MAX(memberNo) 를 찾을수있다. 
-                정식 컬럼 명이면 위 두과정을 할필요없다. 
-            */
-      var json = JSON.stringify(rows);
-      var data = JSON.parse(json);
-      var memberNo = data[0]["MAX(memberNo)"] + 1;
-
-      var sql2 = "INSERT INTO member VALUES(?, ?, ?, ?, ?)";
-      var inputData = [memberNo, memberId, memberPw, memberName, memberEmail];
-
-      // 두번째 연결
-      conn.query(sql2, inputData, function (error) {
-        conn.end();
-        res.redirect("memberListAll");
-      });
     });
   });
 };

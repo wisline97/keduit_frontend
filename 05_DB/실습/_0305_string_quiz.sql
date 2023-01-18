@@ -53,45 +53,50 @@ SELECT JOB, SUBSTR(JOB, 1, 2), SUBSTR(JOB, 3, 2), SUBSTR(JOB, 5)
 
 -- [개념 4-2] 특정 문자를 포함하고 있는 행 찾기
 -- [실습 4-2] INSTR 함수로 사원 이름에 문자 S가 있는 행 구하기
-
-
+SELECT *
+    FROM EMP
+WHERE INSTR(ENAME, 'S') > 0;
 
 -- [실습 4-3] LIKE 연산자로 사원 이름에 문자 S가 있는 행 구하기
-
-
-
+select *
+	from emp
+where ename like "%S%";
 
 /*
     [개념 7] 두 문자열 데이터를 합치는 CONCAT 함수
-        . 두 개의 문자열 데이터를 하나의 데이터로 연결해 주는 함수
+        . 두 개의 열 데이터를 하나의 데이터로 연결해 주는 함수
 */
 -- [실습 7-1] 두 열 사이에 콜롬(:) 넣고 연결하기
 
-
-
-
- 
+SELECT CONCAT(EMPNO, ENAME),
+       CONCAT(EMPNO, CONCAT(' : ', ENAME))
+FROM EMP
+    WHERE ENAME = 'SCOTT';
     
 /*
     [개념 8] TRIM,
         . TRIM([삭제 옵션(선택) [삭제할 문자(선택)] FROM [원본 문자열 데이터])
 */
 -- [실습 8-1] TRIM 함수로 공백 제거하여 출력하기
-
-
-
-
+SELECT TRIM('    [__Oracle__]     ') AS TRIM;
 
 -- [문제 1] 사원 이름을 모두 소문자로 출력하기
 -- [정답 1]
 
+select lower(ename)
+	from emp;
 
     
 -- [문제 2] 직책 이름이 6글자 이상인 데이터만 출력하기
 -- [정답 2]
 
+select *
+	from emp
+where length(job) >= 6;
 
 
 -- [문제 3] 모든 사원 이름을 세번째 글자부터 끝까지 출력하기
 -- [정답 3]
+select SUBSTR(ename,3) as ename
+	from emp;
 
