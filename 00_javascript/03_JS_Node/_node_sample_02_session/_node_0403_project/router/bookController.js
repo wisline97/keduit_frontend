@@ -88,7 +88,6 @@ function getBookIndex(bookDB, bookNo) {
 function getSearchBookList(bookDB, bookName) {
   var searchBookList = [];
 
-  var index = -1;
   for (var i = 0; i < bookDB.length; i++) {
     if (bookDB[i]["bookName"].indexOf(bookName) >= 0) {
       searchBookList.push(bookDB[i]);
