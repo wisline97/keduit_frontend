@@ -1,7 +1,7 @@
-function init(){
+// Init은 시스템이 종료될 때까지 계속 실행하는 데몬 프로세스
+function init(){keyup
   document.addEventListener("keydown", keyDownHandler, false);
   document.addEventListener("keyup", keyUpHandler, false);
-  
 }
 
 function draw() {
@@ -26,32 +26,32 @@ function keyDownHandler(e) {
   // 65 ==> a 
   // 87 ==> w
   // 83 ==> s
-  if(e.keyCode == 68) {         // d
+  if(e.keyCode == 39) {         // d
       key["right"] = true;
   }
-  else  if(e.keyCode == 65) {   // a
+  else if(e.keyCode == 37) {   // a
       key["left"]  = true;
   }
-  else if(e.keyCode == 87) {    // w
+  else if(e.keyCode == 38) {    // w
       key["up"] = true;
   }
-  else  if(e.keyCode == 83) {   // s
+  else  if(e.keyCode == 40) {   // s
       key["down"]  = true;
   }
   
 }
 
 function keyUpHandler(e) {
-  if(e.keyCode == 68) {
+  if(e.keyCode == 39) {
       key["right"] = false;
   }
-  else if(e.keyCode == 65) {
+  else if(e.keyCode == 37) {
       key["left"]  = false;
   }
-  else if(e.keyCode == 87) {
+  else if(e.keyCode == 38) {
       key["up"] = false;
   }
-  else  if(e.keyCode == 83) {
+  else  if(e.keyCode == 40) {
       key["down"]  = false;
   }
  
@@ -79,4 +79,4 @@ var ctx = canvas.getContext("2d");
 var key = { "right" : false , "left" : false, "up" : false , "down" : false};
 var player = {"x" : 0 , "y" : 0 , "size" : 50 , "speed" : 2};
 init();
-setInterval(draw, 60);
+setInterval(draw, 1000/60);
