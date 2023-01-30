@@ -16,4 +16,4 @@ function drawPlayer(){
 //-------------------------------------------------
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d"); 
-setInterval(draw, 10);
+draw();

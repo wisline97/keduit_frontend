@@ -11,3 +11,20 @@
 			...
 '''
 total = []
+import random
+
+for y in range(5):
+	for i in range(4):
+		check = True
+		num = random.randint(1,9)
+		print(num)
+		if num%2 == 0:
+			check = False
+			break
+
+	print("최종 check 값",check)
+	if check == True:
+		total.append(1)
+	elif check == False:
+		total.append(2)
+	print(total)

@@ -78,7 +78,7 @@ function init() {
     for(var i=0; i<3; i++) {
         var line = document.createElement("tr");
         nodeList.push([]);
-        for(var j=0; j<3; j++) {
+        for(var j=0; j < 3; j++) {
             var node = document.createElement("td");
             node.textContent = "";
             node.addEventListener("click", nodeEvent);

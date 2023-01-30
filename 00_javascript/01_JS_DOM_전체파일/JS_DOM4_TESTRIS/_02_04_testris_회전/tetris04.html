@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,6 +38,9 @@
         td.w{
             background-color: white;
         }
+        td.dg{
+            background-color: darkgray;
+        }
         td.black{
             background-color: black;
         }
@@ -45,9 +48,22 @@
     </style>
 </head>
 <body>
-    <table id="tetris"></table>
-    <script src="tetris.js"></script>
 
+
+    <div align="center">
+        <h1>테트리스</h1>
+        <table id="tetris"></table>
+    </div>
+    <!-- 아래 있어야한다. -->
+    <script src="tetris04.js"></script>
+    <script>
+            init();
+            makeBlock();
+            draw();
+            
+            // rotate()
+    </script>
+   
 
 </body>
 </html>

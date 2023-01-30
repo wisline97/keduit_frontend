@@ -131,23 +131,19 @@ module.exports = function (app) {
     var log = req.session.log;
     deleteMember(memberDB, log);
 
-    var index = 0;
     var i = 0;
     while (i < cartDB.length) {
       if (cartDB[i]["cartMemberId"] == log) {
         cartDB.splice(i, 1);
-        index += 1;
       } else {
         i += 1;
       }
     }
 
-    index = 0;
     i = 0;
     while (i < orderDB.length) {
       if (orderDB[i]["orderMemberId"] == log) {
         orderDB.splice(i, 1);
-        index += 1;
       } else {
         i += 1;
       }

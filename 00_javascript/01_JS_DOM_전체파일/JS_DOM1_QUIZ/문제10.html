@@ -1,47 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-      .blue {
-        background-color: blue;
-      }
-      .red {
-        background-color: red;
-      }
-    </style>
-  </head>
-  <body class="color">
-    <div class="color"></div>
+</head>
+<body>
     <script>
-      var num = prompt("1부터 10까지의 숫자 중 아무 숫자나 입력해주세요");
-      var element = document.getElementsByClassName("color");
-
-      if (num > 0 && num < 11) {
-        if (num % 2 == 0) {
-          document.write("<p class='blue'> 입력하신 숫자는 짝수입니다.</p>");
-          // element.style.backgroundColor = "blue";
-        } else {
-          document.write("<p class='red'> 입력하신 숫자는 홀수입니다.</p>");
-          // element.style.backgroundColor = "red";
-        }
-      } else {
-        document.write("1부터 10까지의 숫자만 입력해주세요.");
-      }
-      /*
+        /*
             <style>                           
                 .blue{color: blue;} 
                 .red{color: red;}
             </style>
         */
-      /*
+        /*
             숫자 1~10을 화면에 출력한다. 
             단, 홀수일때는 빨간색으로,
             짝수일때는 파란색으로 출력한다.
         */
     </script>
-  </body>
+</body>
 </html>

@@ -79,4 +79,4 @@ var ctx = canvas.getContext("2d");
 var key = { "right" : false , "left" : false, "up" : false , "down" : false};
 var player = {"x" : 0 , "y" : 0 , "size" : 50 , "speed" : 2};
 init();
-setInterval(draw, 10);
+setInterval(draw, 60);
