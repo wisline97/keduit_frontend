@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>식권 자판기</title>
+    <style>
+        @import url("https://webfontworld.github.io/pretendard/Pretendard.css");
+        body {
+            font-family: "Pretendard";
+            line-height: 1.2;
+        }
+
+        #center{
+            margin: 0 auto;
+            width: 1270px;
+        }
+
+        .box{
+            border: 1px solid #E2E2E2;
+            border-radius: 16px;
+        }
+
+        .intro{
+            width: 1270px;
+            margin: 0 auto;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .today{
+            padding: 20px 20px;
+            border: 1px solid #E2E2E2;
+            border-radius: 16px;
+        }
+
+        .ticket{
+            width: 20%;
+        }
+
+        .change{
+            width: 70%;
+        }
+
+        .intro-title{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .btn{
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 20px;
+            padding: 15px 65px;
+            font-family: "Pretendard";
+            background: #333333;
+            border: 0px solid;
+            border-radius: 43.5px;
+            color: white;
+        }
+
+        .vending{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .table{
+            width: 450px;
+            padding: 20px 70px;
+        }
+
+        .count, .handler{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .count{
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .minus-plus{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .minus, .plus{
+            cursor: pointer;
+            margin-left: 10px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #FFFFFF;
+            border: 1px solid #D7D7D7;
+            border-radius: 3px;
+        }
+
+        .money{
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        #countNum{
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var LnodeList = [];
+        var RnodeList = [];
+
+        // //버튼 누르면 실행되는 함수
+        // //관리자 및 구매자가 지정한 지폐 개수, 식권 개수를 세는 함수이다.
+        // var purchaseItem = () => {
+
+        // };
+
+        // //+ - 버튼을 눌렀을 때 실행되는 이벤트 핸들러
+        // //클릭한 횟수만큼 숫자가 올라가고 내려간다.
+        // //여기서 e는 이벤트리스너가 작동하는 div 자체를 뜻한다.
+        // var countHandler = (e) => {
+        //     var strIndex = e.target.parentNode.id;
+        // }
+
+        var nodeEvent = (e) => {
+            console.log(e.target.parentNode.parentNode);
+            // 부모의 id 값으로 인덱스 찾기 
+            //strIndex는 td id를 뜻함
+            var strIndex = e.target.parentNode.parentNode.id; // e.target.parentNode.parentNode.id 는 L0~L5 or R0~R5 가 된다.
+            console.log(strIndex);
+
+            // dir = > 왼쪽 요소인지 오른쪽 요소인지 구분
+            var dir = strIndex[0];
+            console.log(dir, "dir값")
+            
+            //몇번째 div인지 구분하는 index값
+            var index = Number(strIndex[1]);
+            console.log(index, "index값")
+
+            console.log(e.target.textContent)
+            
+            console.log(LnodeList)
+
+            if(dir == "L"){
+                if(e.target.textContent == "+"){
+                    var count = Number(LnodeList[index][1].textContent);
+                    LnodeList[index][1].textContent = count + 1
+                }
+                else if(e.target.textContent == "-"){
+                    var count = Number(LnodeList[index][1].textContent);
+                    if(count > 0){
+                        LnodeList[index][1].textContent = count - 1
+                    }
+                }
+            }else if(dir == "R"){
+                if(e.target.textContent == "+"){
+                    var count = Number(RnodeList[index][1].textContent);
+                    RnodeList[index][1].textContent = count + 1
+                }
+                else if(e.target.textContent == "-"){
+                    var count = Number(RnodeList[index][1].textContent);
+                    if(count > 0){
+                        RnodeList[index][1].textContent = count - 1
+                    }
+                }
+            }
+        }
+
+
+        var init = () => {
+            sampleInfo = ["-", 0, "+"];
+            sampleContent = ["오 만원권", "일 만원권", "오 천원권", "일 천원권", "오 백원권", "일 백원권" , "식권 매수"];
+            sampleMoney = [50000, 10000, 5000, 1000, 500, 100 , 3200];
+            var $Ltable = document.querySelector("#Lcounter");
+            //sampleContent의 길이만큼 div class = count 생성
+            for(var i = 0; i<sampleContent.length; i++){
+                //가장 큰 덩어리 만들기 div class = count
+                var $count = document.createElement("div");
+                $count.id = "L" + i;
+                $count.classList.add("count")
+                LnodeList.push([]);
+
+                //가장 큰 덩어리 안에 들어가는 텍스트 영역 div 만들기1 div class = money
+                var money = document.createElement("div");
+                var moneyText = document.createTextNode(sampleContent[i]);
+                money.append(moneyText);
+                money.classList.add("money")
+                
+                $count.append(money);
+
+                //가장 큰 덩어리 안에 들어가는 텍스트 영역 div 만들기1 div class = minusPlus
+                var minusPlus = document.createElement("div");
+                minusPlus.classList.add("minus-plus")
+
+                for(y=0; y<sampleInfo.length; y++){
+                    var minusPlusP = document.createElement("p");
+                    var minusPlusText = document.createTextNode(sampleInfo[y]);
+                    LnodeList[i].push(minusPlusP);
+                    minusPlusP.append(minusPlusText);
+                    minusPlus.append(minusPlusP);
+                    if(y==0){
+                        minusPlusP.classList.add("minus")
+                        minusPlusP.addEventListener("click", nodeEvent);
+                    } else if(y==2){
+                        minusPlusP.classList.add("plus")
+                        minusPlusP.addEventListener("click", nodeEvent);
+                    } else{
+                        minusPlusP.id = "countNum";
+                    }
+                };
+
+                $count.append(minusPlus);
+                console.log(LnodeList)
+                $Ltable.append($count);
+            }
+        
+
+            //L테이블 끝 ======================================================================
+
+
+
+
+
+
+            
+            //R테이블 시작 ======================================================================
+
+            var $Rtable = document.querySelector("#Rcounter");
+            //sampleContent의 길이만큼 div class = count 생성
+            for(var i = 0; i<sampleContent.length; i++){
+                //가장 큰 덩어리 만들기 div class = count
+                var $count = document.createElement("div");
+                $count.id = "R" + i;
+                RnodeList.push([]);
+                $count.classList.add("count")
+
+                //가장 큰 덩어리 안에 들어가는 텍스트 영역 div 만들기1 div class = money
+                var money = document.createElement("div");
+                var moneyText = document.createTextNode(sampleContent[i]);
+                money.append(moneyText);
+                money.classList.add("money")
+                
+                $count.append(money);
+
+                //가장 큰 덩어리 안에 들어가는 텍스트 영역 div 만들기1 div class = minusPlus
+                var minusPlus = document.createElement("div");
+                minusPlus.classList.add("minus-plus")
+
+                for(y=0; y<sampleInfo.length; y++){
+                    var minusPlusP = document.createElement("p");
+                    var minusPlusText = document.createTextNode(sampleInfo[y]);
+                    RnodeList[i].push(minusPlusP);
+                    minusPlusP.append(minusPlusText);
+                    minusPlus.append(minusPlusP);
+                    if(y==0){
+                        minusPlusP.classList.add("minus")
+                        minusPlusP.addEventListener("click", nodeEvent);
+                    } else if(y==2){
+                        minusPlusP.classList.add("plus")
+                        minusPlusP.addEventListener("click", nodeEvent);
+                    } else{
+                        minusPlusP.id = "countNum";
+                    }
+                };
+
+                $count.append(minusPlus);
+                console.log(RnodeList)
+                $Rtable.append($count);
+            }
+        
+        
+        }
+    </script>
+    <div align="center" id="center">
+        <h1>식권 자판기</h1>
+        <div align="center" class="intro">
+            <div class="today ticket">
+                <p class="intro-title">금일 식권 현황</p>
+                <div id="intro-ticket-info">
+                </div>
+            </div>
+            <div class="today change">
+                <p class="intro-title">금일 잔돈 현황</p>
+                <div id="intro-change-info">
+                </div>
+            </div>
+        </div>
+
+        <div class="vending">
+            <div id="L">
+                <h3>관리자</h3>
+                <div id = "Lcounter" class="box table">
+                    <!-- 각각의 count div에 L0부터 L5까지 ID를 부여해야함 -->
+                    <!-- <button class="btn" onclick="purchaseItem()">식권구입</button> -->
+                </div>
+            </div>
+            <div id="R">
+                <h3>소비자</h3>
+                <div id = "Rcounter" class="box table">
+
+                    <!-- <button class="btn" onclick="purchaseItem()">식권구입</button> -->
+                    <!-- <button class="btn" onclick="purchaseItem()">식권구입</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        init();
+    </script>
+</body>
+</html>
+

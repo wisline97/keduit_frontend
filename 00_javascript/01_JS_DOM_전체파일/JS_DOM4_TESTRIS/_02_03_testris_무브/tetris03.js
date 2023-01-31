@@ -202,6 +202,7 @@ function init() {
       temp.push(WHITE);
     }
     data.push(temp);
+    console.log(data);
   }
 
   // 테두리는 외곽선을 표시하기위해서  10 숫자로 채워넣는다.    
@@ -265,7 +266,7 @@ function getRealBlock(shape){
           }
         }
     }
-
+    console.log(realBlock);
     return realBlock;
 }
 

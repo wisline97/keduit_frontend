@@ -153,28 +153,28 @@ var blocks = [
     color: 7,
     shape: [
       [
-        [0, 0, 0 , 0],
-        [1, 1, 1 , 1],
-        [0, 0, 0 , 0],
-        [0, 0, 0 , 0],
+        [0, 0, 0, 0],
+        [1, 1, 1, 1],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
       ],
       [
-        [0, 0, 1 , 0],
-        [0, 0, 1 , 0],
-        [0, 0, 1 , 0],
-        [0, 0, 1 , 0],
+        [0, 0, 1, 0],
+        [0, 0, 1, 0],
+        [0, 0, 1, 0],
+        [0, 0, 1, 0],
       ],
       [
-        [0, 0, 0 , 0],
-        [0, 0, 0 , 0],
-        [1, 1, 1 , 1],
-        [0, 0, 0 , 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [1, 1, 1, 1],
+        [0, 0, 0, 0],
       ],
       [
-        [0, 1, 0 , 0],
-        [0, 1, 0 , 0],
-        [0, 1, 0 , 0],
-        [0, 1, 0 , 0],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
       ],
     ]
   },
@@ -195,7 +195,7 @@ function init() {
   for (var y = 0; y < 22; y++) {
     var tr = document.createElement("tr");
     tetris.append(tr);
-    var temp = []
+    var temp = [];
     for (var x = 0; x < 12; x++) {
       var td = document.createElement("td");
       tr.append(td);
@@ -218,13 +218,10 @@ function init() {
       tetris.children[i].children[0].className = colors[BOX];
       tetris.children[i].children[11].className = colors[BOX];
   }
-  //console.log(data);
+};
 
-
-}
-
+//랜덤블록 만들기
 function makeBlock() {
-
     var r = Math.floor(Math.random() * blocks.length);
     curBlock = blocks[r];
 
@@ -368,11 +365,12 @@ function lineClear(){
     for(var y = 1; y  < 22 - 1 ; y ++){
           var count = 0;
           for(var x = 1; x < 12 - 1; x ++){
-          if(data[y][x] == BLACK){
+            if(data[y][x] == BLACK){
               count += 1;
-          }
-          if(count === 10){
-            del.push(y);       
+            }
+            if(count === 10){
+              del.push(y);       
+              console.log(del);
           }
       }
   }
@@ -388,7 +386,9 @@ function lineClear(){
 function gameStart(){
     if(gameOver() == true){
         alert("game over");
-        history.go(0); // 새로고침
+        hi  
+        
+        story.go(0); // 새로고침
     }
     else if(down() == false){
       lineClear();
