@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>식권 자판기</title>
     <style>
+
         @import url("https://webfontworld.github.io/pretendard/Pretendard.css");
         body {
             font-family: "Pretendard";
@@ -64,6 +65,7 @@
             border: 0px solid;
             border-radius: 43.5px;
             color: white;
+            margin: 30px 20px;
         }
 
         .vending{
@@ -112,8 +114,21 @@
             font-weight: 700;
         }
 
-        #countNum{
+        #LcountNum, #RcountNum{
             width: 50px;
+        }
+
+        #intro-change-info{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #intro-change-info p {
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-right: 28px;
         }
     </style>
 </head>
@@ -121,38 +136,45 @@
     <script>
         var LnodeList = [];
         var RnodeList = [];
+        var mealTicketPrice = 3200;
+        var mealTicketCount = 30;
+        var changeListDeafault = [0,0,0,0,0,0];
+        var changeInfoPId = ["#C0","#C1","#C2","#C3","#C4","#C5"];
+        //버튼 누르면 실행되는 함수
+        //관리자 및 구매자가 지정한 지폐 개수, 식권 개수를 세는 함수이다.
+        var chargeItem = () => {
+            //식권현황 텍스트 변경
+            mealTicketCount += Number(LnodeList[6][1].textContent);
+            LnodeList[6][1].textContent = 0;
 
-        // //버튼 누르면 실행되는 함수
-        // //관리자 및 구매자가 지정한 지폐 개수, 식권 개수를 세는 함수이다.
-        // var purchaseItem = () => {
+            document.querySelector("#intro-ticket-info").textContent = mealTicketPrice + " 원 / " + mealTicketCount + " 장";
 
-        // };
+            //잔돈현황 텍스트 변경
+            for(i=0; i<changeListDeafault.length; i++){
+                var count = Number(LnodeList[i][1].textContent);
+                changeListDeafault[i] += count;
+                LnodeList[i][1].textContent = 0;
+            };
 
-        // //+ - 버튼을 눌렀을 때 실행되는 이벤트 핸들러
-        // //클릭한 횟수만큼 숫자가 올라가고 내려간다.
-        // //여기서 e는 이벤트리스너가 작동하는 div 자체를 뜻한다.
-        // var countHandler = (e) => {
-        //     var strIndex = e.target.parentNode.id;
-        // }
+            for(z=0; z<changeListDeafault.length; z++){
+                var changeInfoP = document.querySelector(changeInfoPId[z]);
+                changeInfoP.textContent = `${sampleContent[z]} : ${changeListDeafault[z]} 장`
+            };
 
+            alert("잔돈 및 식권이 충전되었습니다.")
+        };
+
+        //+ - 버튼을 눌렀을 때 실행되는 이벤트 핸들러
+        //클릭한 횟수만큼 숫자가 올라가고 내려간다.
+        //여기서 e는 이벤트리스너가 작동하는 div 자체를 뜻한다.
         var nodeEvent = (e) => {
-            console.log(e.target.parentNode.parentNode);
             // 부모의 id 값으로 인덱스 찾기 
             //strIndex는 td id를 뜻함
-            var strIndex = e.target.parentNode.parentNode.id; // e.target.parentNode.parentNode.id 는 L0~L5 or R0~R5 가 된다.
-            console.log(strIndex);
-
-            // dir = > 왼쪽 요소인지 오른쪽 요소인지 구분
+            var strIndex = e.target.parentNode.parentNode.id; // e.target.parentNode.parentNode.id 는 L0~L5 or R0~R5 가 된다
+            // dir = > 왼쪽 요소 L 인지 오른쪽 요소 R 인지 구분
             var dir = strIndex[0];
-            console.log(dir, "dir값")
-            
             //몇번째 div인지 구분하는 index값
             var index = Number(strIndex[1]);
-            console.log(index, "index값")
-
-            console.log(e.target.textContent)
-            
-            console.log(LnodeList)
 
             if(dir == "L"){
                 if(e.target.textContent == "+"){
@@ -184,6 +206,21 @@
             sampleInfo = ["-", 0, "+"];
             sampleContent = ["오 만원권", "일 만원권", "오 천원권", "일 천원권", "오 백원권", "일 백원권" , "식권 매수"];
             sampleMoney = [50000, 10000, 5000, 1000, 500, 100 , 3200];
+
+            //상단의 식권 현황 영역
+            var ticketInfo = document.querySelector("#intro-ticket-info");
+            var ticketInfoText = document.createTextNode(mealTicketPrice + " 원 / " + mealTicketCount + " 장");
+            ticketInfo.append(ticketInfoText);
+
+            //상단의 잔돈 현황 영역
+            for(z=0; z<changeListDeafault.length; z++){
+                var changeInfoP = document.querySelector(changeInfoPId[z]);
+                var changeInfoText = document.createTextNode(`${sampleContent[z]} : ${changeListDeafault[z]} 장`);
+                console.log(changeInfoText)
+                changeInfoP.append(changeInfoText);
+            };
+
+
             var $Ltable = document.querySelector("#Lcounter");
             //sampleContent의 길이만큼 div class = count 생성
             for(var i = 0; i<sampleContent.length; i++){
@@ -218,7 +255,7 @@
                         minusPlusP.classList.add("plus")
                         minusPlusP.addEventListener("click", nodeEvent);
                     } else{
-                        minusPlusP.id = "countNum";
+                        minusPlusP.id = "LcountNum";
                     }
                 };
 
@@ -226,18 +263,9 @@
                 console.log(LnodeList)
                 $Ltable.append($count);
             }
-        
-
             //L테이블 끝 ======================================================================
 
-
-
-
-
-
-            
             //R테이블 시작 ======================================================================
-
             var $Rtable = document.querySelector("#Rcounter");
             //sampleContent의 길이만큼 div class = count 생성
             for(var i = 0; i<sampleContent.length; i++){
@@ -272,7 +300,7 @@
                         minusPlusP.classList.add("plus")
                         minusPlusP.addEventListener("click", nodeEvent);
                     } else{
-                        minusPlusP.id = "countNum";
+                        minusPlusP.id = "RcountNum";
                     }
                 };
 
@@ -280,8 +308,8 @@
                 console.log(RnodeList)
                 $Rtable.append($count);
             }
-        
-        
+            
+
         }
     </script>
     <div align="center" id="center">
@@ -295,6 +323,12 @@
             <div class="today change">
                 <p class="intro-title">금일 잔돈 현황</p>
                 <div id="intro-change-info">
+                    <p id = "C0"></p>
+                    <p id = "C1"></p>
+                    <p id = "C2"></p>
+                    <p id = "C3"></p>
+                    <p id = "C4"></p>
+                    <p id = "C5"></p>
                 </div>
             </div>
         </div>
@@ -304,16 +338,16 @@
                 <h3>관리자</h3>
                 <div id = "Lcounter" class="box table">
                     <!-- 각각의 count div에 L0부터 L5까지 ID를 부여해야함 -->
-                    <!-- <button class="btn" onclick="purchaseItem()">식권구입</button> -->
                 </div>
+                <button class="btn" onclick="chargeItem()">잔돈 및 식권 충전</button>
             </div>
             <div id="R">
                 <h3>소비자</h3>
                 <div id = "Rcounter" class="box table">
 
-                    <!-- <button class="btn" onclick="purchaseItem()">식권구입</button> -->
-                    <!-- <button class="btn" onclick="purchaseItem()">식권구입</button> -->
                 </div>
+                <button class="btn" onclick="purchaseItem()">금액 충전</button>
+                <button class="btn" onclick="purchaseItem()">식권구입</button>
             </div>
         </div>
     </div>
