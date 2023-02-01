@@ -59,13 +59,14 @@
             cursor: pointer;
             font-weight: 400;
             font-size: 20px;
-            padding: 15px 65px;
+            width: 592px;
+            padding: 15px 0px;
             font-family: "Pretendard";
             background: #333333;
             border: 0px solid;
             border-radius: 43.5px;
             color: white;
-            margin: 30px 20px;
+            margin: 20px 20px;
         }
 
         .vending{
@@ -130,6 +131,29 @@
             margin-bottom: 0;
             margin-right: 28px;
         }
+
+        .currentMoney{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .currentMoney p {
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 18px;
+        }
+
+        #currentMoneyP{
+            color: rgb(255, 94, 0);
+            margin: 20px 10px 20px 20px;
+        }
+
+        #R6{
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -138,9 +162,12 @@
         var RnodeList = [];
         var mealTicketPrice = 3200;
         var mealTicketCount = 30;
-        var changeListDeafault = [0,0,0,0,0,0];
+        var changeListDeafault = [10,10,10,10,10,10];
+        var purchaseListDeafault = [0,0,0,0,0,0];
         var changeInfoPId = ["#C0","#C1","#C2","#C3","#C4","#C5"];
-        //버튼 누르면 실행되는 함수
+        var allMoney = 0;
+
+        //관리자용에서 식권 및 잔돈 충전 버튼 누르면 실행되는 함수
         //관리자 및 구매자가 지정한 지폐 개수, 식권 개수를 세는 함수이다.
         var chargeItem = () => {
             //식권현황 텍스트 변경
@@ -160,9 +187,37 @@
                 var changeInfoP = document.querySelector(changeInfoPId[z]);
                 changeInfoP.textContent = `${sampleContent[z]} : ${changeListDeafault[z]} 장`
             };
-
             alert("잔돈 및 식권이 충전되었습니다.")
         };
+
+        var chargeMoney = () => {
+            var money = [50000, 10000, 5000, 1000, 500, 100];
+            purchaseListDeafault = [0,0,0,0,0,0];
+            for(i=0; i<purchaseListDeafault.length; i++){
+                var purchaseCnt = Number(RnodeList[i][1].textContent);
+                purchaseListDeafault[i] += purchaseCnt;
+                RnodeList[i][1].textContent = 0;
+                allMoney += money[i] * purchaseListDeafault[i];
+            };
+            currentMoneyP.textContent = allMoney.toLocaleString();
+        };
+
+        //식권구입 버튼 눌렀을 때 실행되는 함수
+        var purchaseItem = () => {
+            var purchaseTicketCnt =  Number(RnodeList[6][1].textContent);
+            mealTicketCount -= purchaseTicketCnt;
+            RnodeList[6][1].textContent = 0;
+            if(purchaseTicketCnt*mealTicketPrice > allMoney){
+                alert("금액이 부족합니다.")
+            } else{
+                document.querySelector("#intro-ticket-info").textContent = `${mealTicketPrice} 원 / ${mealTicketCount} 장`;
+                allMoney -= mealTicketPrice * purchaseTicketCnt;
+                currentMoneyP.textContent = allMoney.toLocaleString();
+            };
+
+        };
+
+        var returnChange = () => {};
 
         //+ - 버튼을 눌렀을 때 실행되는 이벤트 핸들러
         //클릭한 횟수만큼 숫자가 올라가고 내려간다.
@@ -266,7 +321,8 @@
             //L테이블 끝 ======================================================================
 
             //R테이블 시작 ======================================================================
-            var $Rtable = document.querySelector("#Rcounter");
+            var $Rtable1 = document.querySelector("#Rcounter1");
+            var $Rtable2 = document.querySelector("#Rcounter2");
             //sampleContent의 길이만큼 div class = count 생성
             for(var i = 0; i<sampleContent.length; i++){
                 //가장 큰 덩어리 만들기 div class = count
@@ -275,7 +331,7 @@
                 RnodeList.push([]);
                 $count.classList.add("count")
 
-                //가장 큰 덩어리 안에 들어가는 텍스트 영역 div 만들기1 div class = money
+                //div 만들기 div class = money
                 var money = document.createElement("div");
                 var moneyText = document.createTextNode(sampleContent[i]);
                 money.append(moneyText);
@@ -283,7 +339,7 @@
                 
                 $count.append(money);
 
-                //가장 큰 덩어리 안에 들어가는 텍스트 영역 div 만들기1 div class = minusPlus
+                //div 만들기 div class = minus-plus
                 var minusPlus = document.createElement("div");
                 minusPlus.classList.add("minus-plus")
 
@@ -303,10 +359,13 @@
                         minusPlusP.id = "RcountNum";
                     }
                 };
-
                 $count.append(minusPlus);
-                console.log(RnodeList)
-                $Rtable.append($count);
+
+                if(i != 6){
+                    $Rtable1.append($count);
+                } else{
+                    $Rtable2.append($count);
+                }
             }
             
 
@@ -343,11 +402,18 @@
             </div>
             <div id="R">
                 <h3>소비자</h3>
-                <div id = "Rcounter" class="box table">
-
+                <div id = "Rcounter1" class="box table">
                 </div>
-                <button class="btn" onclick="purchaseItem()">금액 충전</button>
+                <button class="btn" onclick="chargeMoney()">금액 충전</button>
+                <div id = "Rcounter2" class="box table">
+                    <div class="currentMoney">
+                        <p>현재 충전 금액 :</p>
+                        <p id="currentMoneyP">0</p>
+                        <p>원</p>
+                    </div>
+                </div>
                 <button class="btn" onclick="purchaseItem()">식권구입</button>
+                <button class="btn" onclick="returnChange()">잔돈반환</button>
             </div>
         </div>
     </div>
