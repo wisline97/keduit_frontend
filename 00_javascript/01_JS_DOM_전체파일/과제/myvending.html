@@ -154,6 +154,12 @@
         #R6{
             margin-bottom: 0;
         }
+
+        .changeInfo div{
+            padding: 0 200px;
+            display: flex;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body>
@@ -162,10 +168,12 @@
         var RnodeList = [];
         var mealTicketPrice = 3200;
         var mealTicketCount = 30;
-        var changeListDeafault = [10,10,10,10,10,10];
+        var changeListDeafault = [0,0,0,0,0,0];
         var purchaseListDeafault = [0,0,0,0,0,0];
         var changeInfoPId = ["#C0","#C1","#C2","#C3","#C4","#C5"];
+        var changeMoneyList = ["#ch0","#ch1","#ch2","#ch3","#ch4","#ch5"];
         var allMoney = 0;
+        var savedChangeMoney = [0,0,0,0,0,0];
 
         //관리자용에서 식권 및 잔돈 충전 버튼 누르면 실행되는 함수
         //관리자 및 구매자가 지정한 지폐 개수, 식권 개수를 세는 함수이다.
@@ -200,10 +208,21 @@
                 allMoney += money[i] * purchaseListDeafault[i];
             };
             currentMoneyP.textContent = allMoney.toLocaleString();
+
+            var changeMoney = allMoney;
+
+            for(y=0; y<money.length; y++){
+                var changeAmount = document.querySelector(changeMoneyList[y]);
+                changeAmount.textContent = parseInt(changeMoney/money[y]) + " 장";
+                changeMoney = changeMoney%money[y];
+                savedChangeMoney[y] = parseInt(changeMoney/money[y]);
+            }
+
         };
 
         //식권구입 버튼 눌렀을 때 실행되는 함수
         var purchaseItem = () => {
+            var money = [50000, 10000, 5000, 1000, 500, 100];
             var purchaseTicketCnt =  Number(RnodeList[6][1].textContent);
             mealTicketCount -= purchaseTicketCnt;
             RnodeList[6][1].textContent = 0;
@@ -214,10 +233,43 @@
                 allMoney -= mealTicketPrice * purchaseTicketCnt;
                 currentMoneyP.textContent = allMoney.toLocaleString();
             };
+            var changeMoney = allMoney;
+            
+            for(x=0; x<money.length; x++){
+                var changeAmount = document.querySelector(changeMoneyList[x]);
+                changeAmount.textContent = parseInt(changeMoney/money[x]) + " 장";
+                savedChangeMoney[x] = parseInt(changeMoney/money[x]);
+                changeMoney = changeMoney%money[x];
+                console.log(changeMoney)
+            }
 
         };
 
-        var returnChange = () => {};
+        var returnChange = () => {
+            var check = false;
+            for(x=0; x<changeMoneyList.length; x++){
+                if(changeListDeafault[x] < savedChangeMoney[x]){
+                    check = true;
+                    break
+                }
+            };
+
+            if(check == false){
+                alert(`${allMoney} 원이 반환되었습니다.`);
+                allMoney = 0;
+                currentMoneyP.textContent = allMoney.toLocaleString();
+                for(x=0; x<changeMoneyList.length; x++){
+                        var changeAmount = document.querySelector(changeMoneyList[x]);
+                        changeAmount.textContent = 0 + " 장";
+                        changeListDeafault[x] = changeListDeafault[x] - savedChangeMoney[x];
+
+                        var changeInfoP = document.querySelector(changeInfoPId[x]);
+                        changeInfoP.textContent = `${sampleContent[x]} : ${changeListDeafault[x]} 장`;
+                    }
+            } else{
+                    alert("잔돈이 부족합니다. 관리자에게 연락하세요.");
+                };
+        };
 
         //+ - 버튼을 눌렀을 때 실행되는 이벤트 핸들러
         //클릭한 횟수만큼 숫자가 올라가고 내려간다.
@@ -270,8 +322,8 @@
             //상단의 잔돈 현황 영역
             for(z=0; z<changeListDeafault.length; z++){
                 var changeInfoP = document.querySelector(changeInfoPId[z]);
+                console.log(changeInfoP);
                 var changeInfoText = document.createTextNode(`${sampleContent[z]} : ${changeListDeafault[z]} 장`);
-                console.log(changeInfoText)
                 changeInfoP.append(changeInfoText);
             };
 
@@ -315,7 +367,6 @@
                 };
 
                 $count.append(minusPlus);
-                console.log(LnodeList)
                 $Ltable.append($count);
             }
             //L테이블 끝 ======================================================================
@@ -368,7 +419,7 @@
                 }
             }
             
-
+            console.log(RnodeList)
         }
     </script>
     <div align="center" id="center">
@@ -413,6 +464,15 @@
                     </div>
                 </div>
                 <button class="btn" onclick="purchaseItem()">식권구입</button>
+                <div class="changeInfo">
+                    <h3>받아야하는 거스름돈</h3>
+                    <div class="50k"><p>오 만원권</p><p id="ch0">0 장</p></div>
+                    <div class="10k"><p>일 만원권</p><p id="ch1">0 장</p></div>
+                    <div class="5k"><p>오 천원권</p><p id="ch2">0 장</p></div>
+                    <div class="1k"><p>일 천원권</p><p id="ch3">0 장</p></div>
+                    <div class="0.5k"><p>오 백원권</p><p id="ch4">0 장</p></div>
+                    <div class="0.1k"><p>일 백원권</p><p id="ch5">0 장</p></div>
+                </div>
                 <button class="btn" onclick="returnChange()">잔돈반환</button>
             </div>
         </div>
@@ -422,4 +482,3 @@
     </script>
 </body>
 </html>
-
