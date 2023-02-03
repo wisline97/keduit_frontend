@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>식권 자판기</title>
+    <style>
+
+        @import url("https://webfontworld.github.io/pretendard/Pretendard.css");
+        body {
+            font-family: "Pretendard";
+            line-height: 1.2;
+        }
+
+        #center{
+            margin: 0 auto;
+            width: 1270px;
+        }
+
+        .box{
+            border: 1px solid #E2E2E2;
+            border-radius: 16px;
+        }
+
+        .intro{
+            width: 1270px;
+            margin: 0 auto;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .today{
+            padding: 20px 20px;
+            border: 1px solid #E2E2E2;
+            border-radius: 16px;
+        }
+
+        .ticket{
+            width: 20%;
+        }
+
+        .change{
+            width: 70%;
+        }
+
+        .intro-title{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .btn{
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 20px;
+            width: 592px;
+            padding: 15px 0px;
+            font-family: "Pretendard";
+            background: #333333;
+            border: 0px solid;
+            border-radius: 43.5px;
+            color: white;
+            margin: 20px 20px;
+        }
+
+        .vending{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .table{
+            width: 450px;
+            padding: 20px 70px;
+        }
+
+        .count, .handler{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .count{
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .minus-plus{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .minus, .plus{
+            cursor: pointer;
+            margin-left: 10px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #FFFFFF;
+            border: 1px solid #D7D7D7;
+            border-radius: 3px;
+        }
+
+        .money{
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        #LcountNum, #RcountNum{
+            width: 50px;
+        }
+
+        #intro-change-info{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #intro-change-info p {
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-right: 28px;
+        }
+
+        .currentMoney{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .currentMoney p {
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 18px;
+        }
+
+        #currentMoneyP{
+            color: rgb(255, 94, 0);
+            margin: 20px 10px 20px 20px;
+        }
+
+        #R6{
+            margin-bottom: 0;
+        }
+
+        .changeInfo div{
+            padding: 0 200px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var LnodeList = [];
+        var RnodeList = [];
+        var mealTicketPrice = 3200;
+        var mealTicketCount = 30;
+        var changeListDeafault = [0,0,0,0,0,0];
+        var purchaseListDeafault = [0,0,0,0,0,0];
+        var changeInfoPId = ["#C0","#C1","#C2","#C3","#C4","#C5"];
+        var changeMoneyList = ["#ch0","#ch1","#ch2","#ch3","#ch4","#ch5"];
+        var allMoney = 0;
+        var savedChangeMoney = [0,0,0,0,0,0];
+
+        //관리자용에서 식권 및 잔돈 충전 버튼 누르면 실행되는 함수
+        //관리자 및 구매자가 지정한 지폐 개수, 식권 개수를 세는 함수이다.
+        var chargeItem = () => {
+            //식권현황 텍스트 변경
+            mealTicketCount += Number(LnodeList[6][1].textContent);
+            LnodeList[6][1].textContent = 0;
+
+            document.querySelector("#intro-ticket-info").textContent = mealTicketPrice + " 원 / " + mealTicketCount + " 장";
+
+            //잔돈현황 텍스트 변경
+            for(i=0; i<changeListDeafault.length; i++){
+                var count = Number(LnodeList[i][1].textContent);
+                changeListDeafault[i] += count;
+                LnodeList[i][1].textContent = 0;
+            };
+
+            for(z=0; z<changeListDeafault.length; z++){
+                var changeInfoP = document.querySelector(changeInfoPId[z]);
+                changeInfoP.textContent = `${sampleContent[z]} : ${changeListDeafault[z]} 장`
+            };
+            alert("잔돈 및 식권이 충전되었습니다.")
+        };
+
+        var chargeMoney = () => {
+            var money = [50000, 10000, 5000, 1000, 500, 100];
+            purchaseListDeafault = [0,0,0,0,0,0];
+            for(i=0; i<purchaseListDeafault.length; i++){
+                var purchaseCnt = Number(RnodeList[i][1].textContent);
+                purchaseListDeafault[i] += purchaseCnt;
+                RnodeList[i][1].textContent = 0;
+                allMoney += money[i] * purchaseListDeafault[i];
+            };
+            currentMoneyP.textContent = allMoney.toLocaleString();
+
+            var changeMoney = allMoney;
+
+            for(y=0; y<money.length; y++){
+                var changeAmount = document.querySelector(changeMoneyList[y]);
+                changeAmount.textContent = parseInt(changeMoney/money[y]) + " 장";
+                changeMoney = changeMoney%money[y];
+                savedChangeMoney[y] = parseInt(changeMoney/money[y]);
+            }
+
+        };
+
+        //식권구입 버튼 눌렀을 때 실행되는 함수
+        var purchaseItem = () => {
+            var money = [50000, 10000, 5000, 1000, 500, 100];
+            var purchaseTicketCnt =  Number(RnodeList[6][1].textContent);
+            mealTicketCount -= purchaseTicketCnt;
+            RnodeList[6][1].textContent = 0;
+            if(purchaseTicketCnt*mealTicketPrice > allMoney){
+                alert("금액이 부족합니다.")
+            } else{
+                document.querySelector("#intro-ticket-info").textContent = `${mealTicketPrice} 원 / ${mealTicketCount} 장`;
+                allMoney -= mealTicketPrice * purchaseTicketCnt;
+                currentMoneyP.textContent = allMoney.toLocaleString();
+            };
+            var changeMoney = allMoney;
+            
+            for(x=0; x<money.length; x++){
+                var changeAmount = document.querySelector(changeMoneyList[x]);
+                changeAmount.textContent = parseInt(changeMoney/money[x]) + " 장";
+                savedChangeMoney[x] = parseInt(changeMoney/money[x]);
+                changeMoney = changeMoney%money[x];
+                console.log(changeMoney)
+            }
+
+        };
+
+        var returnChange = () => {
+            var check = false;
+            for(x=0; x<changeMoneyList.length; x++){
+                if(changeListDeafault[x] < savedChangeMoney[x]){
+                    check = true;
+                    break
+                }
+            };
+
+            if(check == false){
+                alert(`${allMoney} 원이 반환되었습니다.`);
+                allMoney = 0;
+                currentMoneyP.textContent = allMoney.toLocaleString();
+                for(x=0; x<changeMoneyList.length; x++){
+                        var changeAmount = document.querySelector(changeMoneyList[x]);
+                        changeAmount.textContent = 0 + " 장";
+                        changeListDeafault[x] = changeListDeafault[x] - savedChangeMoney[x];
+
+                        var changeInfoP = document.querySelector(changeInfoPId[x]);
+                        changeInfoP.textContent = `${sampleContent[x]} : ${changeListDeafault[x]} 장`;
+                    }
+            } else{
+                    alert("잔돈이 부족합니다. 관리자에게 연락하세요.");
+                };
+        };
+
+        //+ - 버튼을 눌렀을 때 실행되는 이벤트 핸들러
+        //클릭한 횟수만큼 숫자가 올라가고 내려간다.
+        //여기서 e는 이벤트리스너가 작동하는 div 자체를 뜻한다.
+        var nodeEvent = (e) => {
+            // 부모의 id 값으로 인덱스 찾기 
+            //strIndex는 td id를 뜻함
+            var strIndex = e.target.parentNode.parentNode.id; // e.target.parentNode.parentNode.id 는 L0~L5 or R0~R5 가 된다
+            // dir = > 왼쪽 요소 L 인지 오른쪽 요소 R 인지 구분
+            var dir = strIndex[0];
+            //몇번째 div인지 구분하는 index값
+            var index = Number(strIndex[1]);
+
+            if(dir == "L"){
+                if(e.target.textContent == "+"){
+                    var count = Number(LnodeList[index][1].textContent);
+                    LnodeList[index][1].textContent = count + 1
+                }
+                else if(e.target.textContent == "-"){
+                    var count = Number(LnodeList[index][1].textContent);
+                    if(count > 0){
+                        LnodeList[index][1].textContent = count - 1
+                    }
+                }
+            }else if(dir == "R"){
+                if(e.target.textContent == "+"){
+                    var count = Number(RnodeList[index][1].textContent);
+                    RnodeList[index][1].textContent = count + 1
+                }
+                else if(e.target.textContent == "-"){
+                    var count = Number(RnodeList[index][1].textContent);
+                    if(count > 0){
+                        RnodeList[index][1].textContent = count - 1
+                    }
+                }
+            }
+        }
+
+
+        var init = () => {
+            sampleInfo = ["-", 0, "+"];
+            sampleContent = ["오 만원권", "일 만원권", "오 천원권", "일 천원권", "오 백원권", "일 백원권" , "식권 매수"];
+            sampleMoney = [50000, 10000, 5000, 1000, 500, 100 , 3200];
+
+            //상단의 식권 현황 영역
+            var ticketInfo = document.querySelector("#intro-ticket-info");
+            var ticketInfoText = document.createTextNode(mealTicketPrice + " 원 / " + mealTicketCount + " 장");
+            ticketInfo.append(ticketInfoText);
+
+            //상단의 잔돈 현황 영역
+            for(z=0; z<changeListDeafault.length; z++){
+                var changeInfoP = document.querySelector(changeInfoPId[z]);
+                console.log(changeInfoP);
+                var changeInfoText = document.createTextNode(`${sampleContent[z]} : ${changeListDeafault[z]} 장`);
+                changeInfoP.append(changeInfoText);
+            };
+
+
+            var $Ltable = document.querySelector("#Lcounter");
+            //sampleContent의 길이만큼 div class = count 생성
+            for(var i = 0; i<sampleContent.length; i++){
+                //가장 큰 덩어리 만들기 div class = count
+                var $count = document.createElement("div");
+                $count.id = "L" + i;
+                $count.classList.add("count")
+                LnodeList.push([]);
+
+                //가장 큰 덩어리 안에 들어가는 텍스트 영역 div 만들기1 div class = money
+                var money = document.createElement("div");
+                var moneyText = document.createTextNode(sampleContent[i]);
+                money.append(moneyText);
+                money.classList.add("money")
+                
+                $count.append(money);
+
+                //가장 큰 덩어리 안에 들어가는 텍스트 영역 div 만들기1 div class = minusPlus
+                var minusPlus = document.createElement("div");
+                minusPlus.classList.add("minus-plus")
+
+                for(y=0; y<sampleInfo.length; y++){
+                    var minusPlusP = document.createElement("p");
+                    var minusPlusText = document.createTextNode(sampleInfo[y]);
+                    LnodeList[i].push(minusPlusP);
+                    minusPlusP.append(minusPlusText);
+                    minusPlus.append(minusPlusP);
+                    if(y==0){
+                        minusPlusP.classList.add("minus")
+                        minusPlusP.addEventListener("click", nodeEvent);
+                    } else if(y==2){
+                        minusPlusP.classList.add("plus")
+                        minusPlusP.addEventListener("click", nodeEvent);
+                    } else{
+                        minusPlusP.id = "LcountNum";
+                    }
+                };
+
+                $count.append(minusPlus);
+                $Ltable.append($count);
+            }
+            //L테이블 끝 ======================================================================
+
+            //R테이블 시작 ======================================================================
+            var $Rtable1 = document.querySelector("#Rcounter1");
+            var $Rtable2 = document.querySelector("#Rcounter2");
+            //sampleContent의 길이만큼 div class = count 생성
+            for(var i = 0; i<sampleContent.length; i++){
+                //가장 큰 덩어리 만들기 div class = count
+                var $count = document.createElement("div");
+                $count.id = "R" + i;
+                RnodeList.push([]);
+                $count.classList.add("count")
+
+                //div 만들기 div class = money
+                var money = document.createElement("div");
+                var moneyText = document.createTextNode(sampleContent[i]);
+                money.append(moneyText);
+                money.classList.add("money")
+                
+                $count.append(money);
+
+                //div 만들기 div class = minus-plus
+                var minusPlus = document.createElement("div");
+                minusPlus.classList.add("minus-plus")
+
+                for(y=0; y<sampleInfo.length; y++){
+                    var minusPlusP = document.createElement("p");
+                    var minusPlusText = document.createTextNode(sampleInfo[y]);
+                    RnodeList[i].push(minusPlusP);
+                    minusPlusP.append(minusPlusText);
+                    minusPlus.append(minusPlusP);
+                    if(y==0){
+                        minusPlusP.classList.add("minus")
+                        minusPlusP.addEventListener("click", nodeEvent);
+                    } else if(y==2){
+                        minusPlusP.classList.add("plus")
+                        minusPlusP.addEventListener("click", nodeEvent);
+                    } else{
+                        minusPlusP.id = "RcountNum";
+                    }
+                };
+                $count.append(minusPlus);
+
+                if(i != 6){
+                    $Rtable1.append($count);
+                } else{
+                    $Rtable2.append($count);
+                }
+            }
+            
+            console.log(RnodeList)
+        }
+    </script>
+    <div align="center" id="center">
+        <h1>식권 자판기</h1>
+        <div align="center" class="intro">
+            <div class="today ticket">
+                <p class="intro-title">금일 식권 현황</p>
+                <div id="intro-ticket-info">
+                </div>
+            </div>
+            <div class="today change">
+                <p class="intro-title">금일 잔돈 현황</p>
+                <div id="intro-change-info">
+                    <p id = "C0"></p>
+                    <p id = "C1"></p>
+                    <p id = "C2"></p>
+                    <p id = "C3"></p>
+                    <p id = "C4"></p>
+                    <p id = "C5"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="vending">
+            <div id="L">
+                <h3>관리자</h3>
+                <div id = "Lcounter" class="box table">
+                    <!-- 각각의 count div에 L0부터 L5까지 ID를 부여해야함 -->
+                </div>
+                <button class="btn" onclick="chargeItem()">잔돈 및 식권 충전</button>
+            </div>
+            <div id="R">
+                <h3>소비자</h3>
+                <div id = "Rcounter1" class="box table">
+                </div>
+                <button class="btn" onclick="chargeMoney()">금액 충전</button>
+                <div id = "Rcounter2" class="box table">
+                    <div class="currentMoney">
+                        <p>현재 충전 금액 :</p>
+                        <p id="currentMoneyP">0</p>
+                        <p>원</p>
+                    </div>
+                </div>
+                <button class="btn" onclick="purchaseItem()">식권구입</button>
+                <div class="changeInfo">
+                    <h3>받아야하는 거스름돈</h3>
+                    <div class="50k"><p>오 만원권</p><p id="ch0">0 장</p></div>
+                    <div class="10k"><p>일 만원권</p><p id="ch1">0 장</p></div>
+                    <div class="5k"><p>오 천원권</p><p id="ch2">0 장</p></div>
+                    <div class="1k"><p>일 천원권</p><p id="ch3">0 장</p></div>
+                    <div class="0.5k"><p>오 백원권</p><p id="ch4">0 장</p></div>
+                    <div class="0.1k"><p>일 백원권</p><p id="ch5">0 장</p></div>
+                </div>
+                <button class="btn" onclick="returnChange()">잔돈반환</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        init();
+    </script>
+</body>
+</html>
