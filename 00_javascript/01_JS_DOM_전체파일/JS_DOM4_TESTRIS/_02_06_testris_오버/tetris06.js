@@ -188,6 +188,7 @@ var data = [];                                    // [20,10] 사이즈의 데이
 var BLACK = 11;
 var BOX = 10;
 var WHITE = 0;
+
 // 초기화 함수 
 function init() {
   // tetris 에는 테이블로 그림을 그리고, data에는 숫자 WHITE으로 가득채운다. 
@@ -195,10 +196,12 @@ function init() {
   for (var y = 0; y < 22; y++) {
     var tr = document.createElement("tr");
     tetris.append(tr);
+    //temp는 한 행을 뜻함
     var temp = [];
     for (var x = 0; x < 12; x++) {
       var td = document.createElement("td");
       tr.append(td);
+      //y행의 모든 x열들을 white로 채움
       temp.push(WHITE);
     }
     data.push(temp);
@@ -206,6 +209,7 @@ function init() {
 
   // 테두리는 외곽선을 표시하기위해서  10 숫자로 채워넣는다.    
   for(var i = 0; i < 12; i++){ // 가로두줄
+      //0행의 i열들을 모두 회색으로 칠함
       data[0][i] = BOX;
       data[21][i] = BOX;
       tetris.children[0].children[i].className = colors[BOX];
@@ -213,6 +217,7 @@ function init() {
   }
 
   for(var i = 0; i < 22; i++){ // 세로두줄
+      //0열의 i행들을 모두 회색으로 칠함
       data[i][0] = BOX;
       data[i][11] = BOX;
       tetris.children[i].children[0].className = colors[BOX];
@@ -234,15 +239,19 @@ function makeBlock() {
     for (var y = 0; y < shape.length; y++) {
         for (var x = 0; x < shape.length; x++) {
                 if (shape[y][x] == 1) {
+                //shape의 모양대로 그리기 위해 y와 x를 더함
+
                 data[y + cury][x + curx] = curBlock.color;
+              //     1 +   1   1 +   4
             }
         }
     }
 }
 
-
+//data에는 색상이 담김
 function draw() {
 
+    //data에 그려진대로 색을 칠하는 과정
     for (var y = 0; y < 22; y++) {
         for (var x = 0; x < 12; x++) {
             index = data[y][x];
@@ -252,18 +261,19 @@ function draw() {
 }
 
 function getRealBlock(shape){
-   
     var realBlock = []; //현재 블럭에서 진짜블록의 위치만 저장  
     for(var i = 0; i < shape.length; i++){
         for(var j = 0; j < shape.length; j++){
           if(shape[i][j] == 1){
-            realBlock.push([ i + cury , j + curx]); // 핸재 위치 를 더해줘야 한다. 
+            realBlock.push([ i + cury , j + curx]); // 현재 위치 를 더해줘야 한다. 
           }
         }
     }
 
     return realBlock;
 }
+
+//=====================================================================
 
 function getCanMove(realBlock, ny , nx){
 
@@ -396,6 +406,7 @@ function gameStart(){
     }
     draw();
 }
+
 function gameOver(){
     var shape = curBlock.shape[curBlock.index];
     var realBlock = getRealBlock(shape);
@@ -408,6 +419,7 @@ function gameOver(){
 
 document.addEventListener("keydown", function (e) {
    // alert(e.code);
+   //테스트 코드
     if(e.code == "KeyK"){
         data.splice(data[0] , 1);
         data.unshift([BOX,0,0,0,0,0,0,0,0,0,0,BOX]);
@@ -420,7 +432,7 @@ document.addEventListener("keydown", function (e) {
             makeBlock();
         }
         draw();
-    }
+    } 
     else if (e.code == "KeyA") {
         left();
         draw();

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Snake Game</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Snake</h3>
+    <canvas id="game-canvas"></canvas>
+
+    <script>
+        //board setting
+        var blockSize = 25;
+        var rows = 20;
+        var cols = 20;
+        var board;
+        var context;
+
+        //snake head
+        var snakeX = blockSize * 0;
+        var snakeY = blockSize * 0;
+
+        var velocityX = 0;
+        var velocityY = 0;
+
+        var snakeBody = [];
+
+        //food
+        var foodX;
+        var foodY;
+
+        var gameOver = false;
+
+        window.onload = () => {
+            var snakeX = blockSize * 0;
+            var snakeY = blockSize * 0;
+            board = document.getElementById("game-canvas");
+            board.height = rows * blockSize;
+            board.width = cols * blockSize;
+            context = board.getContext("2d");
+
+            redDotSpawn();
+            document.addEventListener("keyup", changeDirection);
+            document.addEventListener("keydown", changeDirection);
+            // updateGame();
+            setInterval(updateGame, 1000/10);
+        }
+
+        function updateGame() {
+            context.fillStyle= "black";
+            context.fillRect(0,0, board.width, board.height);
+        
+            context.fillStyle = "red";
+            context.lineWidth = 2;
+            context.strokeStyle = 'white';
+            context.strokeRect(foodX, foodY, blockSize, blockSize);
+            context.fillRect(foodX, foodY, blockSize, blockSize);
+
+            if(snakeX == foodX && snakeY == foodY) {
+                snakeBody.push([foodX, foodY]);
+                redDotSpawn();
+            };
+
+            for (let i = snakeBody.length-1; i>0; i--){
+                snakeBody[i] = snakeBody[i-1];
+            }
+
+            if (snakeBody.length) {
+                snakeBody[0] = [snakeX, snakeY];
+            }
+
+            context.fillStyle = "gray";
+            snakeX += velocityX;
+            snakeY += velocityY;
+            context.strokeRect(snakeX, snakeY, blockSize, blockSize);
+            context.fillRect(snakeX, snakeY, blockSize, blockSize);
+            for(let i=0; i<snakeBody.length; i++){
+                context.strokeRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
+                context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
+            }
+
+            // game over conditions
+
+            if(snakeX < 0 || snakeY < 0 || snakeY > blockSize*cols || snakeX > blockSize*cols){
+                gameOver = true;
+            };
+            if(gameOver) {
+                document.location.reload(true);
+            }
+
+            for(let i= 0; i<snakeBody.length; i++){
+                if(snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]){
+                    gameOver = true;
+                }
+            }
+        }
+        
+
+        function redDotSpawn() {
+            foodX = blockSize * (Math.floor(Math.random()*17)+1);
+            foodY = blockSize * (Math.floor(Math.random()*17)+1);
+        }
+
+        function changeDirection(e) {
+            if(e.code == "ArrowUp" && velocityY != blockSize){
+                velocityX = 0;
+                velocityY = -blockSize;
+            } else if (e.code == "ArrowDown" && velocityY != -blockSize){
+                velocityX = 0;
+                velocityY = blockSize;
+            } else if (e.code == "ArrowLeft" && velocityX != blockSize){
+                velocityX = -blockSize;
+                velocityY = 0;
+            } else if (e.code == "ArrowRight" && velocityX != -blockSize){
+                velocityX = blockSize;
+                velocityY = 0;
+            }
+        }
+    </script>
+</body>
+ 
+</html>
