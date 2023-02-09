@@ -148,7 +148,7 @@ for i in range(1,n+1):
         print("*", end="")
     print() """
 
-# 별 오른쪽 정렬 찍기
+""" # 별 오른쪽 정렬 찍기
 
 n = int(input())
 
@@ -157,4 +157,21 @@ for i in range(1,n+1):
         print(" ", end="")
     for z in range(i):
         print("*", end="")
-    print()
+    print() """
+
+""" list = []
+for i in range(9):
+    score = int(input())
+    list.append(score)
+max_score = max(list)
+max_idx = list.index(max_score)
+
+print(max_score)
+print(max_idx+1) """
+
+num = list(map(int, input().split()))
+diff = [[num[0]-0,num[1]-0], [num[2]-num[0],num[3]-num[1]]]
+mindiff = [min(diff[0]),min(diff[1])]
+print(num)
+print(diff)
+print(min(mindiff))
